@@ -55,7 +55,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state("products", {
       url: "/products",
-      templateUrl: "views/services.html",
+      templateUrl: "views/products.html",
     })
     .state("login", {
       url: "/login",
@@ -65,7 +65,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "404.html"
     });
 
-    // TODO: (Prod) Add URL Rewrite in .htaccess
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/home");
 });

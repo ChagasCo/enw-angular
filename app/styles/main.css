@@ -21,7 +21,7 @@ body {
   max-width: 980px;
   padding: 8px;
   margin: 0 auto;
-  background-color: yellow;
+  /*background-color: yellow;*/
 }
 
 .toolbar {
@@ -76,11 +76,11 @@ body {
   font-weight: 500 !important;
 }
 
-.toolbar .left {
+.left {
   float: left;
 }
 
-.toolbar .right {
+.right {
   float: right;
 }
 
@@ -236,7 +236,7 @@ section h3 {
 form {
   padding-top: 32px;
   margin: 0 auto;
-  max-width: 300px;
+  max-width: 400px;
 }
 input[type="text"],
 input[type="email"] {
@@ -263,9 +263,62 @@ input[type="submit"] {
   outline: 0;
   background-color: #88a13e;
   padding: 16px 48px;
-  width: 332px;
+  width: 432px;
   color: #fff;
-  font-weight: 700;
+  font-weight: 500;
   font-size: 16px;
   text-transform: uppercase;
+}
+
+.content {
+  height: 100%;
+  background-color: red;
+}
+
+/* COMMON PAGES */
+.hero-title {
+  height: 300px;
+  background-color: red;
+}
+
+.hero-title h1 {
+  font-size: 72px;
+  font-weight: 500;
+  color: #fff;
+  text-align: center;
+  line-height: 300px;
+  margin: 0;
+}
+
+/* TEMP */
+.temp-img {
+  background-color: blue;
+  height: 320px;
+  width: 480px;
+}
+
+.temp-img-large {
+  background-color: blue;
+  height: 640px;
+  width: 480px;
+}
+.clear {
+  clear: both;
+}
+
+.theme-light-bg {
+  background-color: #deeab8;
+  height: auto;
+}
+
+
+form.go-sessions {
+  margin: 0 auto;
+  max-width: 300px;
+}
+
+.login {
+  max-width: 300px;
+  margin: auto;
+  background-color: #4a4a4a;
 }
