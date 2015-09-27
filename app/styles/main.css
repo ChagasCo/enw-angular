@@ -1,0 +1,271 @@
+@import url(https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic);
+
+/*
+Theme: #88A13E
+*/
+
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  margin: 0;
+  font-family: "RobotoDraft", "Arial", sans-serif;
+}
+
+.container {
+  max-width: 980px;
+  padding: 8px;
+  margin: 0 auto;
+  background-color: yellow;
+}
+
+.toolbar {
+  background-color: white;
+  box-shadow: 0 0px 1px 1px #000;
+  height: 64px;
+  padding: 0 24px;
+  display: flex;
+
+}
+.toolbar .logo {
+  border-right: 1px solid #cecece;
+  line-height: 64px;
+  padding: 0px 16px 0px 0px;
+}
+.toolbar .logo img {
+  position: relative;
+  height: 50px;
+  vertical-align: middle;
+}
+.toolbar .links {
+  width: 100%;
+}
+.toolbar .links ul  {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.toolbar .links ul li {
+  display: inline-block;
+  line-height: 60px;
+  font-weight: 300;
+}
+.toolbar .links ul li:first-child {
+  margin-left: 8px;
+}
+.toolbar .links ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: inherit;
+  padding: 16px 24px;
+}
+.toolbar .links ul li:hover {
+  border-bottom: 4px solid #88a13e;
+}
+
+.active {
+  border-bottom: 4px solid #88a13e;
+}
+
+.active a {
+  font-weight: 500 !important;
+}
+
+.toolbar .left {
+  float: left;
+}
+
+.toolbar .right {
+  float: right;
+}
+
+.menu {
+  display: none;
+  width: 48px;
+  height: 48px;
+  background-color: red;
+}
+.menu:hover {
+  background-color: blue;
+}
+@media (max-width: 760px) {
+  .toolbar .links ul {
+    display: none;
+  }
+
+  .menu {
+    display: block;
+  }
+}
+
+footer {
+  background-color: #4a4a4a;
+  width: 100%;
+  padding: 64px 0;
+}
+.links-container {
+  height: 260px;
+  width: 298px;
+  margin: 0 auto;
+}
+footer .links {
+  min-width: 148px;
+  max-width: 148px;
+  float: left;
+}
+footer .links ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+footer .links.left {
+  border-right: 1px solid #AFAFAF;
+}
+footer .links.left ul li  {
+  padding: 8px 64px 8px 8px;
+  text-align: right;
+}
+footer .links.right ul li  {
+  padding: 8px 8px 8px 64px;
+  text-align: left;
+}
+footer .links ul li a {
+  text-decoration: none;
+  color: #AFAFAF;
+  font-size: 14px;
+  font-weight: 500;
+}
+section {
+  padding: 64px 16px;
+}
+section h2,
+section h3 {
+  text-align: center;
+}
+section h2 {
+  font-weight: 300;
+  color: #000;
+  font-size: 44px;
+  margin: 0;
+
+}
+section h3 {
+  font-weight: 400;
+  color: #9B9B9B;
+  font-size: 16px;
+  margin-top: 24px;
+}
+.card-container {
+  border: 1px solid red;
+  margin-top: 64px;
+  display: flex;
+}
+.card {
+  height: 300px;
+  margin: 8px 0px;
+  flex: auto;
+  margin: 4px;
+  background-color: blue;
+  /*display: inline-flex;*/
+}
+/*@media(max-width: 768px) {
+  .card {
+    width: 50%;
+  }
+}*/
+
+/*MAIN SECTION*/
+
+.hero {
+  background-color: red;
+  height: 448px;
+}
+
+
+@media (min-width: 400px) {
+  .card {
+    background-color: orange;
+  }
+}
+
+/* Larger than phablet */
+@media (min-width: 550px) {
+  .card {
+
+    background-color: purple;
+  }
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+  .card {
+    background-color: teal;
+  }
+}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+  .card {
+    background-color: red;
+  }
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {
+  .card {
+    background-color: blue;
+  }
+}
+
+
+.promo-slider {
+  height: 498px;
+  background-color: red;
+}
+
+.field-error {
+  color: red;
+}
+
+/* FORM STYLES */
+form {
+  padding-top: 32px;
+  margin: 0 auto;
+  max-width: 300px;
+}
+input[type="text"],
+input[type="email"] {
+  outline: 0;
+  padding: 8px 16px;
+  border: 2px solid #4a4a4a;
+  width: 100%;
+  max-width: 100%;
+  height: 36px;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 8px 0 16px;
+}
+
+input[type="text"]:focus,
+input[type="text"]:active,
+input[type="email"]:focus,
+input[type="email"]:active {
+  border: 2px solid #88a13e;
+}
+
+input[type="submit"] {
+  border: 0;
+  outline: 0;
+  background-color: #88a13e;
+  padding: 16px 48px;
+  width: 332px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+  <body ng-app="angularApp" flex>
+    <base href="/">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <!-- <div layout="column" layout-fill>
+
+
+
+    </div> -->
+
+    <header>
+      <nav>
+        <div class="toolbar">
+          <div class="left">
+            <span class="menu"></span>
+          </div>
+          <div class="logo left">
+            <img src="images/enw_logo.svg" alt="Essential Nordic Walking">
+          </div>
+          <div class="links left">
+            <ul>
+              <li ng-class="{active: $state.includes('home')}"><a href="home">Home</a></li>
+              <li ng-class="{active: $state.includes('about')}"><a href="about">About</a></li>
+              <li ng-class="{active: $state.includes('services')}"><a href="services">Services</a></li>
+              <li ng-class="{active: $state.includes('products')}"><a href="products">Products</a></li>
+              <li><a href="#faqs">FAQs</a></li>
+              <li  ng-class="{active: $state.includes('login')}" class="right"><a href="login">Login</a></li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
+    </header>
+
+    <md-content>
+      <div ui-view></div>
+    </md-content>
+    <footer>
+      <div class="container blue">
+        <div class="links-container">
+          <div class="links left">
+            <ul>
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#About">About</a></li>
+              <li><a href="#Services">Services</a></li>
+              <li><a href="#Products">Products</a></li>
+              <li><a href="#faqs">FAQs</a></li>
+              <li><a href="#Login">Login</a></li>
+            </ul>
+          </div>
+          <div class="links right ">
+            <ul>
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#About">About</a></li>
+              <li><a href="#Services">Services</a></li>
+              <li><a href="#Products">Products</a></li>
+              <li><a href="#faqs">FAQs</a></li>
+              <li><a href="#Login">Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <!-- endbuild -->
+</body>
+</html>
