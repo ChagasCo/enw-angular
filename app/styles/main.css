@@ -1,9 +1,33 @@
-@import url(https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic);
-
 /*
-Theme: #88A13E
+
+** ESSENTIAL NORDIC WALKING **
+
+
+---- TABLE OF CONTENTS ----
+0. Imports
+1.  Boilerplate styles
+
+
+
 */
 
+
+/** [BEGIN] 0. IMPORTS  **/
+@import url(https://fonts.googleapis.com/css?family=RobotoDraft:200,300,400,500,700,400italic);
+
+/** [END] 0. IMPORTS **/
+
+/** [BEGIN] 1. BOILERPLATE STYLES **/
+html, body {
+  overflow-x: hidden;
+}
+.text-theme {
+  color: #88a13e;
+}
+
+.background-theme {
+  background-color: #88a13e;
+}
 
 .browsehappy {
   margin: 0.2em 0;
@@ -12,68 +36,15 @@ Theme: #88A13E
   padding: 0.2em 0;
 }
 
-body {
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   margin: 0;
   font-family: "RobotoDraft", "Arial", sans-serif;
-}
-
-.container {
-  max-width: 980px;
-  padding: 8px;
-  margin: 0 auto;
-  /*background-color: yellow;*/
-}
-
-.toolbar {
-  background-color: white;
-  box-shadow: 0 0px 1px 1px #000;
-  height: 64px;
-  padding: 0 24px;
-  display: flex;
-
-}
-.toolbar .logo {
-  border-right: 1px solid #cecece;
-  line-height: 64px;
-  padding: 0px 16px 0px 0px;
-}
-.toolbar .logo img {
-  position: relative;
-  height: 50px;
-  vertical-align: middle;
-}
-.toolbar .links {
-  width: 100%;
-}
-.toolbar .links ul  {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-.toolbar .links ul li {
-  display: inline-block;
-  line-height: 60px;
-  font-weight: 300;
-}
-.toolbar .links ul li:first-child {
-  margin-left: 8px;
-}
-.toolbar .links ul li a {
-  text-decoration: none;
-  color: #000;
-  font-weight: inherit;
-  padding: 16px 24px;
-}
-.toolbar .links ul li:hover {
-  border-bottom: 4px solid #88a13e;
-}
-
-.active {
-  border-bottom: 4px solid #88a13e;
-}
-
-.active a {
-  font-weight: 500 !important;
 }
 
 .left {
@@ -84,7 +55,117 @@ body {
   float: right;
 }
 
-.menu {
+.field-error {
+  color: red;
+}
+
+/** [END] 1. BOILERPLATE STYLES
+
+
+/** [BEGIN] 2. COMMON PAGE STYLES **/
+
+
+section {
+  padding: 64px 16px;
+}
+section .headings h2,
+section .headings h3 {
+  text-align: center;
+}
+section .headings h2 {
+  font-weight: 300;
+  color: #000;
+  font-size: 44px;
+  margin: 0;
+}
+section .headings h3 {
+  font-weight: 400;
+  color: #9B9B9B;
+  font-size: 16px;
+  margin-top: 24px;
+}
+
+section .content {
+  margin-top: 64px;
+}
+
+/***********************************************/
+
+nav {
+  box-shadow: 0px 2px 3px #6f6f6f;
+  height: 64px;
+  padding: 0 24px;
+}
+
+.navbar {
+  margin: 0 !important;
+}
+.navbar-default {
+  background-color: #fff !important;
+}
+.navbar-toggle {
+  float: left;
+  border: 0 !important;
+  line-height: 64px;
+  padding-right: 64px !important;
+}
+.navbar-toggle .icon-bar {
+  background-color: #4a4a4a !important;
+  height: 3px !important;
+}
+nav .logo {
+  padding: 8px 0;
+}
+nav ul.nav {
+  margin: 0 32px;
+  height: 64px;
+}
+nav ul.nav li a {
+  height: 60px;
+  line-height: 32px;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 16px 24px;
+  color: #000;
+  background-color: transparent !important;
+}
+nav ul.nav li:hover,
+nav ul.nav li.active {
+  border-bottom: 4px solid #88a13e !important;
+  cursor: pointer;
+}
+nav ul.nav li.active a {
+  font-weight: 500;
+}
+/*
+nav .links ul li:first-child {
+  margin-left: 8px;
+}
+nav .links ul li a {
+  text-decoration: none;
+  color: #000;
+  font-weight: inherit;
+  padding: 16px 24px;
+}
+nav .links ul li:hover,
+.active {
+  border-bottom: 4px solid #88a13e;
+}
+.active a {
+  font-weight: 500 !important;
+}
+.sticky {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
+}*/
+
+/* TODO: Finish Menu Styling */
+/* TODO: Finish Small Screen Styling */
+/*.menu {
   display: none;
   width: 48px;
   height: 48px;
@@ -93,29 +174,28 @@ body {
 .menu:hover {
   background-color: blue;
 }
-@media (max-width: 760px) {
-  .toolbar .links ul {
+@media (max-width: 856px) {
+  nav .links ul {
     display: none;
   }
-
   .menu {
     display: block;
   }
-}
+}*/
+
+/***********************************************/
 
 footer {
   background-color: #4a4a4a;
-  width: 100%;
   padding: 64px 0;
 }
 .links-container {
   height: 260px;
-  width: 298px;
+  width: 360px;
   margin: 0 auto;
+
 }
 footer .links {
-  min-width: 148px;
-  max-width: 148px;
   float: left;
 }
 footer .links ul {
@@ -123,16 +203,15 @@ footer .links ul {
   margin: 0;
   padding: 0;
 }
-footer .links.left {
+footer .links:first-child {
   border-right: 1px solid #AFAFAF;
 }
-footer .links.left ul li  {
+footer .links:first-child ul li  {
   padding: 8px 64px 8px 8px;
   text-align: right;
 }
-footer .links.right ul li  {
+footer .links:last-child ul li  {
   padding: 8px 8px 8px 64px;
-  text-align: left;
 }
 footer .links ul li a {
   text-decoration: none;
@@ -140,139 +219,224 @@ footer .links ul li a {
   font-size: 14px;
   font-weight: 500;
 }
-section {
-  padding: 64px 16px;
-}
-section h2,
-section h3 {
-  text-align: center;
-}
-section h2 {
-  font-weight: 300;
-  color: #000;
-  font-size: 44px;
-  margin: 0;
 
-}
-section h3 {
-  font-weight: 400;
-  color: #9B9B9B;
-  font-size: 16px;
-  margin-top: 24px;
-}
-.card-container {
-  border: 1px solid red;
-  margin-top: 64px;
-  display: flex;
-}
-.card {
-  height: 300px;
-  margin: 8px 0px;
-  flex: auto;
-  margin: 4px;
-  background-color: blue;
-  /*display: inline-flex;*/
-}
-/*@media(max-width: 768px) {
-  .card {
-    width: 50%;
-  }
-}*/
+/** [END] 2. COMMON PAGE STYLES **/
 
-/*MAIN SECTION*/
+
+/** [BEGIN] 3. HOME PAGE STYLES **/
 
 .hero {
-  background-color: red;
+  background-image: url(../images/hero.jpg);
+  background-size: cover;
+  background-position: center;
   height: 448px;
 }
+.hero h1,
+.hero h2 {
+  color: #fff;
+  text-align: center;
+}
+
+.hero h1 {
+  padding-top: 128px;
+  font-weight: 500;
+  font-size: 72px;
+  text-shadow: 0px 2px 4px #000;
+}
+.hero h2 {
+  margin-top: 16px;
+  font-weight: 300;
+  font-size: 36px;
+  text-shadow: 0px 2px 4px #000;
+}
+@media (max-width: 768px) {
+  .hero h1 {
+    padding-top: 64px;
+  }
 
 
-@media (min-width: 400px) {
-  .card {
-    background-color: orange;
+}
+@media (max-width: 468px) {
+  .hero {
+    height: 368px;
+  }
+  .hero h1 {
+    font-size: 48px;
+  }
+  .hero h2 {
+    font-size: 22px;
+  }
+
+  .headings h2 {
+    font-size: 36px !important;
+  }
+  .headings h3 {
+    font-size: 14px !important;
   }
 }
 
-/* Larger than phablet */
-@media (min-width: 550px) {
-  .card {
+/***********************************************/
 
-    background-color: purple;
-  }
+.card-container {
+  padding: 16px;
 }
 
-/* Larger than tablet */
-@media (min-width: 750px) {
-  .card {
-    background-color: teal;
-  }
+.card {
+  max-width: 360px;
+  height: 340px;
+  margin: 0 auto;
+  box-shadow: 0px 0px 3px #4a4a4a;
+  transition: box-shadow ease-in 0.1s;
+  overflow: hidden;
+  position: relative;
+}
+.card:hover a {
+  text-decoration: none;
+}
+.card:hover {
+  box-shadow: 0px 0px 12px #414141;
+  cursor: pointer;
+}
+.card img {
+  top: 32px;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: 200px;
+  margin-top: -48px;
+}
+.card-content h4 {
+  font-weight: 600;
+  color: #898989;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.card-content h3 {
+  margin-top: 8px;
+  color: #000;
+  font-weight: 500;
+  font-size: 18px;
+}
+.card-content p {
+  margin-top: 8px;
+  color: #898989;
+  font-size: 14px;
 }
 
-/* Larger than desktop */
-@media (min-width: 1000px) {
-  .card {
-    background-color: red;
-  }
-}
-
-/* Larger than Desktop HD */
-@media (min-width: 1200px) {
-  .card {
-    background-color: blue;
-  }
+.card-content {
+  position: relative;
+  margin-top: 181px;
+  padding: 8px;
 }
 
 
-.promo-slider {
-  height: 498px;
-  background-color: red;
+/***********************************************/
+#promo-slider-slider {
+  border: 0;
+  margin: 0;
+}
+.promo-content {
+  position: absolute;
+  color: #fff;
+  text-shadow: 0px 2px 4px #000;
+  top: 0;
+  margin: 196px 0 0 196px;
+  transition: all ease 0.5s;
+}
+.promo-content h5 {
+  font-weight: 200;
+  font-size: 36px;
 }
 
-.field-error {
-  color: red;
+.promo-content p {
+  margin: 16px 0 0 0;
+  font-weight: 200;
+  font-size: 20px;
+  max-width: 412px;
 }
+
+#promo-slider-slider .flex-control-nav {
+  bottom: 112px;
+  left: 196px;
+  text-align: left;
+}
+
+#promo-slider-slider ol li a {
+  background-color: #908E8E;
+  box-shadow: 0px 0px 2px #fff;
+}
+#promo-slider-slider ol li a.flex-active {
+  background-color: #88A13E;
+}
+
+#promo-slider-slider .flex-prev::before,
+#promo-slider-slider .flex-next::before {
+  color: #fff;
+  font-size: 32px;
+}
+
+/*
+background-image: url(../images/promo-slider/promo1.jpg);
+background-size: cover;
+background-position: center;*/
 
 /* FORM STYLES */
-form {
-  padding-top: 32px;
-  margin: 0 auto;
-  max-width: 400px;
+#register-interest{
+  background-color: #F3F3F3;
+}
+#register-interest div.row {
+  width: 100%;
+  max-width: 460px;
+  margin: 32px auto;
+}
+#register-interest div.row label {
+  width: 100%;
+  max-width: 460px;
+  text-align: left;
 }
 input[type="text"],
 input[type="email"] {
   outline: 0;
   padding: 8px 16px;
-  border: 2px solid #4a4a4a;
+  border: 0;
+  border-bottom: 2px solid #4a4a4a;
   width: 100%;
-  max-width: 100%;
-  height: 36px;
+  max-width: 460px;
+  height: 42px;
   font-size: 16px;
   font-weight: 400;
-  margin: 8px 0 16px;
+  margin: 0 0 24px 0;
+  transition: border ease 0.5s;
+  background-color: transparent;
 }
-
+input[type="text"]:hover,
+input[type="email"]:hover{
+  border-bottom: 2px solid #88a13e;
+}
 input[type="text"]:focus,
 input[type="text"]:active,
 input[type="email"]:focus,
 input[type="email"]:active {
-  border: 2px solid #88a13e;
+  border-bottom: 2px solid #586f16;
 }
 
 input[type="submit"] {
   border: 0;
   outline: 0;
   background-color: #88a13e;
+  margin-top: 16px;
   padding: 16px 48px;
-  width: 432px;
+  width: 100%;
+  max-width: 460px;
+  height: 64px;
   color: #fff;
   font-weight: 500;
   font-size: 16px;
   text-transform: uppercase;
+  transition: background ease 0.5s;
 }
-
-.content {
-  height: 100%;
-  background-color: red;
+input[type="submit"]:hover {
+  background-color: #586f16;
 }
 
 /* COMMON PAGES */

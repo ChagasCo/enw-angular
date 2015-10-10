@@ -1,55 +1,121 @@
-<div class="hero">
-  <!-- TODO: Hero img -->
+<div class="container-fluid hero">
+  <h1>Essential Nordic Walking</h1>
+  <h2>Take walking to the next level</h2>
 </div>
-<div class="container">
-  <section>
-    <div class="headings">
-      <h2>Experience Better</h2>
-      <h3>Professional help to get you started with Nordic Walking</h3>
+
+
+
+<section class="container">
+  <div class="row headings">
+    <h2 class="col-sm-12">Experience Better</h2>
+    <h3 class="col-sm-12">Professional help to get you started with Nordic Walking</h3>
+  </div>
+  <div class="row content">
+
+    <div class="col-xs-12 col-sm-6 col-md-4 card-container">
+        <div class="card">
+          <a href="#Card1">
+            <img class="img-responsive" src="../images/cards/card1.jpg" alt="Have a Go Sessions">
+            <div class="card-content">
+              <h4>Classes</h4>
+              <h3>Have a Go Sessions</h3>
+              <p>
+                Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.
+              </p>
+            </div>
+          </a>
+        </div>
     </div>
-    <div class="card-container">
-      <div class="card">
 
-      </div>
-      <div class="card">
+    <div class="col-xs-12 col-sm-6 col-md-4 card-container">
+        <div class="card">
+          <a href="#Card2">
+            <img class="img-responsive" src="../images/cards/card2.jpg" alt="Have a Go Sessions">
+            <div class="card-content">
+              <h4>Equipment</h4>
+              <h3>Buy or Hire Equipment</h3>
+              <p>
+                Learn how to use the core equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.
+              </p>
+            </div>
+          </a>
+        </div>
+    </div>
 
-      </div>
-      <div class="card">
-
-      </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 card-container">
+        <div class="card">
+          <a href="#Card3">
+            <img class="img-responsive" src="../images/cards/card3.jpg" alt="Have a Go Sessions">
+            <div class="card-content">
+              <h4>Classes</h4>
+              <h3>Range of Group Classes</h3>
+              <p>
+                Experience a 4 session course with a group of fellow Nordic Walkers. Take your skills to the next level and try out the course today.
+              </p>
+            </div>
+          </a>
+        </div>
     </div>
   </section>
-</div>
 
-<div class="promo-slider">
-  img
-</div>
+<flex-slider id="promo-slider" slide="i in images track by $index" animation="slide">
+  <li>
+    <img ng-src="{{i.image}}" alt="{{i.alt}}">
+    <div class="promo-content">
+      <h5>{{i.title}}</h5>
+      <p>
+        {{i.content}}
+      </p>
+    </div>
+  </li>
+</flex-slider>
+<!--
+<div id="promo-slider">
+  <ul>
+    <li>
+      <img src="" alt="Lose Weight with Nordic Walking">
+      <h5>One</h5>
+    </li>
+    <li>
+      <img src="../images/promo-slider/promo1.jpg" alt="Lose Weight with Nordic Walking">
+      <h5>Two</h5>
+    </li>
+    <li>
+      <img src="../images/promo-slider/promo1.jpg" alt="Lose Weight with Nordic Walking">
+      <h5>Three</h5>
+    </li>
+    <li>
+      <img src="../images/promo-slider/promo1.jpg" alt="Lose Weight with Nordic Walking">
+      <h5>Four</h5>
+    </li>
+  </ul>
+</div> -->
 
-<div class="container">
-  <section>
-    <div class="headings">
-      <h2>Register Your Interest</h2>
-      <h3>Up for a new challenge, or interested in finding out more?</h3>
+<section class="container-fluid" id="register-interest">
+    <div class="row headings">
+      <h2 class="col-sm-12">Register Your Interest</h2>
+      <h3 class="col-sm-12">Up for a new challenge, or interested in finding out more?</h3>
     </div>
 
-    <form action="#submit" method="POST">
-      <label for="name">Name <span class="field-error">*</span></label>
-      <br>
-      <input type="text" name="name" placeholder="John Doe">
-      <br>
-      <label for="email">Email <span class="field-error">*</span></label>
-      <br>
-      <input type="email" name="email" placeholder="john.doe@example.com">
-      <br>
-      <label for="phone">Phone <span class="field-error">*</span></label>
-      <br>
-      <input type="text" name="phone" placeholder="08 XXXX XXXX">
-      <br>
-      <label for="time">Preferred Contact Time</label>
-      <br>
-      <input type="text" name="time" placeholder="Weekdays, 2PM - 4PM">
-      <br><br>
-      <input type="submit" name="submit" value="Submit Your Interest">
-    </form>
-  </section>
-</div>
+    <div class="row" >
+      <form action="#submit" method="POST">
+        <label class="col-sm-12" for="name">Name <span class="field-error">*</span></label>
+        <br>
+        <input class="col-sm-12" type="text" name="name" placeholder="John Doe">
+        <br>
+        <label class="col-sm-12" for="email">Email <span class="field-error">*</span></label>
+        <br>
+        <input class="col-sm-12" type="email" name="email" placeholder="john.doe@example.com">
+        <br>
+        <label class="col-sm-12" for="phone">Phone <span class="field-error">*</span></label>
+        <br>
+        <input class="col-sm-12" type="text" name="phone" placeholder="08 XXXX XXXX">
+        <br>
+        <label class="col-sm-12" for="time">Preferred Contact Time</label>
+        <br>
+        <input class="col-sm-12" type="text" name="time" placeholder="Weekdays, 2PM - 4PM">
+        <br><br>
+        <input class="col-sm-12" type="submit" name="submit" value="Submit Your Interest">
+      </form>
+    </div>
+</section>

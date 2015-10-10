@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-var app = angular.module("angularApp", ["ui.router"]);
+var app = angular.module("angularApp", ["ui.router", "angular-flexslider"]);
 
 app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $anchorScroll) {
     $rootScope.$state = $state;
@@ -28,7 +28,6 @@ app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $
 }]);
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
-
   $urlRouterProvider.when("", "/");
 
   $urlRouterProvider.otherwise(function($injector) {
@@ -39,14 +38,14 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       location: false
     });
   });
-
   $stateProvider
     .state("home", {
-      url: "/home",
+      url: "/",
+      controller: "MainCtrl",
       templateUrl: "views/home.html",
     })
     .state("about", {
-      url: "/about",
+      url: "#/about",
       templateUrl: "views/about.html"
     })
     .state("services", {
@@ -66,7 +65,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     });
 
     $locationProvider.html5Mode(true);
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise("/");
 });
 
 
