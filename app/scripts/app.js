@@ -40,16 +40,16 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   });
   $stateProvider
     .state("home", {
-      url: "/",
+      url: "/home",
       controller: "MainCtrl",
       templateUrl: "views/home.html",
     })
     .state("about", {
-      url: "#/about",
+      url: "/about",
       templateUrl: "views/about.html"
     })
     .state("services", {
-      url: "/services",
+      url: "/",
       templateUrl: "views/services.html",
     })
     .state("products", {

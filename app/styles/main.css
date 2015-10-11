@@ -1,3 +1,9 @@
+/*TEMP*/
+.block {
+  height: 400px;
+  width: 500px;
+  background-color: #d8d8d8;
+}
 /*
 
 ** ESSENTIAL NORDIC WALKING **
@@ -21,21 +27,29 @@
 html, body {
   overflow-x: hidden;
 }
-.text-theme {
-  color: #88a13e;
-}
-
 .background-theme {
   background-color: #88a13e;
 }
-
+.background-theme-light {
+  background-color: #DEEAB8;
+}
+.background-light-grey {
+  background-color: #EEEFF4;
+}
+.background-light-blue {
+  background-color: #5EB9C4;
+  color: #fff;
+}
+.background-light-blue .headings h2,
+.background-light-blue .headings h3 {
+  color: #fff !important;
+}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
 }
-
 body,
 h1,
 h2,
@@ -46,25 +60,13 @@ p {
   margin: 0;
   font-family: "RobotoDraft", "Arial", sans-serif;
 }
-
-.left {
-  float: left;
-}
-
-.right {
-  float: right;
-}
-
 .field-error {
   color: red;
 }
-
 /** [END] 1. BOILERPLATE STYLES
 
 
-/** [BEGIN] 2. COMMON PAGE STYLES **/
-
-
+/** [BEGIN] 2. SECTION STYLES **/
 section {
   padding: 64px 16px;
 }
@@ -84,21 +86,22 @@ section .headings h3 {
   font-size: 16px;
   margin-top: 24px;
 }
-
 section .content {
   margin-top: 64px;
 }
+/** [END] 2. SECTION STYLES **/
 
-/***********************************************/
 
+/** [BEGIN] 3. NAVBAR STYLES **/
 nav {
-  box-shadow: 0px 2px 3px #6f6f6f;
+  box-shadow: 0px 2px 2px #6f6f6f;
   height: 64px;
   padding: 0 24px;
-}
 
+}
 .navbar {
   margin: 0 !important;
+  border-radius: 0 !important;
 }
 .navbar-default {
   background-color: #fff !important;
@@ -137,54 +140,10 @@ nav ul.nav li.active {
 nav ul.nav li.active a {
   font-weight: 500;
 }
-/*
-nav .links ul li:first-child {
-  margin-left: 8px;
-}
-nav .links ul li a {
-  text-decoration: none;
-  color: #000;
-  font-weight: inherit;
-  padding: 16px 24px;
-}
-nav .links ul li:hover,
-.active {
-  border-bottom: 4px solid #88a13e;
-}
-.active a {
-  font-weight: 500 !important;
-}
-.sticky {
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 100;
-  border-top: 0;
-}*/
+/** [END] 3. NAVBAR STYLES **/
 
-/* TODO: Finish Menu Styling */
-/* TODO: Finish Small Screen Styling */
-/*.menu {
-  display: none;
-  width: 48px;
-  height: 48px;
-  background-color: red;
-}
-.menu:hover {
-  background-color: blue;
-}
-@media (max-width: 856px) {
-  nav .links ul {
-    display: none;
-  }
-  .menu {
-    display: block;
-  }
-}*/
 
-/***********************************************/
-
+/** [BEGIN] 4. FOOTER STYLES **/
 footer {
   background-color: #4a4a4a;
   padding: 64px 0;
@@ -193,7 +152,6 @@ footer {
   height: 260px;
   width: 360px;
   margin: 0 auto;
-
 }
 footer .links {
   float: left;
@@ -219,12 +177,10 @@ footer .links ul li a {
   font-size: 14px;
   font-weight: 500;
 }
-
-/** [END] 2. COMMON PAGE STYLES **/
+/** [END] 4. FOOTER STYLES **/
 
 
 /** [BEGIN] 3. HOME PAGE STYLES **/
-
 .hero {
   background-image: url(../images/hero.jpg);
   background-size: cover;
@@ -234,9 +190,9 @@ footer .links ul li a {
 .hero h1,
 .hero h2 {
   color: #fff;
+  margin: 0;
   text-align: center;
 }
-
 .hero h1 {
   padding-top: 128px;
   font-weight: 500;
@@ -379,10 +335,16 @@ footer .links ul li a {
 background-image: url(../images/promo-slider/promo1.jpg);
 background-size: cover;
 background-position: center;*/
-
+#have-a-go-form {
+  max-width: 460px;
+  margin: 16px auto;
+}
 /* FORM STYLES */
 #register-interest{
   background-color: #F3F3F3;
+}
+.radio {
+  margin-top: 190px;
 }
 #register-interest div.row {
   width: 100%;
@@ -408,6 +370,53 @@ input[type="email"] {
   margin: 0 0 24px 0;
   transition: border ease 0.5s;
   background-color: transparent;
+}
+.radio label {
+  margin-left: -16px;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+}
+input[type="radio"] {
+  position: absolute;
+  left: 128px;
+  cursor: pointer;
+  opacity: 0;
+}
+.radio .outer {
+  top: 4px;
+  left: 108px;
+  position: absolute;
+  display: block;
+  background-color: red;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  background-color: #fff;
+  border: 1px solid #4a4a4a;
+}
+.radio .inner {
+  top: 8px;
+  left: 112px;
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 10px;
+  display: block;
+  transform: scale(0);
+  background-color: #88a13e;
+  opacity: 0;
+  transition: all ease-in-out 0.2s;
+}
+.radio:hover .inner {
+  opacity: 0.75;
+  background-color: #e4e4e4;
+  transform: scale(0.5);
+}
+.radio input[type="radio"]:checked + span.outer + span.inner,
+.radio input[type="radio"]:checked + span.outer:hover + span.inner {
+  background-color: #88a13e;
+  opacity: 1;
+  transform: scale(1);
 }
 input[type="text"]:hover,
 input[type="email"]:hover{
@@ -439,19 +448,42 @@ input[type="submit"]:hover {
   background-color: #586f16;
 }
 
-/* COMMON PAGES */
-.hero-title {
-  height: 300px;
-  background-color: red;
-}
 
-.hero-title h1 {
+
+
+
+/* COMMON PAGES */
+.hero-about,
+.hero-services,
+.hero-products,
+.hero-login,
+.hero-add-products {
+  height: 300px;
+}
+.hero-about {
+  background-color: #5EB9C4;
+}
+.hero-services {
+  background-color: #E08E45;
+}
+.hero-products {
+  background-color: #FF4158;
+}
+.hero-login {
+  background-color: #5EB9C4;
+}
+.hero-add-products {
+  background-color: #5EB9C4;
+}
+.hero-about h1,
+.hero-services h1,
+.hero-products h1,
+.hero-login h1 {
   font-size: 72px;
   font-weight: 500;
   color: #fff;
   text-align: center;
-  line-height: 300px;
-  margin: 0;
+  line-height: 250px;
 }
 
 /* TEMP */
@@ -485,4 +517,13 @@ form.go-sessions {
   max-width: 300px;
   margin: auto;
   background-color: #4a4a4a;
+}
+
+
+section .content {
+  font-size: 16px;
+}
+
+.section-image {
+  width: 100%;
 }

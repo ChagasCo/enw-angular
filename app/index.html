@@ -21,26 +21,6 @@
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <!-- <header>
-      <nav class="sticky">
-        <div class="left">
-          <span class="menu"></span>
-        </div>
-        <div class="logo left">
-          <img src="images/enw_logo.svg" alt="Essential Nordic Walking">
-        </div>
-        <div class="links left">
-          <ul>
-            <li ng-class="{active: $state.includes('home')}"><a href="home">Home</a></li>
-            <li ng-class="{active: $state.includes('about')}"><a href="about">About</a></li>
-            <li ng-class="{active: $state.includes('services')}"><a href="services">Services</a></li>
-            <li ng-class="{active: $state.includes('products')}"><a href="products">Products</a></li>
-            <li><a href="#faqs">FAQs</a></li>
-            <li  ng-class="{active: $state.includes('login')}" class="right"><a href="login">Login</a></li>
-          </ul>
-        </div>
-      </nav>
-    </header> -->
 
     <header>
         <nav class="navbar navbar-default">
@@ -58,21 +38,19 @@
 
             <div class="collapse navbar-collapse" id="menu-toggle">
               <ul class="nav navbar-nav navbar-left">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">FAQs</a></li>
+                <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
+                <li ui-sref-active="active"><a ui-sref="about">About</a></li>
+                <li ui-sref-active="active"><a ui-sref="services">Services</a></li>
+                <li ui-sref-active="active"><a ui-sref="products">Products</a></li>
+                <li><a href="http://www.mynordicsports.com.au/index.php/faq/">FAQs</a></li>
               </ul>
               <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Login</a></li>
+                <li ui-sref-active="active"><a ui-sref="#">Login</a></li>
               </ul>
             </div>
           </div>
         </nav>
     </header>
-
-
 
     <div>
       <div ui-view></div>

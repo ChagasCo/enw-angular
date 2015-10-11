@@ -1,86 +1,108 @@
-<div class="hero-title">
+<div class="container-fluid hero-services">
   <h1>Services</h1>
 </div>
-
-<div class="container">
-  <section>
-    <h2>Have a Go Sessions</h2>
-    <h3>Is this your first time? Get involved and learn the basics</h3>
-    <div class="content">
-      <div class="right">
-        <form action="#submit-Gosessions" method="POST" class="go-sessions">
-          <label for="name">Name <span class="field-error">*</span></label>
+<!-- TODO: Revisit the push-right classes -->
+<!-- TODO: Complete all 'alt' attrs for accessibility -->
+<!-- TODO: Field validation -->
+<section class="container">
+  <div class="row headings">
+    <h2 class="col-sm-12">Have a Go Sessions</h2>
+    <h3 class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+  </div>
+  <div class="row content">
+    <div class="col-sm-12 col-md-5">
+      <img class="section-image" src="../images/na-group1.jpg" alt="">
+      <br><br>
+      <p>
+        This is a <strong>FREE</strong> 45 minute introduction to Nordic Walking.
+        Come and learn about this new fitness activity in a relaxed outdoor setting.
+        Heather will explain the benefits of Nordic Walking and give you a chance to
+        give it a try. Maximum group size: 100.
+        <br><br>
+        Things you will need:
+        <br>
+        <ul>
+          <li>Good walking shoes</li>
+        </ul>
+      </p>
+      <br><br>
+    </div>
+    <div class="col-sm-12 col-md-6 col-md-offset-1">
+      <div>
+        <form id="have-a-go-form" action="#" method="POST">
+          <label class="col-sm-12" for="name">Name <span class="field-error">*</span></label>
           <br>
-          <input type="text" name="name" placeholder="John Doe">
+          <input class="col-sm-12" type="text" name="name" placeholder="John Doe">
           <br>
-          <label for="email">Email <span class="field-error">*</span></label>
+          <label class="col-sm-12" for="email">Email <span class="field-error">*</span></label>
           <br>
-          <input type="email" name="email" placeholder="john.doe@example.com">
+          <input class="col-sm-12" type="email" name="email" placeholder="john.doe@example.com">
           <br>
-          <label for="equip">Hire Equipment <span class="field-error">*</span></label>
+          <label class="col-sm-12" for="phone">Phone <span class="field-error">*</span></label>
           <br>
-          <strong>TODO: Radio button inpput</strong>
+          <input class="col-sm-12" type="text" name="phone" placeholder="08 XXXX XXXX">
+          <br>
+          <label class="col-sm-12">Hire Equipment <span class="field-error">*</span></label>
+          <div class="radio col-sm-12">
+            <label>YES<input id="hire-yes" type="radio" name="options" value="1" checked><span class="outer"></span><span class="inner"></span></label>
+          </div>
+          <br>
+          <div class="radio col-sm-12">
+            <label>NO<input id="hire-no" type="radio" name="options" value="0"><span class="outer"></span><span class="inner"></span></label>
+          </div>
+          <!-- <label class="radio"><input id="hire-yes" type="radio" name="hire-yes"><span class="outer"><span class="inner"></span></span>YES</label>
+          <br>
+          <label class="radio"><input id="hire-no" type="radio" name="hire-no"><span class="outer"><span class="inner"></span></span>NO</label> -->
           <br><br>
-          <input type="submit" name="submit" value="Join a Session">
+          <input class="col-sm-12" type="submit" name="submit" value="Join a Session">
         </form>
       </div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Sed similique deserunt accusantium a rerum alias officia
-        corporis modi fugiat, quibusdam iusto eligendi magni laborum
-        voluptas mollitia impedit molestiae quos eius.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Sed similique deserunt accusantium a rerum alias officia
-        corporis modi fugiat, quibusdam iusto eligendi magni laborum
-        voluptas mollitia impedit molestiae quos eius.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Sed similique deserunt accusantium a rerum alias officia
-        corporis modi fugiat, quibusdam iusto eligendi magni laborum
-        voluptas mollitia impedit molestiae quos eius.
-      </p>
+    </div>
+  </div>
+</section>
+
+<div class="background-light-grey">
+  <section class="container">
+    <div class="row headings">
+      <h2 class="col-sm-12">Range of Classes</h2>
+      <h3 class="col-sm-12">Participate in a group class or special sessions</h3>
+    </div>
+    <div class="row content">
+      <div class="col-sm-12">
+        <br><br><br><br><strong>TODO: JS Slider</strong>
+      </div>
     </div>
   </section>
 </div>
 
-<!-- ADD Background color class -->
-<section>
-  <h2>Range of Classes</h2>
-  <h3>Participate in a group class or special sessions</h3>
-  <div class="content-slider">
-    <strong>TODO: Content Slider</strong>
-  </div>
-  <div class="content-booking">
-    <strong>TODO: JS Content Slider selected pre-popuplate booking</strong>
-  </div>
-</section>
-<div class="container">
-  <section>
-    <h2>Presentations</h2>
-    <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-    <div class="content">
-      <div class="right temp-img">..</div>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Sed similique deserunt accusantium a rerum alias officia
-        corporis modi fugiat, quibusdam iusto eligendi magni laborum
-        voluptas mollitia impedit molestiae quos eius.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Sed similique deserunt accusantium a rerum alias officia
-        corporis modi fugiat, quibusdam iusto eligendi magni laborum
-        voluptas mollitia impedit molestiae quos eius.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-        Sed similique deserunt accusantium a rerum alias officia
-        corporis modi fugiat, quibusdam iusto eligendi magni laborum
-        voluptas mollitia impedit molestiae quos eius.
-      </p>
-    </div>
+<div class="background-light-blue">
+  <section class="container">
+      <div class="row headings">
+        <h2 class="col-sm-12">Presentations</h2>
+        <h3 class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+      </div>
+      <div class="row content">
+        <div class="col-sm-12 col-md-6">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Sed similique deserunt accusantium a rerum alias officia
+            corporis modi fugiat, quibusdam iusto eligendi magni laborum
+            voluptas mollitia impedit molestiae quos eius.
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Sed similique deserunt accusantium a rerum alias officia
+            corporis modi fugiat, quibusdam iusto eligendi magni laborum
+            voluptas mollitia impedit molestiae quos eius.
+            <br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Sed similique deserunt accusantium a rerum alias officia
+            corporis modi fugiat, quibusdam iusto eligendi magni laborum
+            voluptas mollitia impedit molestiae quos eius.
+          </p>
+        </div>
+        <div class="col-sm-12 col-md-6">
+          <div class="block"></div>
+        </div>
+      </div>
   </section>
 </div>
