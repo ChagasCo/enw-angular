@@ -50,6 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     })
     .state("services", {
       url: "/",
+      controller: "ServicesCtrl",
       templateUrl: "views/services.html",
     })
     .state("products", {

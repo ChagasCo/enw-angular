@@ -62,16 +62,80 @@
 </section>
 
 <div class="background-light-grey">
-  <section class="container">
+  <section class="container-fluid">
     <div class="row headings">
       <h2 class="col-sm-12">Range of Classes</h2>
       <h3 class="col-sm-12">Participate in a group class or special sessions</h3>
     </div>
     <div class="row content">
       <div class="col-sm-12">
-        <br><br><br><br><strong>TODO: JS Slider</strong>
+        <div class="item-slider-container" ng-model="selectedClass">
+          <div class="item-slider-content" ng-class="selectedClass == class ? 'active' : ''" ng-repeat="class in classes">
+            <div class="container-fluid">
+              <div class="row headings">
+                <h6 class="col-sm-12">{{ class.name }}</h6>
+              </div>
+              <div class="row content">
+                <div class="col-sm-12">
+                  <img ng-src="{{class.thumb}}" alt="Nordic Academy Group">
+                </div>
+                <div class="col-sm-12">
+                  <p>
+                    {{ class.content }}
+                  </p>
+                </div>
+                <button ng-click="itemSliderClick(class, $event)" class="item-slider-btn" type="button">Select Class</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
+  </section>
+  <section class="container">
+    <form class="row item-slider-results" novalidate>
+      <div class="col-sm-12 headings">
+        <h6>Booking</h6>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <label for="class">Class Type</label>
+        <br>
+        <input type="text" name="class" id="class" value="{{selectedClass.name}}" disabled>
+        <br><br>
+        <label for="name">Name <span class="field-error">*</span></label>
+        <br>
+        <input type="text" name="name" id="name" placeholder="John Doe">
+        <br>
+        <label for="email">Email <span class="field-error">*</span></label>
+        <br>
+        <input type="email" name="email" id="email" placeholder="john.doe@example.com">
+        <br>
+        <label for="phone">Phone <span class="field-error">*</span></label>
+        <br>
+        <input type="text" name="phone" id="phone" placeholder="08 XXXX XXXX">
+        <br>
+        <label class="col-sm-12">Enquire about Equipment <span class="field-error">*</span></label>
+        <div class="radio col-sm-12">
+          <label>YES<input id="hire-yes" type="radio" name="options" value="1" checked><span class="outer"></span><span class="inner"></span></label>
+        </div>
+        <br>
+        <div class="radio col-sm-12">
+          <label>NO<input id="hire-no" type="radio" name="options" value="0"><span class="outer"></span><span class="inner"></span></label>
+        </div>
+        <br><br>
+      </div>
+      <div class="col-sm-12 col-md-6">
+        <label for="attendees">Attendees <span class="field-error">*</span></label>
+        <br>
+        <div class="attendees">
+          <div ng-repeat="a in range(selectedClass.max - 1) track by $index">
+            <input type="text" name="attendee" placeholder="Attendee {{$index + 1}}">
+          </div>
+        </div>
+        <br>
+      </div>
+    </form>
   </section>
 </div>
 
