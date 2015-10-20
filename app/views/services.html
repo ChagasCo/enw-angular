@@ -130,7 +130,7 @@
         <br>
         <div class="attendees">
           <div ng-repeat="a in range(selectedClass.max - 1) track by $index">
-            <input type="text" name="attendee" placeholder="Attendee {{$index + 1}}">
+            <input type="text" name="attendee{{$index}}" placeholder="Attendee {{$index + 1}}">
           </div>
         </div>
         <br>

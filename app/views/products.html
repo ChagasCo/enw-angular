@@ -4,7 +4,62 @@
 <!-- TODO: Revisit the push-right classes -->
 <!-- TODO: Complete all 'alt' attrs for accessibility -->
 <!-- TODO: Field validation -->
+
 <section class="container-fluid">
+  <div class="row headings">
+    <h2 class="col-sm-12">Get Equipment</h2>
+    <h3 class="col-sm-12">Equipt yourself with the right gear for your next Nordic Walking session</h3>
+  </div>
+  <div class="row content">
+    <div class="col-sm-12">
+      <div class="item-slider-container" ng-model="selectedProduct">
+        <div class="product-item-slider-content" ng-class="selectedProduct == product ? 'active' : ''" ng-repeat="product in products">
+          <div class="container-fluid">
+            <div class="row headings">
+              <h6 class="col-sm-12">{{ product.name }}</h6>
+            </div>
+            <div class="row content">
+              <div class="col-sm-12">
+                <img ng-src="{{product.thumb}}" alt="{{ product.name }}">
+              </div>
+              <div class="col-sm-12">
+                <p>
+                  {{ product.description }}
+                </p>
+              </div>
+              <!-- <button ng-click="itemSliderClick(class, $event)" class="item-slider-btn" type="button">Select Class</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="col-sm-12 col-md-6">
+        <div class="col-sm-12">
+          <div class="col-sm-8">
+            {{selectedProduct.name}}
+          </div>
+          <div class="col-sm-4">
+            {{selectedProduct.price | currency }}
+          </div>
+        </div>
+        <div class="col-sm-12">
+          {{selectedProduct.make}}
+        </div>
+        <div class="col-sm-12">
+          {{selected.description}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- <section class="container-fluid">
   <div class="row headings">
     <h2 class="col-sm-12">Get Equipment</h2>
     <h3 class="col-sm-12">Equipt yourself with the right gear for your next Nordic Walking session.</h3>
@@ -25,4 +80,4 @@
         test
       </div>
     </div>
-</section>
+</section> -->

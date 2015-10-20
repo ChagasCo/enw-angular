@@ -28,6 +28,60 @@ angular.module("angularApp")
         content: 'Class 3 content goes here.',
         max: 6
       },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      },
+      {
+        name: 'Class 3',
+        thumb: '../images/na-group3.jpg',
+        content: 'Class 3 content goes here.',
+        max: 6
+      }
     ];
     $scope.selectedClass = $scope.classes[0];
     $scope.itemSliderClick = function(item, event) {

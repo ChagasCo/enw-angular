@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-var app = angular.module("angularApp", ["ui.router", "angular-flexslider"]);
+var app = angular.module("angularApp", ["ui.router", "angular-flexslider", "ngMaterial", "ngMdIcons"]);
 
 app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $anchorScroll) {
     $rootScope.$state = $state;
@@ -49,12 +49,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "views/about.html"
     })
     .state("services", {
-      url: "/",
+      url: "/services",
       controller: "ServicesCtrl",
       templateUrl: "views/services.html",
     })
     .state("products", {
-      url: "/products",
+      url: "/",
+      controller: "ProductsCtrl",
       templateUrl: "views/products.html",
     })
     .state("login", {
@@ -68,6 +69,66 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
 });
+
+
+angular.module("angularApp")
+  .controller("ToolbarCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", function($scope, $timeout, $mdSidenav, $log){
+      console.log("test");
+      $scope.toggleLeft = buildDelayedToggler("sidenav");
+
+
+      /**
+     * Supplies a function that will continue to operate until the
+     * time is up.
+     */
+    function debounce(func, wait, context) {
+      var timer;
+
+      return function debounced() {
+        var context = $scope,
+            args = Array.prototype.slice.call(arguments);
+        $timeout.cancel(timer);
+        timer = $timeout(function() {
+          timer = undefined;
+          func.apply(context, args);
+        }, wait || 10);
+      };
+    }
+
+    /**
+     * Build handler to open/close a SideNav; when animation finishes
+     * report completion in console
+     */
+    function buildDelayedToggler(navID) {
+      return debounce(function() {
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug("toggle " + navID + " is done");
+          });
+      }, 200);
+    }
+
+    function buildToggler(navID) {
+      return function() {
+        $mdSidenav(navID)
+          .toggle()
+          .then(function () {
+            $log.debug("toggle " + navID + " is done");
+          });
+      }
+    }
+  }])
+  .controller("MenuCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", function($scope, $timeout, $mdSidenav, $log) {
+
+    $scope.close = function() {
+      $mdSidenav("sidenav").close()
+        .then(function() {
+          $log.debug("close LEFT is done!");
+        });
+    };
+
+  }]);
 
 
 
