@@ -1,14 +1,50 @@
-<div class="container-fluid hero">
-  <h1>Essential Nordic Walking</h1>
-  <h2>Take walking to the next level</h2>
-</div>
+<md-content layout="column" id="hero" layout-align="center center">
+  <h1 class="md-title">Essential Nordic Walking</h1>
+  <h2 class="md-subhead">Take walking to the next level</h2>
+</md-content>
 
-
+<section layout="column">
+  <md-content>
+    <h2 class="heading1">Experience Better</h2>
+    <h3 class="heading2">Professional help to get you started with Nordic Walking</h3>
+  </md-content>
+  <md-content layout="row" layout-sm="column" layout-margin layout-wrap>
+    <md-card flex flex-md="45"  layout="column" class="hoverable">
+     <img src="../images/cards/card1.jpg" class="md-card-image" alt="Have a Go Sessions">
+     <md-card-content>
+       <h2 class="md-title">Have a Go Sessions</h2>
+       <p>
+          Learn the core fundametals of Nordic Walking and experience a <strong>free</strong> training session.
+       </p>
+     </md-card-content>
+   </md-card>
+   <md-card flex flex-md="45" layout="column" class="hoverable">
+    <img src="../images/cards/card2.jpg" class="md-card-image" alt="Have a Go Sessions">
+    <md-card-content>
+      <h2 class="md-title">Have a Go Sessions</h2>
+      <p>
+         Learn the core fundametals of Nordic Walking and experience a <strong>free</strong> training session.
+      </p>
+    </md-card-content>
+  </md-card >
+  <md-card flex flex-md="45" layout="column" class="hoverable">
+   <img src="../images/cards/card3.jpg" class="md-card-image" alt="Have a Go Sessions">
+   <md-card-content>
+     <h2 class="md-title">Have a Go Sessions</h2>
+     <p>
+        Learn the core fundametals of Nordic Walking and experience a <strong>free</strong> training session.
+     </p>
+   </md-card-content>
+ </md-card>
+  </md-content>
+</section>
+<!-- <br><br><br>
+<hr>
+<br><br><br>
 
 <section class="container">
   <div class="row headings">
-    <h2 class="col-sm-12">Experience Better</h2>
-    <h3 class="col-sm-12">Professional help to get you started with Nordic Walking</h3>
+
   </div>
   <div class="row content">
 
@@ -56,19 +92,18 @@
           </a>
         </div>
     </div>
-  </section>
-
-<flex-slider id="promo-slider" slide="i in images track by $index" animation="slide">
-  <li>
-    <img ng-src="{{i.image}}" alt="{{i.alt}}">
-    <div class="promo-content">
-      <h5>{{i.title}}</h5>
-      <p>
-        {{i.content}}
-      </p>
-    </div>
-  </li>
-</flex-slider>
+  </section> -->
+  <flex-slider id="promo-slider" slide="i in images track by $index" animation="slide">
+    <li>
+      <img ng-src="{{i.image}}" alt="{{i.alt}}">
+      <div class="promo-content">
+        <h5 class="md-display-2">{{i.title}}</h5>
+        <p class="md-body-2">
+          {{i.content}}
+        </p>
+      </div>
+    </li>
+  </flex-slider>
 <!--
 <div id="promo-slider">
   <ul>

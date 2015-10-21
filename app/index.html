@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="angularApp">
+  <body ng-app="angularApp" flex>
     <base href="/">
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -57,7 +57,7 @@
                 <li ui-sref-active="active"><a ui-sref="#">Login</a></li> -->
 
     <div hide-gt-md ng-controller="MenuCtrl">
-      <md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav" md-is-open="true">
+      <md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav">
         <md-toolbar>
           <h1 class="md-toolbar-tools">Menu</h1>
         </md-toolbar>
@@ -106,8 +106,7 @@
       </md-sidenav>
     </div>
 
-    <md-content flex ui-view></md-content>
-
+      <md-content flex ui-view></md-content>
       <!-- Footer -->
 
 
@@ -122,10 +121,10 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/angular-material/angular-material.js"></script>
-    <script src="bower_components/angular-material-icons/angular-material-icons.js"></script>
     <script src="bower_components/flexslider/jquery.flexslider.js"></script>
     <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

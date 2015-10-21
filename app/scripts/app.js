@@ -40,7 +40,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
   });
   $stateProvider
     .state("home", {
-      url: "/home",
+      url: "/",
       controller: "MainCtrl",
       templateUrl: "views/home.html",
     })
@@ -54,7 +54,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "views/services.html",
     })
     .state("products", {
-      url: "/",
+      url: "/products",
       controller: "ProductsCtrl",
       templateUrl: "views/products.html",
     })
