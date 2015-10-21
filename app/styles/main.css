@@ -1,3 +1,7 @@
+body {
+  font-size: 16px !important;
+}
+
 #toolbar {
   background-color: #fff;
   color: #000;
@@ -106,7 +110,8 @@ section md-content + md-content {
   min-height: 432px !important;
 }
 #promo-slider-slider .slides img {
-  height: 432px;
+  min-height: 432px;
+  max-height: 632px;
   object-fit: cover;
 }
 .promo-content {
@@ -167,4 +172,70 @@ section md-content + md-content {
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.26);
   -webkit-transform: scale(1.004);
           transform: scale(1.004);
+}
+
+/* Register Interest */
+#registerForm {
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+}
+label {
+  /*color: rgba(0,0,0,0.50) !important;*/
+  font-size: 24px ;
+}
+.md-input {
+  /*border-bottom: 2px solid #000 !important;*/
+  font-size: 24px ;
+}
+
+/* Common Colors */
+.about-background,
+.services-background,
+.products-background,
+.login-background,
+.add-products-background {
+  height: 300px;
+}
+.about-background h1,
+.services-background h1,
+.products-background h1,
+.login-background h1,
+.add-products-background h1,
+.about-background h2,
+.services-background h2,
+.products-background h2,
+.login-background h2,
+.add-products-background h2 {
+  color: #fff;
+  margin: 0;
+}
+.about-background h1,
+.services-background h1,
+.products-background h1,
+.login-background h1,
+.add-products-background h1 {
+  line-height: 300px;
+  font-weight: 500;
+  font-size: 72px;
+  text-align: center;
+}
+.about-background {
+  background-color: #5EB9C4;
+}
+.services-background {
+  background-color: #E08E45;
+}
+.products-background {
+  background-color: #FF4158;
+}
+.login-background {
+  background-color: #5EB9C4;
+}
+.add-products-background {
+  background-color: #5EB9C4;
+}
+.heather-background,
+.heather-background md-content {
+  background-color: #F5FCDF;
 }

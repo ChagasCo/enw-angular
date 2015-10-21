@@ -43,4 +43,11 @@ angular.module("angularApp")
       }
     ];
 
+    $scope.register = {
+      firstName: "",
+      lastName: "",
+      phoneNumber: "",
+      preferedCallBack: ""
+    };
+
   }]);
