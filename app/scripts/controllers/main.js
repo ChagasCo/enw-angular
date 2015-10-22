@@ -15,13 +15,13 @@ angular.module('angularApp')
         image: '../images/promo-slider/promo1.jpg',
         alt: 'Test',
         title: 'Weight Loss',
-        content: 'Nordic Walkers plant the poles in front of them with an outstretched arm, creating a full body movement and using 90 per cent of the body\'s muscules.'
+        content: 'Nordic Walkers plant the poles in front of them with an outstretched arm, creating a full body movement and using 90 per cent of the body\'s muscles.'
       },
       {
         image: '../images/promo-slider/promo2.jpg',
         alt: 'Test',
         title: 'Promo 2',
-        content: 'Nordic Walkers plant the poles in front of them with an outstretched arm, creating a full body movement and using 90 per cent of the body\'s muscules.'
+        content: '...'
       },
       {
         image: '../images/promo-slider/promo3.jpg',

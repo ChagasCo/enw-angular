@@ -1,17 +1,15 @@
-<div class="container-fluid hero-services">
-  <h1>Services</h1>
-</div>
-<!-- TODO: Revisit the push-right classes -->
-<!-- TODO: Complete all 'alt' attrs for accessibility -->
-<!-- TODO: Field validation -->
-<section class="container">
-  <div class="row headings">
-    <h2 class="col-sm-12">Have a Go Sessions</h2>
-    <h3 class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-  </div>
-  <div class="row content">
-    <div class="col-sm-12 col-md-5">
-      <img class="section-image" src="../images/na-group1.jpg" alt="">
+<md-content layout="column" class="services-background">
+  <h1 class="md-title">Services</h1>
+</md-content>
+
+<section layout="column">
+  <md-content>
+    <h2 class="heading1">Have a Go Sessions</h2>
+    <h3 class="heading2">New to Nordic Walking? Join the have a go session to get started</h3>
+  </md-content>
+  <md-content layout="row" layout-margin>
+    <div flex="45" flex-sm="100" layout="column">
+      <img src="../images/na-group1.jpg" alt="Nordic Walking" style="width: 100%;">
       <br><br>
       <p>
         This is a <strong>FREE</strong> 45 minute introduction to Nordic Walking.
@@ -27,146 +25,139 @@
       </p>
       <br><br>
     </div>
-    <div class="col-sm-12 col-md-6 col-md-offset-1">
-      <div>
-        <form id="have-a-go-form" action="#" method="POST">
-          <label class="col-sm-12" for="name">Name <span class="field-error">*</span></label>
-          <br>
-          <input class="col-sm-12" type="text" name="name" placeholder="John Doe">
-          <br>
-          <label class="col-sm-12" for="email">Email <span class="field-error">*</span></label>
-          <br>
-          <input class="col-sm-12" type="email" name="email" placeholder="john.doe@example.com">
-          <br>
-          <label class="col-sm-12" for="phone">Phone <span class="field-error">*</span></label>
-          <br>
-          <input class="col-sm-12" type="text" name="phone" placeholder="08 XXXX XXXX">
-          <br>
-          <label class="col-sm-12">Hire Equipment <span class="field-error">*</span></label>
-          <div class="radio col-sm-12">
-            <label>YES<input id="hire-yes" type="radio" name="options" value="1" checked><span class="outer"></span><span class="inner"></span></label>
-          </div>
-          <br>
-          <div class="radio col-sm-12">
-            <label>NO<input id="hire-no" type="radio" name="options" value="0"><span class="outer"></span><span class="inner"></span></label>
-          </div>
-          <!-- <label class="radio"><input id="hire-yes" type="radio" name="hire-yes"><span class="outer"><span class="inner"></span></span>YES</label>
-          <br>
-          <label class="radio"><input id="hire-no" type="radio" name="hire-no"><span class="outer"><span class="inner"></span></span>NO</label> -->
-          <br><br>
-          <input class="col-sm-12" type="submit" name="submit" value="Join a Session">
-        </form>
-      </div>
+    <span flex="5"></span>
+    <div flex="50" flex-sm="100">
+      <form id="haveAGoForm" ng-submit="haveAGoSessionSubmit()" layout="column">
+        <md-input-container flex>
+          <label>Name</label>
+          <input ng-model="haveAGoSession.name">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Email</label>
+          <input ng-model="haveAGoSession.email">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Phone</label>
+          <input ng-model="haveAGoSession.phone">
+        </md-input-container>
+        <md-input-container flex>
+          <md-radio-group ng-model="haveAGoSession.hire">
+            <label>Hire Equipment?</label>
+            <br><br>
+            <md-radio-button value="Yes">Yes</md-radio-button>
+            <md-radio-button value="No">No</md-radio-button>
+          </md-radio-group>
+        </md-input-container>
+        <br><br>
+        <md-button class="btn-submit" flex type="submit" >JOIN A SESSION</md-button>
+      </form>
     </div>
-  </div>
+  </md-content>
 </section>
 
-<div class="background-light-grey">
-  <section class="container-fluid">
-    <div class="row headings">
-      <h2 class="col-sm-12">Range of Classes</h2>
-      <h3 class="col-sm-12">Participate in a group class or special sessions</h3>
-    </div>
-    <div class="row content">
-      <div class="col-sm-12">
-        <div class="item-slider-container" ng-model="selectedClass">
-          <div class="item-slider-content" ng-class="selectedClass == class ? 'active' : ''" ng-repeat="class in classes">
-            <div class="container-fluid">
-              <div class="row headings">
-                <h6 class="col-sm-12">{{ class.name }}</h6>
-              </div>
-              <div class="row content">
-                <div class="col-sm-12">
-                  <img ng-src="{{class.thumb}}" alt="Nordic Academy Group">
-                </div>
-                <div class="col-sm-12">
-                  <p>
-                    {{ class.content }}
-                  </p>
-                </div>
-                <button ng-click="itemSliderClick(class, $event)" class="item-slider-btn" type="button">Select Class</button>
-              </div>
-            </div>
-          </div>
+<div class="services-classes-background">
+  <section class="slider" layout="column">
+    <md-content>
+      <h2 class="heading1">Range of Classes</h2>
+      <h3 class="heading2">Participate in a group class or special sessions</h3>
+    </md-content>
+    <md-content layout="row">
+      <md-card class="walk-class" ng-repeat="class in classes" layout="column" flex="40" flex-sm="85">
+        <img ng-src="{{class.thumb}}" class="md-card-image" alt="{{class.name}}">
+        <md-card-content>
+          <h2 class="md-title">{{class.name}}</h2>
+          <p>
+            {{class.content}}
+          </p>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="center end" flex>
+          <md-button class="class-btn" flex ng-click="itemSliderClick(class, $event)">Select Class</md-button>
         </div>
-      </div>
-
-    </div>
+      </md-card>
+    </md-content>
   </section>
-  <section class="container">
-    <form class="row item-slider-results" novalidate>
-      <div class="col-sm-12 headings">
-        <h6>Booking</h6>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <label for="class">Class Type</label>
-        <br>
-        <input type="text" name="class" id="class" value="{{selectedClass.name}}" disabled>
-        <br><br>
-        <label for="name">Name <span class="field-error">*</span></label>
-        <br>
-        <input type="text" name="name" id="name" placeholder="John Doe">
-        <br>
-        <label for="email">Email <span class="field-error">*</span></label>
-        <br>
-        <input type="email" name="email" id="email" placeholder="john.doe@example.com">
-        <br>
-        <label for="phone">Phone <span class="field-error">*</span></label>
-        <br>
-        <input type="text" name="phone" id="phone" placeholder="08 XXXX XXXX">
-        <br>
-        <label class="col-sm-12">Enquire about Equipment <span class="field-error">*</span></label>
-        <div class="radio col-sm-12">
-          <label>YES<input id="hire-yes" type="radio" name="options" value="1" checked><span class="outer"></span><span class="inner"></span></label>
-        </div>
-        <br>
-        <div class="radio col-sm-12">
-          <label>NO<input id="hire-no" type="radio" name="options" value="0"><span class="outer"></span><span class="inner"></span></label>
-        </div>
-        <br><br>
-      </div>
-      <div class="col-sm-12 col-md-6">
-        <label for="attendees">Attendees <span class="field-error">*</span></label>
-        <br>
-        <div class="attendees">
-          <div ng-repeat="a in range(selectedClass.max - 1) track by $index">
-            <input type="text" name="attendee{{$index}}" placeholder="Attendee {{$index + 1}}">
+  <md-content>
+    <h2 class="heading1">Booking</h2>
+  </md-content>
+  <br><br>
+  <section>
+  <md-content layout="column" layout-margin layout-wrap>
+    <form id="classesForm" ng-submit="classesSubmit()" layout="column">
+      <md-content layout="row">
+        <md-content flex="45" flex-sm="100" layout="column">
+          <md-input-container >
+            <label>Selected Class</label>
+            <input type="text" ng-model="classesFormData.class.name" readonly>
+          </md-input-container>
+          <md-input-container >
+            <label>Name</label>
+            <input type="text" ng-model="classesFormData.name">
+          </md-input-container>
+          <md-input-container >
+            <label>Email</label>
+            <input type="email" ng-model="classesFormData.email">
+          </md-input-container>
+          <md-input-container >
+            <label>Phone</label>
+            <input type="text" ng-model="classesFormData.phone">
+          </md-input-container>
+        </md-content>
+        <span flex></span>
+        <md-content flex="45" flex-sm="100" layout="column">
+          <md-input-container >
+            <md-radio-group ng-model="classesFormData.equipment">
+              <label>Enquire about Equipment?</label>
+              <br><br>
+              <md-radio-button value="Yes">Yes</md-radio-button>
+              <md-radio-button value="No">No</md-radio-button>
+            </md-radio-group>
+          </md-input-container>
+          <div id="attendees-container">
+            <md-input-container  ng-repeat="a in range(classesFormData.class.attendees.length) track by $index">
+              <label>Attendees {{$index + 1}}</label>
+              <input type="text" ng-model="classesFormData.attendees[$index].name" >
+            </md-input-container>
           </div>
-        </div>
-        <br>
-      </div>
+        </md-content>
+      </md-content>
+      <br><br>
+      <md-content layout-align="space-between center" layout="row">
+        <span flex></span>
+        <md-button class="btn-submit" flex="45"  type="submit" >BOOK CLASS</md-button>
+        <span flex></span>
+      </md-content>
     </form>
+  </md-content>
   </section>
 </div>
 
-<div class="background-light-blue">
-  <section class="container">
-      <div class="row headings">
-        <h2 class="col-sm-12">Presentations</h2>
-        <h3 class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-      </div>
-      <div class="row content">
-        <div class="col-sm-12 col-md-6">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Sed similique deserunt accusantium a rerum alias officia
-            corporis modi fugiat, quibusdam iusto eligendi magni laborum
-            voluptas mollitia impedit molestiae quos eius.
-            <br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Sed similique deserunt accusantium a rerum alias officia
-            corporis modi fugiat, quibusdam iusto eligendi magni laborum
-            voluptas mollitia impedit molestiae quos eius.
-            <br>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-            Sed similique deserunt accusantium a rerum alias officia
-            corporis modi fugiat, quibusdam iusto eligendi magni laborum
-            voluptas mollitia impedit molestiae quos eius.
-          </p>
-        </div>
-        <div class="col-sm-12 col-md-6">
-          <div class="block"></div>
-        </div>
-      </div>
-  </section>
+<div class="services-presentation-background">
+<section layout="column">
+  <md-content>
+    <h2 class="heading1">Presentations</h2>
+    <h3 class="heading2">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+  </md-content>
+  <md-content layout="row" layout-margin>
+    <div flex="50" flex-sm="100">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias odit, beatae.
+        Animi voluptatum quae tempore nam cupiditate placeat molestias iste aut. Fugiat
+        eveniet, praesentium similique temporibus reiciendis natus nihil magni!
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias odit, beatae.
+        Animi voluptatum quae tempore nam cupiditate placeat molestias iste aut. Fugiat
+        eveniet, praesentium similique temporibus reiciendis natus nihil magni!
+        <br><br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias odit, beatae.
+        Animi voluptatum quae tempore nam cupiditate placeat molestias iste aut. Fugiat
+        eveniet, praesentium similique temporibus reiciendis natus nihil magni!
+
+      </p>
+    </div>
+    <span flex="5"></span>
+    <div flex="45" flex-sm="100">
+      <img src="../images/cards/card1.jpg" alt="Nordic Walking" style="width: 100%;">
+    </div>
+  </md-content>
+</section>
 </div>

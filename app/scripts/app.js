@@ -27,7 +27,11 @@ app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $
 
 }]);
 
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('light-green', {'default': '800' })
+    .accentPalette('orange');
+
   $urlRouterProvider.when("", "/");
 
   $urlRouterProvider.otherwise(function($injector) {
@@ -45,11 +49,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider) {
       templateUrl: "views/home.html",
     })
     .state("about", {
-      url: "/",
+      url: "/about",
       templateUrl: "views/about.html"
     })
     .state("services", {
-      url: "/services",
+      url: "/",
       controller: "ServicesCtrl",
       templateUrl: "views/services.html",
     })

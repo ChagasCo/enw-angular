@@ -1,19 +1,19 @@
 angular.module("angularApp")
   .controller("HomeCtrl", ["$scope", function($scope) {
-    <div class="col-xs-12 col-sm-6 col-md-4 card-container">
-        <div class="card">
-          <a href="#Card1">
-            <img class="img-responsive" src="../images/cards/card1.jpg" alt="Have a Go Sessions">
-            <div class="card-content">
-              <h4>Classes</h4>
-              <h3>Have a Go Sessions</h3>
-              <p>
-                Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.
-              </p>
-            </div>
-          </a>
-        </div>
-    </div>
+    // <div class="col-xs-12 col-sm-6 col-md-4 card-container">
+    //     <div class="card">
+    //       <a href="#Card1">
+    //         <img class="img-responsive" src="../images/cards/card1.jpg" alt="Have a Go Sessions">
+    //         <div class="card-content">
+    //           <h4>Classes</h4>
+    //           <h3>Have a Go Sessions</h3>
+    //           <p>
+    //             Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.
+    //           </p>
+    //         </div>
+    //       </a>
+    //     </div>
+    // </div>
 
     $scope.cards = [
       {

@@ -2,6 +2,7 @@ body {
   font-size: 16px !important;
 }
 
+/* Toolbar / Nav  */
 #toolbar {
   background-color: #fff;
   color: #000;
@@ -45,9 +46,7 @@ body {
 
 /* Index */
 #hero {
-  background-image: url(../images/hero.jpg);
-  background-size: cover;
-  background-position: center;
+  background-color: #88a13e;
   height: 448px;
  }
  #hero h1,
@@ -58,14 +57,12 @@ body {
  #hero h1 {
    font-weight: 500;
    font-size: 72px;
-   text-shadow: 0px 2px 4px #000;
    text-align: center;
  }
  #hero h2 {
    margin-top: 32px;
    font-weight: 300;
    font-size: 36px;
-   text-shadow: 0px 2px 4px #000;
    text-align: center;
  }
 
@@ -181,12 +178,8 @@ section md-content + md-content {
   margin: 0 auto;
 }
 label {
-  /*color: rgba(0,0,0,0.50) !important;*/
-  font-size: 24px ;
 }
 .md-input {
-  /*border-bottom: 2px solid #000 !important;*/
-  font-size: 24px ;
 }
 
 /* Common Colors */
@@ -239,3 +232,53 @@ label {
 .heather-background md-content {
   background-color: #F5FCDF;
 }
+.services-classes-background,
+.services-classes-background md-content {
+  background-color: #EEEFF4;
+}
+.services-presentation-background,
+.services-presentation-background md-content {
+  background-color: #5EB9C4;
+  color: #fff;
+}
+.services-presentation-background .heading1 {
+  color: #fff;
+}
+.services-presentation-background .heading2 {
+  color: #ddd;
+}
+/* Forms */
+.btn-submit {
+  height: 64px;
+  background-color: #88a13e !important;
+  color: #fff !important;
+}
+
+/* Classes */
+section.slider {
+  max-width: 1428px;
+}
+.walk-class {
+  max-height: 698px;
+  max-width: 480px !important;
+}
+.walk-class img {
+  height: 280px;
+  object-fit: cover;
+}
+.class-btn {
+  height: 64px;
+}
+.class-btn.active,
+.class-btn:hover.active {
+  background-color: blue;
+}
+
+#attendees-container {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+
+/*7 to 8 */
+/*PointerWater Golf Course*/
