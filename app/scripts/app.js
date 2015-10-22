@@ -48,11 +48,11 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       templateUrl: "views/home.html",
     })
     .state("about", {
-      url: "/",
+      url: "/about",
       templateUrl: "views/about.html"
     })
     .state("services", {
-      url: "/services",
+      url: "/",
       controller: "ServicesCtrl",
       templateUrl: "views/services.html",
     })

@@ -8,7 +8,9 @@
  * Controller of the angularApp
  */
 angular.module("angularApp")
-  .controller("ServicesCtrl", ["$scope", "$http", function($scope, $http) {
+  .controller("ServicesCtrl", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
+    $scope.trustAsHtml = $sce.trustAsHtml;
+
     $scope.haveAGoSession = {
       name: "",
       email: "",
@@ -34,80 +36,19 @@ angular.module("angularApp")
 
     $scope.classes = [
       {
-        name: 'Heart Foundation',
-        thumb: '../images/na-group1.jpg',
-        content: 'REPS ROMERS  $5.00 Pole Hire.',
-        attendees: [
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          }
-        ]
+        name: 'Heart Foundation Walking Group',
+        thumb: '../images/baltas-patrick.jpg',
+        content: '<strong>REPS ROMERS</strong> (Anyone welcome to join)<br><br>Moderate pace walks. It is opportunity to keep Nordic Walking and meet new people. Register your interest to find out more. <br><br> Join us after you\'ve experienced the Have a Go Session. <br><br>* Pole Hire Price $5.00'
       },
       {
-        name: 'Class 2',
-        thumb: '../images/na-group2.jpg',
-        content: 'Class 2 content goes here. Once a week for 4 weeks. 1 hour session',
-        // Inject html radio options
-        attendees: [
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          }
-        ]
+        name: 'Once a Week for 4 Week',
+        thumb: '../images/vermont-south-seniors.jpg',
+        content: 'Participate in one Nordic Walks once a week for four weeks. If you\'re interested in being a more active Nordic Walker, then join us for 1 hour session for four weeks.<br><br><br>* We can also come to your location if requested over the phone.'
       },
       {
-        name: 'Class 3',
-        thumb: '../images/na-group3.jpg',
-        content: 'Class 3 content goes here. 4 weeks in 1, for 2 to 3 hours',
-        attendees: [
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          },
-          {
-            name: ""
-          }
-        ]
+        name: '4 Weeks in 1 Walk',
+        thumb: '../images/nordic-senior3.jpg',
+        content: 'Ready to take it to the next level? Join this 2 to 3 hour session (depending on the group size) and learn the complete technique.<br><br><br>* We can also come to your location if requested over the phone.'
       }
     ];
 
@@ -119,7 +60,6 @@ angular.module("angularApp")
       attendees: $scope.classes[0].attendees
     };
 
-    // $scope.selectedClass = $scope.classes[0];
     $scope.itemSliderClick = function(item, event) {
       var button = $(event.target);
       var itemContents = $(".walk-class");
@@ -134,4 +74,19 @@ angular.module("angularApp")
     $scope.range = function(num) {
       return new Array(num);
     };
+
+    $scope.presentation = [
+      {
+        name: "",
+        organisationName: "",
+        email: "",
+        phone: ""
+      }
+    ];
+
+    $scope.presentationSubmit = function() {
+      // TODO: Handle submit
+      alert("Presentation data: " + JSON.stringiy(presentation));
+    }
+
   }]);

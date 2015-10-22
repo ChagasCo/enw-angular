@@ -1,16 +1,19 @@
+<!-- HERO SECTION -->
 <md-content layout="column" class="services-background">
   <h1 class="md-title">Services</h1>
 </md-content>
 
+<!-- HAVE A GO SECTION -->
 <section layout="column">
   <md-content>
-    <h2 class="heading1">Have a Go Sessions</h2>
-    <h3 class="heading2">New to Nordic Walking? Join the have a go session to get started</h3>
+    <h2 class="heading1">Have a Go Session</h2>
+    <h3 class="heading2">New to Nordic Walking? Join the Have a Go Session to get started</h3>
   </md-content>
-  <md-content layout="row" layout-margin>
+  <md-content layout="row" layout-sm="column" layout-margin>
     <div flex="45" flex-sm="100" layout="column">
-      <img src="../images/na-group1.jpg" alt="Nordic Walking" style="width: 100%;">
-      <br><br>
+      <span flex="5"></span>
+      <img src="../images/nordic-senior2.jpg" alt="Nordic Walking - Senior Walker Participant" flex="70">
+      <br>
       <p>
         This is a <strong>FREE</strong> 45 minute introduction to Nordic Walking.
         Come and learn about this new fitness activity in a relaxed outdoor setting.
@@ -23,7 +26,6 @@
           <li>Good walking shoes</li>
         </ul>
       </p>
-      <br><br>
     </div>
     <span flex="5"></span>
     <div flex="50" flex-sm="100">
@@ -49,12 +51,13 @@
           </md-radio-group>
         </md-input-container>
         <br><br>
-        <md-button class="btn-submit" flex type="submit" >JOIN A SESSION</md-button>
+        <md-button class="btn-submit" flex type="submit" >SEND ENQUIRY</md-button>
       </form>
     </div>
   </md-content>
 </section>
 
+<!-- CLASSES SECTION -->
 <div class="services-classes-background">
   <section class="slider" layout="column">
     <md-content>
@@ -66,9 +69,7 @@
         <img ng-src="{{class.thumb}}" class="md-card-image" alt="{{class.name}}">
         <md-card-content>
           <h2 class="md-title">{{class.name}}</h2>
-          <p>
-            {{class.content}}
-          </p>
+          <p ng-bind-html="trustAsHtml(class.content)"></p>
         </md-card-content>
         <div class="md-actions" layout="row" layout-align="center end" flex>
           <md-button class="class-btn" flex ng-click="itemSliderClick(class, $event)">Select Class</md-button>
@@ -79,12 +80,11 @@
   <md-content>
     <h2 class="heading1">Booking</h2>
   </md-content>
-  <br><br>
   <section>
-  <md-content layout="column" layout-margin layout-wrap>
-    <form id="classesForm" ng-submit="classesSubmit()" layout="column">
-      <md-content layout="row">
-        <md-content flex="45" flex-sm="100" layout="column">
+  <md-content layout="row" layout-margin>
+    <form id="classesForm" ng-submit="classesSubmit()" flex layout-align="center center" layout="row">
+      <md-content layout="column" flex="45" flex-sm="100">
+        <md-content layout="column">
           <md-input-container >
             <label>Selected Class</label>
             <input type="text" ng-model="classesFormData.class.name" readonly>
@@ -101,63 +101,71 @@
             <label>Phone</label>
             <input type="text" ng-model="classesFormData.phone">
           </md-input-container>
-        </md-content>
-        <span flex></span>
-        <md-content flex="45" flex-sm="100" layout="column">
           <md-input-container >
             <md-radio-group ng-model="classesFormData.equipment">
-              <label>Enquire about Equipment?</label>
+              <label>Hire Equipment?</label>
               <br><br>
               <md-radio-button value="Yes">Yes</md-radio-button>
               <md-radio-button value="No">No</md-radio-button>
             </md-radio-group>
           </md-input-container>
-          <div id="attendees-container">
-            <md-input-container  ng-repeat="a in range(classesFormData.class.attendees.length) track by $index">
-              <label>Attendees {{$index + 1}}</label>
-              <input type="text" ng-model="classesFormData.attendees[$index].name" >
-            </md-input-container>
-          </div>
         </md-content>
-      </md-content>
-      <br><br>
-      <md-content layout-align="space-between center" layout="row">
-        <span flex></span>
-        <md-button class="btn-submit" flex="45"  type="submit" >BOOK CLASS</md-button>
-        <span flex></span>
+        <md-content layout-align="space-between center" layout="row">
+          <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
+        </md-content>
       </md-content>
     </form>
   </md-content>
   </section>
 </div>
 
-<div class="services-presentation-background">
+<!-- PRESENTATION SECTION -->
+<!-- <div class="services-presentation-background"> -->
 <section layout="column">
   <md-content>
     <h2 class="heading1">Presentations</h2>
-    <h3 class="heading2">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
+    <h3 class="heading2">Seeking speakers for a presentation or conference? Let's get in touch</h3>
   </md-content>
-  <md-content layout="row" layout-margin>
-    <div flex="50" flex-sm="100">
+  <md-content layout="row" layout-sm="column" layout-margin>
+    <md-content flex="50" flex-sm="100">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias odit, beatae.
-        Animi voluptatum quae tempore nam cupiditate placeat molestias iste aut. Fugiat
-        eveniet, praesentium similique temporibus reiciendis natus nihil magni!
-        <br><br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias odit, beatae.
-        Animi voluptatum quae tempore nam cupiditate placeat molestias iste aut. Fugiat
-        eveniet, praesentium similique temporibus reiciendis natus nihil magni!
-        <br><br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias odit, beatae.
-        Animi voluptatum quae tempore nam cupiditate placeat molestias iste aut. Fugiat
-        eveniet, praesentium similique temporibus reiciendis natus nihil magni!
-
+        Presentations are suitable for Service Clubs and Social Groups, and it is free of charge.
+        Presentations are 30 minutes which touch on the general background of Nordic Walking and
+        the benefits Nordic Walking can be for your physcial and mental health.
       </p>
-    </div>
-    <span flex="5"></span>
-    <div flex="45" flex-sm="100">
-      <img src="../images/cards/card1.jpg" alt="Nordic Walking" style="width: 100%;">
-    </div>
+      <p>
+        Contact me today to find out more about presentations and what I offer.
+        <br><br>
+        Enter your detials in the form provided and I will contact you back via phone or email.
+      </p>
+    </md-content>
+    <span flex="5" hide-sm></span>
+    <md-content flex flex-sm="100">
+      <form flex layout="column" ng-submit="presentationSubmit()">
+        <md-content layout="column">
+          <md-input-container>
+            <label>Name</label>
+            <input type="text" ng-model="presentation.name">
+          </md-input-container>
+          <md-input-container>
+            <label>Organisation Name</label>
+            <input type="text" ng-model="presentation.organisationName">
+          </md-input-container>
+          <md-input-container>
+            <label>Email</label>
+            <input type="email" ng-model="presentation.email">
+          </md-input-container>
+          <md-input-container >
+            <label>Phone</label>
+            <input type="text" ng-model="presentation.phone">
+          </md-input-container>
+          <br>
+          <md-content layout-align="space-between center" layout="row">
+            <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
+          </md-content>
+        </md-content>
+      </form>
+    </md-content>
   </md-content>
 </section>
-</div>
+<!-- </div> -->

@@ -266,7 +266,7 @@ label {
 }
 .services-presentation-background,
 .services-presentation-background md-content {
-  background-color: #5EB9C4;
+  background-color: #E08E45;
   color: #fff;
 }
 .services-presentation-background .heading1 {
@@ -296,10 +296,14 @@ section.slider {
 }
 .class-btn {
   height: 64px;
+  font-size: 18px !important;
 }
 .class-btn.active,
 .class-btn:hover.active {
-  background-color: blue;
+  background-color: #5EB9C4;
+  color: #fff;
+  font-weight: 700;
+  font-size: 18px;
 }
 
 #attendees-container {
