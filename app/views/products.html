@@ -1,3 +1,52 @@
+<!-- HERO SECTION -->
+<md-content layout="column" class="products-background">
+  <h1 class="md-title">Products</h1>
+</md-content>
+
+<section layout="column" class="slider" flex>
+  <md-content>
+    <h2 class="heading1">Get Equipment</h2>
+    <h3 class="heading2">Equipt yourself with the right gear for your next Nordic Walking session</h3>
+  </md-content>
+  <md-content layout="row">
+    <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-sm="50" ng-click="productSelect(product, $event)">
+      <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
+      <md-card-content>
+        <span class="md-subhead">{{product.manufactuer}}</span>
+        <h2 class="md-title">{{product.name}}</h2>
+        <span class="product-price">{{product.price | currency}}</span>
+      </md-card-content>
+    </md-card>
+  </md-content>
+  <br><br><br>
+  <md-content flex layout="row" layout-md="column" layout-align="center center" class="select-product">
+    <span flex="10" flex-md="5" flex-sm="0"></span>
+    <md-content layout="column" flex="35" flex-md="100">
+      <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}">
+      <br>
+      <md-button class="btn-purchase">04 22</md-button>
+      <md-button class="btn-purchase btn-share">Share</md-button>
+    </md-content>
+    <span flex="5"><br show-sm></span>
+    <md-content layout="column" flex="30" flex-md="100">
+      <div layout="row" layout-align="center center">
+        <h2 flex="60">{{selectedProduct.name}}</h2>
+      </div>
+      <div layout="row" layout-align="start start">
+        <span flex="30" class="product-price">{{selectedProduct.price | currency }}</span>
+        <span flex></span>
+      </div>
+      <br>
+      <div>
+        <span class="md-subhead">{{selectedProduct.manufactuer}}</span>
+      </div>
+      <br>
+      <p flex ng-bind-html="trustAsHtml(selectedProduct.description)"></p>
+    </md-content>
+  </md-content>
+</section>
+
+<br><br><br><br><br><br><br><hr><br><br><br><br><br>
 <div class="container-fluid hero-products">
   <h1>Products</h1>
 </div>

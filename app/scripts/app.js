@@ -52,12 +52,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       templateUrl: "views/about.html"
     })
     .state("services", {
-      url: "/",
+      url: "/services",
       controller: "ServicesCtrl",
       templateUrl: "views/services.html",
     })
     .state("products", {
-      url: "/products",
+      url: "/",
       controller: "ProductsCtrl",
       templateUrl: "views/products.html",
     })
