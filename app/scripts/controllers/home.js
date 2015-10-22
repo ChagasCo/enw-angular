@@ -1,45 +1,48 @@
 angular.module("angularApp")
-  .controller("HomeCtrl", ["$scope", function($scope) {
-    // <div class="col-xs-12 col-sm-6 col-md-4 card-container">
-    //     <div class="card">
-    //       <a href="#Card1">
-    //         <img class="img-responsive" src="../images/cards/card1.jpg" alt="Have a Go Sessions">
-    //         <div class="card-content">
-    //           <h4>Classes</h4>
-    //           <h3>Have a Go Sessions</h3>
-    //           <p>
-    //             Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.
-    //           </p>
-    //         </div>
-    //       </a>
-    //     </div>
-    // </div>
+  .controller("HomeCtrl", ["$scope", "$sce", function($scope, $sce) {
+    $scope.trustAsHtml = $sce.trustAsHtml;
 
     $scope.cards = [
       {
         image: "../images/cards/card1.jpg",
+        subtitle: "Introduction",
         title: "Have a Go Sessions",
         content: "Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.",
         navigate: function() {
           // Navigate with UI Router
-          console.log("Go to Have a go session");
+          alert("Go to Have a go session");
         }
       },
       {
         image: "../images/cards/card2.jpg",
+        subtitle: "Equipment",
         title: "Buy or Hire Equipment",
         content: "Learn how to use the core equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.",
         navigate: function() {
-          console.log("Go to Equipment");
+          alert("Go to Equipment");
         }
       },
       {
         image: "../images/cards/card3.jpg",
         title: "Range of Group Classes",
+        subtitle: "Classes",
         content: "Experience a 4 session course with a group of fellow Nordic Walkers. Take your skills to the next level and try out the course today.",
         navigate: function() {
-          console.log("Go to Group Classes");
+          alert("Go to Group Classes");
         }
+      }
+    ];
+
+    $scope.images = [
+      {
+        image: '../images/promo-slider/promo1.jpg',
+        title: 'Weight Loss',
+        content: 'Nordic Walkers plant the poles in front of them with an outstretched arm, creating a full body movement and using 90 per cent of the body\'s muscles.'
+      },
+      {
+        image: '../images/promo-slider/promo2.jpg',
+        title: 'Challenge Your Brain',
+        content: 'Whenever you learn something new, you stimulate your brain. Research shows that activities which combine cognitive, physical and social aspects are especially beneficial for brain health. <br>(SEO - Cognitive, Brain Health)'
       }
     ];
 
@@ -49,5 +52,10 @@ angular.module("angularApp")
       phoneNumber: "",
       preferedCallBack: ""
     };
+
+    $scope.registerSubmit = function() {
+      // TODO: Validate inputs
+      alert("Handle Form Submit");
+    }
 
   }]);

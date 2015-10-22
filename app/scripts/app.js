@@ -15,7 +15,6 @@ app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $
     $rootScope.$state = $state;
 
     $rootScope.$on('$stateChangeStart', function (event, toState, $window) {
-      console.log("Change");
     // var requireLogin = toState.data.requireLogin;
     //
     // if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
@@ -29,7 +28,7 @@ app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $
 
 app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
   $mdThemingProvider.theme('default')
-    .primaryPalette('light-green', {'default': '800' })
+    .primaryPalette('cyan')
     .accentPalette('orange');
 
   $urlRouterProvider.when("", "/");
@@ -44,8 +43,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
   });
   $stateProvider
     .state("home", {
-      url: "/home",
-      controller: "MainCtrl",
+      url: "/",
+      controller: "HomeCtrl",
       templateUrl: "views/home.html",
     })
     .state("about", {
@@ -53,7 +52,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       templateUrl: "views/about.html"
     })
     .state("services", {
-      url: "/",
+      url: "/services",
       controller: "ServicesCtrl",
       templateUrl: "views/services.html",
     })
@@ -74,10 +73,8 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
     $urlRouterProvider.otherwise("/");
 });
 
-
 angular.module("angularApp")
   .controller("ToolbarCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", function($scope, $timeout, $mdSidenav, $log){
-      console.log("test");
       $scope.toggleLeft = buildDelayedToggler("sidenav");
 
 

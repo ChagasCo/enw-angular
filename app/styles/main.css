@@ -2,6 +2,13 @@ body {
   font-size: 16px !important;
 }
 
+/* Footer */
+.mock-footer {
+  height: 420px;
+  background-color: #444;
+}
+
+
 /* Toolbar / Nav  */
 #toolbar {
   background-color: #fff;
@@ -89,7 +96,7 @@ section {
   margin-top: 24px;
 }
 section md-content + md-content {
-  padding-top: 64px;
+  padding-top: 32px;
 }
 
  /* Promo Slider */
@@ -114,44 +121,61 @@ section md-content + md-content {
 .promo-content {
   position: absolute;
   color: #fff;
-  text-shadow: 0px 2px 4px #000;
+  text-shadow: 0px 0px 4px #000;
   top: 0;
   min-height: 432px !important;
-  margin: 64px 0 0 196px;
+  margin: 64px 0 0 220px;
   transition: all ease 0.5s;
 }
 
 @media only screen and (max-width: 768px) {
   .promo-content {
-    margin: 32px 0 0 64px;
+    margin: 0 0 0 64px !important;
     width: 312px;
+  }
+  .promo-content h5 {
+    margin: 0 !important;
+  }
+  .promo-content p {
+    font-size: 18px !important;
+    max-width: 312px;
+  }
+  #promo-slider-slider .flex-control-nav {
+    left: 64px !important;
   }
 }
 
 .promo-content h5 {
-  font-weight: 200;
-  font-size: 36px;
+  font-weight: 500;
+  font-size: 42px;
+  margin: 32px 0 32px 0 !important;
 }
 
 .promo-content p {
-  margin: 16px 0 0 0;
-  font-weight: 200;
-  font-size: 20px;
-  max-width: 412px;
+  margin: 0 0 0 0 ;
+  font-weight: 400;
+  font-size: 24px;
+  max-width: 432px;
 }
 
 #promo-slider-slider .flex-control-nav {
-  bottom: 64px;
-  left: 196px;
+  bottom: 32px;
+  left: 220px;
   text-align: left;
 }
 
 #promo-slider-slider ol li a {
+  width: 12px;
+  height: 12px;
   background-color: #908E8E;
-  box-shadow: 0px 0px 2px #fff;
+  border: 1px solid #444;
+  box-shadow: 0px 0px 8px #000;
+  transform: scale(.75);
+  transition: all ease-in 0.2s;
 }
 #promo-slider-slider ol li a.flex-active {
-  background-color: #88A13E;
+  background-color: #5EB9C4;
+  transform: scale(1);
 }
 
 #promo-slider-slider .flex-prev::before,
@@ -162,13 +186,17 @@ section md-content + md-content {
 
 /* Card */
 .hoverable {
-  transition: all 0.2s linear;
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
+  outline: 0;
 }
 .hoverable:hover {
-  box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.26);
-  -webkit-transform: scale(1.004);
-          transform: scale(1.004);
+  box-shadow:  1px 2px 12px rgba(0, 0, 0, 0.65);
+  /*-webkit-transform: scale(1.004);*/
+  /*transform: scale(1.004);*/
+}
+.enw-card h2 {
+  margin: 0;
 }
 
 /* Register Interest */
@@ -249,7 +277,7 @@ label {
 }
 /* Forms */
 .btn-submit {
-  height: 64px;
+  height: 48px;
   background-color: #88a13e !important;
   color: #fff !important;
 }
