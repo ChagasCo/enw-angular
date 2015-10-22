@@ -43,12 +43,12 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
   });
   $stateProvider
     .state("home", {
-      url: "/",
+      url: "/home",
       controller: "HomeCtrl",
       templateUrl: "views/home.html",
     })
     .state("about", {
-      url: "/about",
+      url: "/",
       templateUrl: "views/about.html"
     })
     .state("services", {
@@ -130,86 +130,3 @@ angular.module("angularApp")
     };
 
   }]);
-
-
-
-//
-// angular
-//   .module('angularApp', [
-//     'ngAnimate',
-//     'ngAria',
-//     'ngCookies',
-//     'ngResource',
-//     'ui.router',
-//     'ngSanitize',
-//     'ngTouch'
-//   ])
-//   .run(function($rootScope) {
-//     console.log("Hello There");
-//     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-//     var requireLogin = toState.data.requireLogin;
-//
-//     if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
-//       event.preventDefault();
-//       // get me a login modal!
-//     }
-//   });
-//   })
-//   .config(function($stateProvider){
-//     $stateProvider
-//       .state('home', {
-//         url: '/welcome',
-//         templateUrl: 'views/main.html',
-//         data: {
-//           requireLogin: false
-//         }
-//       })
-//       .state('admin', {
-//         abstract: true,
-//         data: {
-//           requireLogin: true
-//         }
-//       })
-//       .state('admin.products', {
-//
-//       })
-//   })
-//   ;
-  // .config(function ($routeProvider) {
-  //   $routeProvider
-  //     .when('/', {
-  //       templateUrl: 'views/main.html',
-  //       controller: 'MainCtrl',
-  //       controllerAs: 'main'
-  //     })
-  //     .when('/about', {
-  //       templateUrl: 'views/about.html',
-  //       controller: 'AboutCtrl',
-  //       controllerAs: 'about'
-  //     })
-  //     .when('/services', {
-  //       templateUrl: 'views/services.html',
-  //       controller: 'ServicesCtrl',
-  //       controllerAs: 'services'
-  //     })
-  //     .when('/login', {
-  //       templateUrl: 'views/login.html',
-  //       controller: 'LoginCtrl',
-  //       controllerAs: 'login'
-  //     })
-  //     .when('/admin/add-product', {
-  //       templateUrl: 'views/auth/add-product.html',
-  //       controller: 'AddProductCtrl',
-  //       controllerAs: 'add-product',
-  //       access: {
-  //         requiresLogin: true,
-  //         requiredPermissions: ['Admin'],
-  //         permissionType: 'AtLeastOne'
-  //       }
-  //     })
-  //     .otherwise({
-  //       redirectTo: '/'
-  //     });
-  // })
-
-  // });
