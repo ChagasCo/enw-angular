@@ -108,8 +108,47 @@
 
     <md-content flex ui-view></md-content>
 
-    <footer class="mock-footer">
-      ...
+    <footer class="footer">
+        <md-content class="footer-content" layout="row" layout-align="center center">
+            <div class="flex-50">
+              <md-list class="footer-list-left">
+                <md-list-item>
+                  <md-button ui-sref="home">Home</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ui-sref="about">About</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ui-sref="services">Services</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ui-sref="products">Products</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ng-href="http://www.mynordicsports.com.au/index.php/faq/">FAQs</md-button>
+                </md-list-item>
+              </md-list>
+            </div>
+            <div class="flex">
+              <md-list class="footer-list-right">
+                <md-list-item>
+                  <md-button ng-href="#">ENW</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ng-href="http://www.nordicacademy.com.au/">Nordic Academy</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ng-href="#">Terms of Service</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ng-href="#">Privacy Policy</md-button>
+                </md-list-item>
+                <md-list-item>
+                  <md-button ng-href="http://chagas.co/">Built by ChagasCo</md-button>
+                </md-list-item>
+              </md-list>
+            </div>
+        </md-content>
     </footer>
 
     <!-- build:js(.) scripts/vendor.js -->
