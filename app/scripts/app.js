@@ -57,13 +57,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       templateUrl: "views/services.html",
     })
     .state("products", {
-      url: "/",
+      url: "/products",
       controller: "ProductsCtrl",
       templateUrl: "views/products.html",
     })
     .state("login", {
       url: "/login",
       templateUrl: "views/login.html",
+    })
+    .state("add-products", {
+      uril: "/add-products",
+      controller: "AddProductsCtrl",
+      templateUrl: "views/add-products.html",
     })
     .state("404", {
       templateUrl: "404.html"
