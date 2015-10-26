@@ -1,0 +1,84 @@
+<!-- Title Section -->
+<section layout="column" flex>
+  <md-content layout="row" layout-sm="column" layout-margin>
+    <md-content>
+      <h1 class="heading1">PRODUCTS</h1>
+    </md-content>
+    
+    <md-content>
+      <div flex="50" flex-sm="100">
+        <md-button class="btn-add-product" flex>ADD PRODUCT</md-button>
+      </div>
+    </md-content>
+  </md-content>
+</section>
+
+<!-- Product Slider Section -->
+<section class="slider" layout="column" flex>
+  <md-content layout="row">
+    <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-sm="50" ng-click="productSelect(product, $event)">
+      <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
+
+      <md-card-content>
+        <span class="md-subhead">{{product.manufactuer}}</span>
+
+        <h2 class="md-title">{{product.name}}</h2>
+
+        <span class="product-price">{{product.price | currency}}</span>
+      </md-card-content>
+    </md-card>
+  </md-content>
+</section>
+
+<!-- Product Display / Edit Section -->
+<section layout="row" flex>
+  <md-content flex layout="column" layout-sm="row" flex="40">
+    <h3 class="heading2">Thumbnail Image</h3>
+
+    <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}" />
+
+    <md-content layout="row">
+      <md-button class="btn-purchase">UPLOAD PICTURE</md-button>
+      <md-button class="btn-purchase btn-remove">DELETE PICTURE</md>
+    </md-content>
+  </md-content>
+
+  <md-content flex layout="column" layout-sm="row" flex="60">
+    <md-content layout="row">
+      <md-content layout="column" flex="70">
+        <md-input-container>
+          <label>Name</label>
+
+          <input type="text" ng-model="selectedProduct.name" />
+        </md-input-container>
+      </md-content>
+
+      <md-content layout="column" flex="10"></md-content>
+
+      <md-content layout="column" flex="20">
+        <md-input-container> 
+          <label>Price</label>
+
+          <input type="currency" ng-model="selectedProduct.price" />
+        </md-input-container>
+      </md-content>
+    </md-content>
+
+    <md-content layout="column" layout-sm="row">
+      <md-input-container>
+        <label>Manufacturer</label>
+
+        <input type="text" ng-model="selectedProduct.manufacturer" />
+      </md-input-container>
+    </md-content>
+
+    <md-content layout="column" layout-sm="row">
+      <md-input-container>
+        <label>Description</label>
+
+        <textarea cols="40" rows="6" ng-model="selectedProduct.description"></textarea>
+      </md-input-container>
+    </md-content>
+
+  </md-content>
+</section>

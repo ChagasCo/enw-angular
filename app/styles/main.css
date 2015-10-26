@@ -349,6 +349,11 @@ section.slider {
   background-color: #5EB9C4 !important;
   color: #fff !important;
 }
+
+.btn-remove {
+  background-color: #FF0000 !important;
+}
+
 .btn-share {
 
 }
