@@ -14,10 +14,17 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
 
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/flexslider/jquery.flexslider.js"></script>
+    <!-- endbower -->
     <!-- endbuild -->
   </head>
-  <body ng-cloak ng-app="angularApp" flex>
+  <body ng-cloak  ng-app="angularApp" flex>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -40,12 +47,14 @@
           <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="services" aria-label="Services">Services</md-button>
           <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="products" aria-label="Products">Products</md-button>
           <md-button hide-sm hide-md class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQ">FAQs</md-button>
-          <span flex hide-sm hide-md></span>
-          <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>
+          <md-button class="nav-button" ui-sref-active="nav-active" ui-sref="add-products" aria-label="Add Products">Add Products</md-button>
+          <!-- Login Toolbar Button -->
+          <!--<span flex hide-sm hide-md></span>
+          <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>-->
       </div>
     </md-toolbar>
 
-    <div hide-gt-md ng-controller="MenuCtrl">
+    <div hide-gt-md ng-controller="MenuCtrl" >
       <md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav">
         <md-toolbar>
           <h1 class="md-toolbar-tools">Menu</h1>
@@ -72,12 +81,14 @@
                 FAQs
               </md-button>
            </md-item>
-           <md-divider></md-divider>
+
+           <!-- Login Button -->
+           <!--<md-divider></md-divider>
            <md-item>
               <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="login" aria-label="Login" ng-click="close()">
                 Login
               </md-button>
-           </md-item>
+           </md-item>-->
          </md-list>
 
       </md-sidenav>
@@ -89,10 +100,10 @@
       ...
     </footer>
 
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -100,19 +111,21 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/flexslider/jquery.flexslider.js"></script>
+
     <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/home.js"></script>
-    <script src="scripts/controllers/services.js"></script>
-    <script src="scripts/controllers/products.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <!-- endbuild -->
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/home.js"></script>
+        <script src="scripts/controllers/services.js"></script>
+        <!-- <script src="scripts/controllers/about.js"></script> -->
+        <script src="scripts/controllers/products.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/add-products.js"></script>
+        <!-- endbuild -->
 </body>
 </html>
