@@ -214,28 +214,24 @@ label {
 .about-background,
 .services-background,
 .products-background,
-.login-background,
-.add-products-background {
+.login-background, {
   height: 300px;
 }
 .about-background h1,
 .services-background h1,
 .products-background h1,
 .login-background h1,
-.add-products-background h1,
 .about-background h2,
 .services-background h2,
 .products-background h2,
-.login-background h2,
-.add-products-background h2 {
+.login-background h2 {
   color: #fff;
   margin: 0;
 }
 .about-background h1,
 .services-background h1,
 .products-background h1,
-.login-background h1,
-.add-products-background h1 {
+.login-background h1 {
   line-height: 300px;
   font-weight: 500;
   font-size: 72px;
@@ -253,8 +249,13 @@ label {
 .login-background {
   background-color: #5EB9C4;
 }
-.add-products-background {
-  background-color: #5EB9C4;
+.add-products-background,
+.add-products-background md-content {
+  background-color: #5E5F60;
+}
+
+.add-products-background * {
+  color: #FFFFFF;
 }
 .heather-background,
 .heather-background md-content {
@@ -354,6 +355,18 @@ section.slider {
   background-color: #FF0000 !important;
 }
 
+.btn-add-product {
+  background-color: #88A13E !important;
+}
+
 .btn-share {
 
+}
+
+.testborder {
+  border: 1px solid red;
+}
+
+.add-product-separator {
+  padding: 40px 0px;
 }
