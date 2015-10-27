@@ -9,7 +9,7 @@
     <h3 class="heading2">Equipt yourself with the right gear for your next Nordic Walking session</h3>
   </md-content>
   <md-content layout="row">
-    <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-sm="50" ng-click="productSelect(product, $event)">
+    <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-md="45" flex-sm="66" ng-click="productSelect(product, $event)">
       <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
       <md-card-content>
         <span class="md-subhead">{{product.manufactuer}}</span>
@@ -19,114 +19,34 @@
     </md-card>
   </md-content>
   <br><br><br>
-  <md-content flex layout="row" layout-md="column" layout-align="center center" class="select-product">
-    <span flex="10" flex-md="5" flex-sm="0"></span>
-    <md-content layout="column" flex="35" flex-md="100">
+  <md-content flex layout="row" layout-md="column" layout-sm="column" layout-align="center center" class="select-product">
+    <md-content layout="column" flex="35" flex-md="100" flex-sm="100">
       <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}">
-      <br>
-      <md-button class="btn-purchase">04 22</md-button>
-      <md-button class="btn-purchase btn-share">Share</md-button>
+      <span flex="10"></span>
+      <span><strong>* Payment over the phone</strong></span>
+      <span flex="5"></span>
+      <md-button flex="10" class="btn-purchase" disabled>0417 943 141</md-button>
+      <!-- <md-button flex="10" class="btn-purchase btn-share" ng-click="window.open('', '_blank')'">Share</md-button> -->
     </md-content>
-    <span flex="5"><br show-sm></span>
-    <md-content layout="column" flex="30" flex-md="100">
-      <div layout="row" layout-align="center center">
-        <h2 flex="60">{{selectedProduct.name}}</h2>
-      </div>
+    <md-content layout="column" flex="50" flex-md="100" flex-sm="100">
       <div layout="row" layout-align="start start">
-        <span flex="30" class="product-price">{{selectedProduct.price | currency }}</span>
-        <span flex></span>
+        <span flex="1"></span>
+        <h2 flex>{{selectedProduct.name}}</h2>
+        <span flex hide-sm></span>
+        <span flex="25" flex-md="20" class="product-price">{{selectedProduct.price | currency }}</span>
+        <span flex="1"></span>
       </div>
       <br>
-      <div>
-        <span class="md-subhead">{{selectedProduct.manufactuer}}</span>
+      <div layout="row" layout-align="start">
+        <span flex="5"></span>
+        <span flex class="md-subhead">{{selectedProduct.manufactuer}}</span>
       </div>
       <br>
-      <p flex ng-bind-html="trustAsHtml(selectedProduct.description)"></p>
+      <div layout="row">
+        <span flex="1"></span>
+        <p flex ng-bind-html="trustAsHtml(selectedProduct.description)"></p>
+        <span flex="1"></span>
+      </div>
     </md-content>
   </md-content>
 </section>
-
-<br><br><br><br><br><br><br><hr><br><br><br><br><br>
-<div class="container-fluid hero-products">
-  <h1>Products</h1>
-</div>
-<!-- TODO: Revisit the push-right classes -->
-<!-- TODO: Complete all 'alt' attrs for accessibility -->
-<!-- TODO: Field validation -->
-
-<section class="container-fluid">
-  <div class="row headings">
-    <h2 class="col-sm-12">Get Equipment</h2>
-    <h3 class="col-sm-12">Equipt yourself with the right gear for your next Nordic Walking session</h3>
-  </div>
-  <div class="row content">
-    <div class="col-sm-12">
-      <div class="item-slider-container" ng-model="selectedProduct">
-        <div class="product-item-slider-content" ng-class="selectedProduct == product ? 'active' : ''" ng-repeat="product in products">
-          <div class="container-fluid">
-            <div class="row headings">
-              <h6 class="col-sm-12">{{ product.name }}</h6>
-            </div>
-            <div class="row content">
-              <div class="col-sm-12">
-                <img ng-src="{{product.thumb}}" alt="{{ product.name }}">
-              </div>
-              <div class="col-sm-12">
-                <p>
-                  {{ product.description }}
-                </p>
-              </div>
-              <!-- <button ng-click="itemSliderClick(class, $event)" class="item-slider-btn" type="button">Select Class</button> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<section class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12">
-      <div class="col-sm-12 col-md-6">
-        <div class="col-sm-12">
-          <div class="col-sm-8">
-            {{selectedProduct.name}}
-          </div>
-          <div class="col-sm-4">
-            {{selectedProduct.price | currency }}
-          </div>
-        </div>
-        <div class="col-sm-12">
-          {{selectedProduct.make}}
-        </div>
-        <div class="col-sm-12">
-          {{selected.description}}
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- <section class="container-fluid">
-  <div class="row headings">
-    <h2 class="col-sm-12">Get Equipment</h2>
-    <h3 class="col-sm-12">Equipt yourself with the right gear for your next Nordic Walking session.</h3>
-  </div>
-  <div class="row content">
-    <div class="col-sm-12 col-md-5">
-      content
-    </div>
-  </div>
-</section>
-<section class="container-fluid">
-    <div class="row headings">
-      <h2 class="col-sm-12">Lorem</h2>
-      <h3 class="col-sm-12">Lorem ipsum dolor sit amet, consectetur adipisicing elit</h3>
-    </div>
-    <div class="row content">
-      <div class="col-sm-12 col-md-6">
-        test
-      </div>
-    </div>
-</section> -->

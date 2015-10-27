@@ -43,7 +43,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
   });
   $stateProvider
     .state("home", {
-      url: "/home",
+      url: "/",
       controller: "HomeCtrl",
       templateUrl: "views/home.html",
     })
@@ -57,7 +57,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       templateUrl: "views/services.html",
     })
     .state("products", {
-      url: "/",
+      url: "/products",
       controller: "ProductsCtrl",
       templateUrl: "views/products.html",
     })
@@ -69,7 +69,6 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       templateUrl: "404.html"
     });
 
-    $locationProvider.html5Mode(true);
     $urlRouterProvider.otherwise("/");
 });
 
