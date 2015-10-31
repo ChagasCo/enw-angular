@@ -41,7 +41,7 @@ angular.module("angularApp")
         content: '<strong>REPS ROMERS</strong> (Anyone welcome to join)<br><br>Moderate pace walks. It is opportunity to keep Nordic Walking and meet new people. Register your interest to find out more. <br><br> Join us after you\'ve experienced the Have a Go Session. <br><br>* Pole Hire Price $5.00'
       },
       {
-        name: 'Once a Week for 4 Week',
+        name: 'Once a Week for 4 Weeks',
         thumb: '../images/vermont-south-seniors.jpg',
         content: 'Participate in one Nordic Walks once a week for four weeks. If you\'re interested in being a more active Nordic Walker, then join us for 1 hour session for four weeks.<br><br><br>* We can also come to your location if requested over the phone.'
       },

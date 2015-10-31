@@ -5,21 +5,26 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/flexslider/flexslider.css" />
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
-    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
-    <link rel="stylesheet" href="bower_components/angular-material-icons/angular-material-icons.css">
+    <!-- endbuild -->
+
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/flexslider/jquery.flexslider.js"></script>
+    <!-- endbower -->
     <!-- endbuild -->
   </head>
-  <body ng-app="angularApp" flex>
-    <base href="/">
+  <body ng-cloak  ng-app="angularApp" flex>
     <!--[if lte IE 8]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -42,37 +47,18 @@
           <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="services" aria-label="Services">Services</md-button>
           <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="products" aria-label="Products">Products</md-button>
           <md-button hide-sm hide-md class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQ">FAQs</md-button>
-          <span flex hide-sm hide-md></span>
-          <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>
+          <md-button class="nav-button" ui-sref-active="nav-active" ui-sref="add-products" aria-label="Add Products">Add Products</md-button>
+          <!-- Login Toolbar Button -->
+          <!--<span flex hide-sm hide-md></span>
+          <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>-->
       </div>
     </md-toolbar>
-<!--
-    <li ui-sref-active="active"><a ui-sref="home">Home</a></li>
-                <li ui-sref-active="active"><a ui-sref="about">About</a></li>
-                <li ui-sref-active="active"><a ui-sref="services">Services</a></li>
-                <li ui-sref-active="active"><a ui-sref="products">Products</a></li>
-                <li><a href="http://www.mynordicsports.com.au/index.php/faq/">FAQs</a></li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
-                <li ui-sref-active="active"><a ui-sref="#">Login</a></li> -->
 
-    <div hide-gt-md ng-controller="MenuCtrl">
+    <div hide-gt-md ng-controller="MenuCtrl" >
       <md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav">
         <md-toolbar>
           <h1 class="md-toolbar-tools">Menu</h1>
         </md-toolbar>
-         <!-- <md-item ng-repeat="item in menu">
-           <a>
-             <md-item-content md-ink-ripple layout="row" layout-align="start center">
-               <div class="inset">
-                 <ng-md-icon icon="{{item.icon}}"></ng-md-icon>
-               </div>
-               <div class="inset">{{item.title}}
-               </div>
-             </md-item-content>
-           </a>
-         </md-item> -->
-
          <md-list layout="column" md-padding>
            <md-item>
               <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="home" aria-label="Home" ng-click="close()">
@@ -95,12 +81,14 @@
                 FAQs
               </md-button>
            </md-item>
-           <md-divider></md-divider>
+
+           <!-- Login Button -->
+           <!--<md-divider></md-divider>
            <md-item>
               <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="login" aria-label="Login" ng-click="close()">
                 Login
               </md-button>
-           </md-item>
+           </md-item>-->
          </md-list>
 
       </md-sidenav>
@@ -151,10 +139,10 @@
         </md-content>
     </footer>
 
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-aria/angular-aria.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
@@ -162,7 +150,7 @@
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-    <script src="bower_components/flexslider/jquery.flexslider.js"></script>
+
     <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
@@ -176,6 +164,7 @@
         <!-- <script src="scripts/controllers/about.js"></script> -->
         <script src="scripts/controllers/products.js"></script>
         <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/add-products.js"></script>
         <!-- endbuild -->
 </body>
 </html>
