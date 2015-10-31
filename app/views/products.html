@@ -18,7 +18,24 @@
       </md-card-content>
     </md-card>
   </md-content>
-  <br><br><br>
+</section>
+<!--
+  <md-content layout="column" flex="45" layout-align="space-around start">
+    <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}">
+    <span><strong>* Payment over the phone</strong></span>
+    <md-button class="btn-purchase" disabled>0417 943 141</md-button>
+  </md-content>
+  <md-content layout="row" layout-sm="column" layout-margin layout-wrap>
+    <div layout="row" layout-align="start start">
+      <span flex="1"></span>
+      <h2 flex>{{selectedProduct.name}}</h2>
+      <span flex hide-sm></span>
+      <span flex="25" flex-md="20" class="product-price">{{selectedProduct.price | currency }}</span>
+      <span flex="1"></span>
+    </div>
+  </md-content> -->
+
+<section layout="row" layout-md="column" class="select-product">
   <md-content flex layout="row" layout-md="column" layout-sm="column" layout-align="center center" class="select-product">
     <md-content layout="column" flex="35" flex-md="100" flex-sm="100">
       <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}">
@@ -26,9 +43,12 @@
       <span><strong>* Payment over the phone</strong></span>
       <span flex="5"></span>
       <md-button flex="10" class="btn-purchase" disabled>0417 943 141</md-button>
-      <!-- <md-button flex="10" class="btn-purchase btn-share" ng-click="window.open('', '_blank')'">Share</md-button> -->
     </md-content>
+    <span flex="5"></span>
     <md-content layout="column" flex="50" flex-md="100" flex-sm="100">
+      <span show-md hide-gt-md>
+        <br><br><br><br>
+      </span>
       <div layout="row" layout-align="start start">
         <span flex="1"></span>
         <h2 flex>{{selectedProduct.name}}</h2>

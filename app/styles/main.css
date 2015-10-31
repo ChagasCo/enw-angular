@@ -396,7 +396,6 @@ section.slider {
 }
 
 .select-product md-content {
-  height: 600px;
   overflow: hidden;
 }
 .select-product h2 {
@@ -409,7 +408,8 @@ section.slider {
   max-width: 380px;
 }
 .btn-purchase {
-  max-width: 380px !important;
+  width: 380px !important;
+  padding: 12px;
 }
 .btn-purchase,
 .btn-share {
