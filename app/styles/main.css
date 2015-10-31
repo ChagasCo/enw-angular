@@ -392,6 +392,7 @@ section.slider {
   color: #444;
   font-size: 20px;
 }
+
 @media only screen and (max-width: 638px) {
   .product-price {
     font-size: 18px;
@@ -413,10 +414,20 @@ section.slider {
   min-height: 380px;
   max-width: 380px;
 }
+
 .btn-purchase {
   width: 380px !important;
   padding: 12px;
 }
+
+.add-product {
+  border: 1px solid #eee;
+  object-fit: cover;
+  min-height: 380px;
+  max-width: 340px;
+}
+
+>>>>>>> add-products-progress
 .btn-purchase,
 .btn-share {
   background-color: #88A13E !important;
@@ -457,4 +468,10 @@ section.slider {
 
 .add-product-separator {
   padding: 40px 0px;
+}
+
+.input-color-override input,
+.input-color-override textarea,
+.input-color-override label {
+  color: #FFFFFF !important;
 }
