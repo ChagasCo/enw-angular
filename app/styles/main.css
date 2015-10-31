@@ -23,6 +23,7 @@ body {
   flex: 1 1 50%;
   max-height: 100%;
   max-width: 50%;
+
 }
 
 .flex {
@@ -41,6 +42,11 @@ body {
 .footer-content {
   background-color: #444;
   color: #9B9B9B;
+}
+
+.footer-divider {
+  width: 1px;
+  background-color: #9B9B9B;
 }
 
 /* Toolbar / Nav  */

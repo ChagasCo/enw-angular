@@ -105,7 +105,8 @@
 
     <footer class="footer">
         <md-content class="footer-content" layout="row" layout-align="center center">
-            <div class="flex-50">
+        <div flex-gt-md="40" flex-sm="20" flex-md="35"></div>
+            <div flex-gt-md="10" flex-sm="25" layout="column">
               <md-list class="footer-list-left">
                 <md-list-item>
                   <md-button ui-sref="home">Home</md-button>
@@ -124,7 +125,8 @@
                 </md-list-item>
               </md-list>
             </div>
-            <div class="flex">
+            <div flex="1" class="footer-divider"></div>
+            <div flex-sm="45" flex-gt-sm layout="column">
               <md-list class="footer-list-right">
                 <md-list-item>
                   <md-button ng-href="#">ENW</md-button>
@@ -143,6 +145,7 @@
                 </md-list-item>
               </md-list>
             </div>
+            <div flex-gt-md="0" flex-sm="5"></div>
         </md-content>
     </footer>
 

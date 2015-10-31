@@ -63,6 +63,7 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
     })
     .state("login", {
       url: "/login",
+      controller: "LoginCtrl",
       templateUrl: "views/login.html",
     })
     .state("404", {
