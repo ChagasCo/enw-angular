@@ -1,15 +1,13 @@
 <!-- Title Section -->
 <div class="add-products-background">
   <section class="add-products-background" layout-sm="column" layout="row">
-    <div layout="row" flex>
-      <md-content flex="60">
+      <md-content flex-sm="100" flex-gt-sm="60" layout="column" layout-align="center center">
         <h1 class="heading1">PRODUCTS</h1>
       </md-content>
       
-      <md-content flex-gt-sm="40" flex-sm="100">
-        <md-button class="btn-purchase btn-add-product" flex>ADD PRODUCT</md-button>
+      <md-content layout="row" layout-align="center center" flex-sm="80" flex-gt-sm="40">
+        <md-button class="btn-purchase btn-add-product" flex="80">ADD PRODUCT</md-button>
       </md-content>
-    </md-content>
   </section>
 </div>
 
@@ -17,7 +15,7 @@
 <div class="add-products-background">
   <section class="slider add-products-background" layout="column" flex>
     <md-content layout="row">
-      <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-sm="50" ng-click="productSelect(product, $event)">
+      <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="25" flex-md="35" flex-sm="55" ng-click="productSelect(product, $event)">
         <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
 
         <md-card-content>
@@ -35,17 +33,21 @@
 <!-- Product Display / Edit Section -->
 <div class="add-products-background" layout-sm="column" layout="row">
   <section layout-sm="column" layout="row" flex-sm="100" flex-gt-sm="90" flex-offset-gt-sm="5" layout-align="center center">
-    <div flex-sm="100" flex="40" layout="column">
-      <h3 layout="start center" class="heading2">Thumbnail Image</h3>
+    <div flex-sm="100" flex-md="50" flex="40" layout="column" layout-align="center center" >
+      <h3 layout-align="start center" class="heading2">Thumbnail Image</h3>
 
-      <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}" />
+      <img class="add-product" ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}" />
       
-      <div flex="100" layout-gt-md="row" layout="column">
-        <md-button class="btn-purchase" flex>UPLOAD PICTURE</md-button>
+      <div layout="row">
+        <div layout="column">
+          <md-button class="btn-purchase" flex-gt-md="50" flex-md="45" flex-sm="80">UPLOAD PICTURE</md-button>
+        </div>
 
-        <div hide-sm hide-md flex="10"></div>
-        
-        <md-button class="btn-purchase btn-remove" flex>DELETE PICTURE</md>
+        <div hide-md flex="10"></div>
+
+        <div layout="column"> 
+          <md-button class="btn-purchase btn-remove" flex-gt-md="50" flex-md="45" flex-sm="80">DELETE PICTURE</md>
+        </div>
       </div>
     </div>
 
@@ -53,15 +55,15 @@
 
     <div layout="column" hide-gt-sm class="add-product-separator"></div>
 
-    <div flex-sm="100" flex="60" layout="column">
+    <div flex-sm="100" flex-md="40" flex="55" layout="column" class="input-color-override">
       <div layout="row">
-        <md-input-container flex="80">
+        <md-input-container flex="70">
           <label>Name</label>
 
           <input type="text" ng-model="selectedProduct.name" />
         </md-input-container>
 
-        <md-input-container flex="20"> 
+        <md-input-container flex="30"> 
           <label>Price</label>
 
           <input type="number" ng-model="selectedProduct.price" min="0.01" step="any"/>
@@ -80,9 +82,9 @@
         <textarea cols="40" rows="1" ng-model="selectedProduct.description"></textarea>
       </md-input-container>
 
-      <md-input-container layout-align="space-around end" flex-sm="100" flex="80" layout-sm="row">
-        <md-button class="btn-purchase">SAVE PRODUCT</md>
-      </md-input-container>
+      <div layout="row" layout-align="center center">
+        <md-button flex-sm="80" flex-md="60" flex-gt-md="40" class="btn-purchase" ng-click="saveProduct($selectedProduct)">SAVE PRODUCT</md>
+      </div>
     </div>
   </section>
 </div>

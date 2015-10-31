@@ -328,11 +328,6 @@ section.slider {
   font-size: 20px;
 }
 
-.select-product {
-
-}
-.select-product {
-}
 .select-product md-content {
   height: 500px;
 }
@@ -345,6 +340,14 @@ section.slider {
   min-height: 380px;
   max-width: 380px;
 }
+
+.add-product {
+  border: 1px solid #eee;
+  object-fit: cover;
+  min-height: 380px;
+  max-width: 340px;
+}
+
 .btn-purchase,
 .btn-share {
   background-color: #5EB9C4 !important;
@@ -369,4 +372,10 @@ section.slider {
 
 .add-product-separator {
   padding: 40px 0px;
+}
+
+.input-color-override input,
+.input-color-override textarea,
+.input-color-override label {
+  color: #FFFFFF !important;
 }

@@ -67,4 +67,8 @@
 
       $scope.selectedProduct = product;
     };
+
+    $scope.saveProduct = function(product) {
+      
+    }
  	}]);
