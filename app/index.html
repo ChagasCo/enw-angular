@@ -103,7 +103,56 @@
 
     <md-content flex ui-view></md-content>
 
-    <footer class="footer">
+    <footer class="footer" layout-padding>
+        <md-content layout="row" >
+          <span flex="5"></span>
+          <div class="fm" flex layout="column" layout-align="start end" layout-align-sm="center center">
+            <md-list>
+              <md-list-item>
+                <md-button ui-sref="home">Home</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ui-sref="about">About</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ui-sref="services">Services</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ui-sref="products">Products</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ng-href="http://www.mynordicsports.com.au/index.php/faq/">FAQs</md-button>
+              </md-list-item>
+            </md-list>
+          </div>
+          <span flex="5" hide-sm></span>
+          <div class="fm-border">
+          </div>
+          <span flex="5" hide-sm></span>
+          <div class="fm" flex layout="column" layout-align-sm="center center">
+            <md-list>
+              <md-list-item>
+                <md-button ng-href="#">ENW</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ng-href="http://www.nordicacademy.com.au/">Nordic Academy</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ng-href="#">Terms of Service</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ng-href="#">Privacy Policy</md-button>
+              </md-list-item>
+              <md-list-item>
+                <md-button ng-href="http://chagas.co/">Built by ChagasCo</md-button>
+              </md-list-item>
+            </md-list>
+          </div>
+          <span flex="5"></span>
+        </md-content>
+      </footer>
+
+    <!-- <footer class="footer">
         <md-content class="footer-content" layout="row" layout-align="center center">
         <div flex-gt-md="40" flex-sm="20" flex-md="35"></div>
             <div flex-gt-md="10" flex-sm="25" layout="column">
@@ -147,7 +196,7 @@
             </div>
             <div flex-gt-md="0" flex-sm="5"></div>
         </md-content>
-    </footer>
+    </footer> -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

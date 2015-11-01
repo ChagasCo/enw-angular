@@ -13,40 +13,16 @@ body {
 }
 
 /* Footer */
-.footer {
+.footer,
+.footer md-content {
   background-color: #444;
   padding-top: 2em;
   padding-bottom: 2em;
-}
-
-.flex-50 {
-  flex: 1 1 50%;
-  max-height: 100%;
-  max-width: 50%;
-
-}
-
-.flex {
-  flex: 1 1 0%;
-}
-
-.footer-list-left {
-  text-align: right;
-}
-
-.footer-list-right {
-  text-align: left;
-  list-style-type: none;
-}
-
-.footer-content {
-  background-color: #444;
   color: #9B9B9B;
 }
-
-.footer-divider {
+.fm-border {
   width: 1px;
-  background-color: #9B9B9B;
+  background-color: #9B9B9B ;
 }
 
 /* Toolbar / Nav  */

@@ -7,12 +7,11 @@
  * # MainCtrl
  * Controller of the angularApp
  */
-angular.module('angularApp')
-  .controller('LoginCtrl', ["$scope", function ($scope) {
+angular.module("angularApp")
+  .controller("LoginCtrl", ["$scope", function ($scope) {
 
-  	$scope.users= [{
-  		username:"",
-  		password:""
-
-  	}];
+  	$scope.users= {
+  		username: "",
+  		password: ""
+  	};
   }]);

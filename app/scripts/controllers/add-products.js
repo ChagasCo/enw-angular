@@ -11,43 +11,19 @@
  	.controller("AddProductsCtrl", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
  		$scope.trustAsHtml = $sce.trustAsHtml;
 
- 		$scope.products = [
-	 		{
-	 			id: 1,
-        name: "Product 1",
-        manufacturer: "Leki",
-        thumb: "../images/demo-product.jpg",
-        price: 45.00,
-        description: "Lot of content. possibily html?"
-	 		},
+    $scope.products = [];
 
-	 		{
-	 			id: 2,
-        name: "Product 1",
-        manufacturer: "Leki",
-        thumb: "../images/demo-product.jpg",
-        price: 59.00,
-        description: "Lot of content. possibily html?"
-	 		},
-
-	 		{
-	 			id: 3,
-        name: "Product 1",
-        manufacturer: "Leki",
-        thumb: "../images/demo-product.jpg",
-        price: 99.00,
-        description: "Lot of content. possibily html?"
-	 		},
-
-	 		{
-	 			id: 4,
-        name: "Product 1",
-        manufacturer: "Leki",
-        thumb: "../images/demo-product.jpg",
-        price: 09000009.00,
-        description: "Lot of content. possibily html?"
-	 		}
- 		];
+    $http({
+      method: 'GET',
+      url: 'http://essentialnordicwalking.com.au/php/products.php'
+    }).then(function successCallback(response) {
+      if (response) {
+        $scope.products = response.data;
+      }
+    }, function errorCallback(response) {
+      // called asynchronously if an error occurs
+      // or server returns response with an error status.
+    });
 
  		$scope.selectedProduct = $scope.products[0];
 
@@ -69,6 +45,6 @@
     };
 
     $scope.saveProduct = function(product) {
-      
+
     }
  	}]);
