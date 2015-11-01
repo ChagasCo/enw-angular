@@ -2,6 +2,12 @@ body {
   font-size: 16px !important;
 }
 
+.admin-bar {
+  background-color: red;
+  height: 4px;
+  width: 100%;
+}
+
 /* NG CLOAK Fade In */
 .fade-show-setup.fade-show-start {
     -webkit-transition: all linear 1s;

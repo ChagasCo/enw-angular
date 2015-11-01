@@ -4,7 +4,7 @@
       <md-content flex-sm="100" flex-gt-sm="60" layout="column" layout-align="center center">
         <h1 class="heading1">PRODUCTS</h1>
       </md-content>
-      
+
       <md-content layout="row" layout-align="center center" flex-sm="80" flex-gt-sm="40">
         <md-button class="btn-purchase btn-add-product" flex="80">ADD PRODUCT</md-button>
       </md-content>
@@ -12,10 +12,10 @@
 </div>
 
 <!-- Product Slider Section -->
-<div class="add-products-background">
+<!-- <div class="add-products-background">
   <section class="slider add-products-background" layout="column" flex>
-    <md-content layout="row">
-      <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="25" flex-md="35" flex-sm="55" ng-click="productSelect(product, $event)">
+    <md-content layout="row" layout-fill>
+      <md-card class="product-card hoverable" ng-repeat="product in products" layout="column"  flex="20" flex-md="45" flex-sm="66" ng-click="productSelect(product, $event)">
         <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
 
         <md-card-content>
@@ -28,7 +28,19 @@
       </md-card>
     </md-content>
   </section>
-</div>
+</div> -->
+<section layout="column" class="slider" flex>
+  <md-content layout="row" layout-fill >
+    <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-md="45" flex-sm="66" ng-click="productSelect(product, $event)">
+      <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
+      <md-card-content>
+        <span class="md-subhead">{{product.manufactuer}}</span>
+        <h2 class="md-title">{{product.name}}</h2>
+        <span class="product-price">{{product.price | currency}}</span>
+      </md-card-content>
+    </md-card>
+  </md-content>
+</section>
 
 <!-- Product Display / Edit Section -->
 <div class="add-products-background" layout-sm="column" layout="row">
@@ -37,15 +49,16 @@
       <h3 layout-align="start center" class="heading2">Thumbnail Image</h3>
 
       <img class="add-product" ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}" />
-      
+
       <div layout="row">
         <div layout="column">
-          <md-button class="btn-purchase" flex-gt-md="50" flex-md="45" flex-sm="80">UPLOAD PICTURE</md-button>
+          <!-- <md-button class="btn-purchase" flex-gt-md="50" flex-md="45" flex-sm="80">UPLOAD PICTURE</md-button> -->
+          <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
         </div>
 
         <div hide-md flex="10"></div>
 
-        <div layout="column"> 
+        <div layout="column">
           <md-button class="btn-purchase btn-remove" flex-gt-md="50" flex-md="45" flex-sm="80">DELETE PICTURE</md>
         </div>
       </div>
@@ -63,7 +76,7 @@
           <input type="text" ng-model="selectedProduct.name" />
         </md-input-container>
 
-        <md-input-container flex="30"> 
+        <md-input-container flex="30">
           <label>Price</label>
 
           <input type="number" ng-model="selectedProduct.price" min="0.01" step="any"/>

@@ -86,7 +86,7 @@ angular.module("angularApp")
 
     $scope.presentationSubmit = function() {
       // TODO: Handle submit
-      alert("Presentation data: " + JSON.stringiy(presentation));
-    }
+      console.log("Presentation data: " + JSON.stringiy(presentation));
+    };
 
   }]);
