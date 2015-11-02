@@ -7,7 +7,7 @@ angular.module("angularApp")
         image: "../images/cards/card1.jpg",
         subtitle: "Introduction",
         title: "Have a Go Sessions",
-        content: "Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.",
+        content: "Learn the core fundametals of Nordic Walking and experience a <strong>free</strong> training session.",
         navigate: function() {
           // Navigate with UI Router
           alert("Go to Have a go session");
@@ -17,7 +17,7 @@ angular.module("angularApp")
         image: "../images/cards/card2.jpg",
         subtitle: "Equipment",
         title: "Buy or Hire Equipment",
-        content: "Learn how to use the core equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.",
+        content: "Learn how to use the equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.",
         navigate: function() {
           alert("Go to Equipment");
         }
