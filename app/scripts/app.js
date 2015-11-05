@@ -9,24 +9,31 @@
  * Main module of the application.
  */
 
-var app = angular.module("angularApp", ["ui.router", "angular-flexslider", "ngMaterial", "ngMdIcons"]);
+var app = angular.module("angularApp", ["ui.router", "angular-flexslider", "ngMaterial", "ngMdIcons", "ngFileUpload"]);
 
-app.run(["$rootScope", "$state", "$anchorScroll", function($rootScope, $state, $anchorScroll) {
-    $rootScope.$state = $state;
+app.run(["$rootScope", "$location", "$state", "authenticationSvc", "$stateParams", "$anchorScroll", function($rootScope, $location, $state, authenticationSvc, $stateParams, $anchorScroll) {
+    // $rootScope.$state = $state;
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, $window) {
-    // var requireLogin = toState.data.requireLogin;
-    //
-    // if (requireLogin && typeof $rootScope.currentUser === 'undefined') {
-    //   event.preventDefault();
-    //   // get me a login modal!
-    // }
-    // $anchorScroll();
+  $rootScope.$on('$stateChangeStart', function (auth) {
+    if ($stateParams.scrollTo){
+      $location.hash($stateParams.scrollTo);
+      $anchorScroll();
+    }
+    $rootScope.auth = authenticationSvc.isAuth();
+  });
+
+  $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+    if (error && error.authenticated === false) {
+      // Go to Login
+      $state.transitionTo("login");
+    }
   });
 
 }]);
 
-app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
+app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider, $uiViewScrollProvider) {
+  $uiViewScrollProvider.useAnchorScroll();
+
   $mdThemingProvider.theme('default')
     .primaryPalette('cyan')
     .accentPalette('orange');
@@ -66,6 +73,23 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       controller: "LoginCtrl",
       templateUrl: "views/login.html",
     })
+    // resolve block returns a promise object on completion
+    // resolve decides whether or not the client shall view the route.
+    .state("add-products", {
+      url: "/add-products",
+      controller: "AddProductsCtrl",
+      templateUrl: "views/add-products.html",
+      resolve: {
+        auth: function($q, authenticationSvc) {
+          var userInfo = authenticationSvc.getUserInfo();
+          if (userInfo) {
+            return $q.when(userInfo);
+          } else {
+            return $q.reject({authenticated: false});
+          }
+        }
+      }
+    })
     .state("404", {
       templateUrl: "404.html"
     });
@@ -74,8 +98,13 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
 });
 
 angular.module("angularApp")
-  .controller("ToolbarCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", function($scope, $timeout, $mdSidenav, $log){
+  .controller("ToolbarCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", "authenticationSvc", "$state", function($scope, $timeout, $mdSidenav, $log, authenticationSvc, $state){
       $scope.toggleLeft = buildDelayedToggler("sidenav");
+
+      $scope.logout = function() {
+        authenticationSvc.logout();
+        $state.transitionTo("home");
+      }
 
 
       /**
@@ -120,13 +149,17 @@ angular.module("angularApp")
       }
     }
   }])
-  .controller("MenuCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", function($scope, $timeout, $mdSidenav, $log) {
+  .controller("MenuCtrl", ["$scope", "$timeout", "$mdSidenav", "$log", "authenticationSvc", "$state", function($scope, $timeout, $mdSidenav, $log, authenticationSvc, $state) {
 
     $scope.close = function() {
-      $mdSidenav("sidenav").close()
-        .then(function() {
-          $log.debug("close LEFT is done!");
-        });
+      $mdSidenav("sidenav").close();
     };
+
+    $scope.logout = function() {
+      authenticationSvc.logout();
+      $state.transitionTo("home");
+
+      $scope.close();
+    }
 
   }]);

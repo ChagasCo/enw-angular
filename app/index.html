@@ -31,6 +31,7 @@
     <script src="bower_components/angular-flexslider/angular-flexslider.js"></script>
     <script src="bower_components/angular-material/angular-material.js"></script>
     <script src="bower_components/angular-material-icons/angular-material-icons.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
   </head>
@@ -54,10 +55,11 @@
           <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="services" aria-label="Services">Services</md-button>
           <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="products" aria-label="Products">Products</md-button>
           <md-button hide-sm hide-md class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQ">FAQs</md-button>
-          <md-button class="nav-button" ui-sref-active="nav-active" ui-sref="add-products" aria-label="Add Products">Add Products</md-button>
+          <md-button ng-show="auth" hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="add-products" aria-label="Add Products">Add Products</md-button>
           <!-- Login Toolbar Button -->
-          <!--<span flex hide-sm hide-md></span>
-          <md-button hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>-->
+          <span flex hide-sm hide-md></span>
+          <md-button ng-show="!auth" hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>
+          <md-button ng-show="auth" hide-sm hide-md class="nav-button" aria-label="Login" ng-click="logout()">Logout</md-button>
       </div>
     </md-toolbar>
 
@@ -90,12 +92,22 @@
            </md-item>
 
            <!-- Login Button -->
-           <!--<md-divider></md-divider>
-           <md-item>
+           <md-divider></md-divider>
+           <md-item ng-show="auth">
+              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="add-products" aria-label="Add Products" ng-click="close()">
+                Add Products
+              </md-button>
+           </md-item>
+           <md-item ng-show="!auth">
               <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="login" aria-label="Login" ng-click="close()">
                 Login
               </md-button>
-           </md-item>-->
+           </md-item>
+           <md-item ng-show="auth">
+              <md-button class="nav-button" ui-sref-active="nav-active-mobile" aria-label="Logout" ng-click="logout()">
+                Logout
+              </md-button>
+           </md-item>
          </md-list>
 
       </md-sidenav>
@@ -206,6 +218,7 @@
     <script src="scripts/controllers/products.js"></script>
     <script src="scripts/controllers/login.js"></script>
     <script src="scripts/controllers/add-products.js"></script>
+    <script src="scripts/services/authentication.js"></script>
     <!-- endbuild -->
 </body>
 </html>
