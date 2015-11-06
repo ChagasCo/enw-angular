@@ -1,21 +1,24 @@
-<!-- Title Section -->
 <div class="add-products-background">
-  <section class="add-products-background" layout-sm="column" layout="row">
-      <md-content flex-sm="100" flex-gt-sm="60" layout="column" layout-align="center center">
-        <h1 class="heading1">PRODUCTS</h1>
+
+<!-- Title Section -->
+<div>
+  <section layout="row" layout-padding>
+      <md-content flex layout="row" layout-align="start center">
+        <h3 class="heading1">Add Products</h3>
       </md-content>
 
-      <md-content layout="row" layout-align="center center" flex-sm="80" flex-gt-sm="40">
-        <md-button class="btn-purchase btn-add-product" flex="80">ADD PRODUCT</md-button>
+      <md-content flex layout="row" layout-align="end center" layout-fill>
+        <md-button class="btn-add-product" ng-if="isUpdate" ng-click="initAddProduct()" aria-label="Add Product">Add Product</md-button>
+        <md-button class="btn-add-product" ng-if="!isUpdate" disabled aria-label="Add Product">Add Product</md-button>
       </md-content>
   </section>
 </div>
 
+
 <!-- Product Slider Section -->
-<!-- <div class="add-products-background">
-  <section class="slider add-products-background" layout="column" flex>
+  <section class="no-padding slider" layout="column" flex>
     <md-content layout="row" layout-fill>
-      <md-card class="product-card hoverable" ng-repeat="product in products" layout="column"  flex="20" flex-md="45" flex-sm="66" ng-click="productSelect(product, $event)">
+      <md-card class="product-card hoverable" ng-repeat="product in products" layout="column"  flex="20" flex-md="45" flex-sm="66">
         <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
 
         <md-card-content>
@@ -25,25 +28,55 @@
 
           <span class="product-price">{{product.price | currency}}</span>
         </md-card-content>
+        <div class="md-actions" layout="row" layout-align="center end" flex>
+          <md-button ng-class="{true:'active', false:''}[$index == 0]" class="class-btn" flex ng-click="productSelect(product, $event)" aria-label="Select Product">
+            <span ng-if="$index !== 0">Select</span>
+            <span ng-if="$index === 0">Selected</span>
+          </md-button>
+        </div>
       </md-card>
     </md-content>
   </section>
-</div> -->
-<section layout="column" class="slider" flex>
-  <md-content layout="row" layout-fill >
-    <md-card class="product-card hoverable" ng-repeat="product in products" layout="column" flex="20" flex-md="45" flex-sm="66" ng-click="productSelect(product, $event)">
-      <img ng-src="{{product.thumb}}" alt="{{product.name}}" class="md-card-image">
-      <md-card-content>
-        <span class="md-subhead">{{product.manufactuer}}</span>
-        <h2 class="md-title">{{product.name}}</h2>
-        <span class="product-price">{{product.price | currency}}</span>
-      </md-card-content>
-    </md-card>
+
+<section class="no-padding add-product-selected" layout="row" layout-sm="column">
+  <md-content flex="40" flex-sm="100" layout="column" layout-align="start center" layout-padding>
+    <div layout="column" layout-align="center start" layout-fill>
+      <h3 class="heading2">Product Image</h3>
+    </div>
+    <div class="add-product-image" layout="column" layout-align="center center">
+      <img ng-src="{{selectedProduct.thumb}}" alt="{{selectedProduct.name}}">
+    </div>
+  </md-content>
+  <md-content flex layout="column" layout-padding>
+    <form action="" layout="column">
+      <md-input-container>
+        <label>Name</label>
+        <input type="text" ng-if="isUpdate" ng-model="selectedProduct.name" />
+        <input type="text" ng-if="!isUpdate" ng-model="newProduct.name" />
+      </md-input-container>
+      <md-input-container>
+        <label>Manufacturer</label>
+        <input type="text" ng-if="isUpdate" ng-model="selectedProduct.manufacturer" />
+        <input type="text" ng-if="!isUpdate" ng-model="newProduct.manufacturer" />
+      </md-input-container>
+      <md-input-container>
+        <label>Price</label>
+        <input type="text" ng-if="isUpdate" ng-model="selectedProduct.price" />
+        <input type="text" ng-if="!isUpdate" ng-model="newProduct.price" />
+      </md-input-container>
+      <md-input-container>
+        <label>Description</label>
+        <textarea style="overflow-y: scroll;" ng-if="isUpdate" cols="40" rows="6" ng-model="selectedProduct.description"></textarea>
+        <textarea style="overflow-y: scroll;" ng-if="!isUpdate" cols="40" rows="6" ng-model="newProduct.description"></textarea>
+      </md-input-container>
+      <md-button flex class="btn-save-product" ng-if="isUpdate" ng-click="saveProduct($selectedProduct)" aria-label="Update Product">Update Product</md>
+        <md-button flex class="btn-save-product" ng-if="!isUpdate" ng-click="addProduct()" aria-label="Add Product">Add Product</md>
+    </form>
   </md-content>
 </section>
 
 <!-- Product Display / Edit Section -->
-<div class="add-products-background" layout-sm="column" layout="row">
+<!-- <div class="add-products-background" layout-sm="column" layout="row">
   <section layout-sm="column" layout="row" flex-sm="100" flex-gt-sm="90" flex-offset-gt-sm="5" layout-align="center center">
     <div flex-sm="100" flex-md="50" flex="40" layout="column" layout-align="center center" >
       <h3 layout-align="start center" class="heading2">Thumbnail Image</h3>
@@ -53,7 +86,7 @@
       <div layout="row">
         <div layout="column">
           <!-- <md-button class="btn-purchase" flex-gt-md="50" flex-md="45" flex-sm="80">UPLOAD PICTURE</md-button> -->
-          <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
+          <!--<div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'image/*'" accept="image/*" ngf-max-size="20MB" ngf-min-height="100" ngf-resize="{width: 100, height: 100}">Select</div>
         </div>
 
         <div hide-md flex="10"></div>
@@ -100,4 +133,5 @@
       </div>
     </div>
   </section>
+</div>
 </div>

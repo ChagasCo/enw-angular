@@ -4,12 +4,12 @@
 </md-content>
 
 <!-- HAVE A GO SECTION -->
-<section layout="column">
+<section layout="column" >
   <md-content>
     <h2 class="heading1">Have a Go Session</h2>
     <h3 class="heading2">New to Nordic Walking? Join the Have a Go Session to get started</h3>
   </md-content>
-  <md-content layout="row" layout-sm="column" layout-margin>
+  <md-content layout="row" layout-sm="column" layout-margin layout-fill>
     <div flex="45" flex-sm="100" layout="column">
       <span flex="5"></span>
       <img src="../images/nordic-senior2.jpg" alt="Nordic Walking - Senior Walker Participant" flex="70">
@@ -64,7 +64,10 @@
           <p ng-bind-html="trustAsHtml(class.content)"></p>
         </md-card-content>
         <div class="md-actions" layout="row" layout-align="center end" flex>
-          <md-button class="class-btn" flex ng-click="itemSliderClick(class, $event)">Select Class</md-button>
+          <md-button ng-class="{true:'active', false:''}[$index == 0]" class="class-btn" flex ng-click="itemSliderClick(class, $event)">
+            <span ng-if="$index !== 0">Select Class</span>
+            <span ng-if="$index === 0">Selected</span>
+          </md-button>
         </div>
       </md-card>
     </md-content>
@@ -118,7 +121,7 @@
     <h2 class="heading1">Presentations</h2>
     <h3 class="heading2">Seeking speakers for a presentation or conference? Let's get in touch</h3>
   </md-content>
-  <md-content layout="row" layout-sm="column" layout-margin>
+  <md-content layout="row" layout-sm="column" layout-margin layout-fill>
     <md-content flex="50" flex-sm="100">
       <p>
         Presentations are suitable for Service Clubs and Social Groups and it is free of charge.
