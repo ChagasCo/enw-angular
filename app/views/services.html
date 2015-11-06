@@ -79,19 +79,19 @@
         <md-content layout="column">
           <md-input-container >
             <label>Selected Class</label>
-            <input type="text" ng-model="classesFormData.class.name" readonly>
+            <input type="text" ng-model="classesFormData.class" readonly required>
           </md-input-container>
           <md-input-container >
             <label>Name</label>
-            <input type="text" ng-model="classesFormData.name">
+            <input type="text" name="booking-name" id="booking-name" ng-model="classesFormData.name" required>
           </md-input-container>
           <md-input-container >
             <label>Email</label>
-            <input type="email" ng-model="classesFormData.email">
+            <input type="email" name="booking-email" id="booking-email" ng-model="classesFormData.email" required>
           </md-input-container>
           <md-input-container >
             <label>Phone</label>
-            <input type="text" ng-model="classesFormData.phone">
+            <input type="text" name="booking-phone" id="booking-phone" ng-model="classesFormData.phone" required>
           </md-input-container>
           <md-input-container >
             <md-radio-group ng-model="classesFormData.equipment">

@@ -30,9 +30,6 @@ angular.module("angularApp")
       // });
     };
 
-    $scope.classesSubmit = function() {
-      console.log("process data");
-    };
 
     $scope.classes = [
       {
@@ -53,12 +50,16 @@ angular.module("angularApp")
     ];
 
     $scope.classesFormData = {
-      class: $scope.classes[0],
+      class: $scope.classes[0].name,
       name: "",
       phone: "",
-      equipment: 1,
-      attendees: $scope.classes[0].attendees
+      equipment: "Yes"
     };
+
+    $scope.classesSubmit = function() {
+      alert("Class data: " + JSON.stringify($scope.classesFormData));
+    };
+
 
     $scope.itemSliderClick = function(item, event) {
       var button = $(event.target);
@@ -69,7 +70,7 @@ angular.module("angularApp")
       button.addClass("active");
       button.html("Selected");
 
-      $scope.classesFormData.class = item;
+      $scope.classesFormData.class = item.name;
     };
     $scope.range = function(num) {
       return new Array(num);
@@ -86,7 +87,7 @@ angular.module("angularApp")
 
     $scope.presentationSubmit = function() {
       // TODO: Handle submit
-      console.log("Presentation data: " + JSON.stringiy(presentation));
+      alert("Presentation data: " + JSON.stringify($scope.presentation));
     };
 
   }]);
