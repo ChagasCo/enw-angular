@@ -76,18 +76,16 @@ angular.module("angularApp")
       return new Array(num);
     };
 
-    $scope.presentation = [
-      {
-        name: "",
-        organisationName: "",
-        email: "",
-        phone: ""
-      }
-    ];
+    $scope.presentation = {
+      name: "",
+      organisationName: "",
+      email: "",
+      phone: ""
+    };
 
     $scope.presentationSubmit = function() {
-      // TODO: Handle submit
       alert("Presentation data: " + JSON.stringify($scope.presentation));
+      // Call email services
     };
 
   }]);
