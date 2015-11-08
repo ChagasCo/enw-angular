@@ -52,7 +52,7 @@
           </div>
         </md-input-container>
         <br><br>
-        <md-button class="btn-submit" flex type="submit" >SEND ENQUIRY</md-button>
+        <md-button class="btn-submit" flex type="submit" ng-disabled="haveAGoForm.$submitted">SEND ENQUIRY</md-button>
       </form>
     </div>
   </md-content>
@@ -123,9 +123,10 @@
         </md-input-container>
       </md-content>
       <md-content layout-align="space-between center" layout="row">
-        <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
+        <md-button flex class="btn-submit" type="submit" ng-disabled="classesFormProcessing">SEND ENQUIRY</md-button>
       </md-content>
     </form>
+    <md-content id="classesToast" layout="column"></md-content>
   </md-content>
 </div>
 

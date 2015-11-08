@@ -8,7 +8,7 @@
  * Controller of the angularApp
  */
 angular.module("angularApp")
-  .controller("ServicesCtrl", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
+  .controller("ServicesCtrl", ["$scope", "$http", "$sce", "$mdToast", "emailSvc", "$document", function($scope, $http, $sce, $mdToast, emailSvc, $document) {
     $scope.trustAsHtml = $sce.trustAsHtml;
 
     $scope.haveAGoSession = {
@@ -52,12 +52,34 @@ angular.module("angularApp")
       class: $scope.classes[0].name,
       name: "",
       phone: "",
+      email: "",
       equipment: "No"
     };
-
+    $scope.classesFormProcessing = false;
     $scope.classesSubmit = function() {
+      $scope.classesFormProcessing = true;
       alert("Class data: " + JSON.stringify($scope.classesFormData));
-      // Call email services
+
+      var message = "Hello Heather, <br /><br />You have received an enquiry about the range of Classes.<br /><br /> Class: <strong>" + $scope.classesFormData.class + "<strong><br/><br/> Contact Name: " + $scope.classesFormData.name + "<br />Email: " + $scope.classesFormData.email + "<br />Phone: " + $scope.classesFormData.phone + "<br />Equipment: " + $scope.classesFormData.equipment + "<br /><br /><hr />";
+      var fromAddress = $scope.classesFormData.email;
+
+      emailSvc.sendEmail(message, fromAddress)
+      .then(function(result) {
+        $mdToast.show({
+          template: "<md-toast>" + result.message + "</md-toast>",
+          parent: $document[0].querySelector("#classesToast"),
+          hideDelay: 4000,
+          position: "bottom"
+        });
+        $scope.classesFormProcessing = false;
+      }, function(error) {
+        $mdToast.show({
+          template: "<md-toast>" + error + "</md-toast>",
+          parent: $document[0].querySelector("#classesToast"),
+          hideDelay: 4000,
+          position: "bottom"
+        });
+      });
     };
 
 
