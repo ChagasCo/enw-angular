@@ -18,7 +18,6 @@ angular.module("angularApp")
     };
 
     $scope.haveAGoSessionSubmit = function() {
-      console.log("posting data....");
       console.log(JSON.stringify($scope.haveAGoSession));
 
       // TODO: Validate data before posting
@@ -55,12 +54,12 @@ angular.module("angularApp")
       email: "",
       equipment: "No"
     };
+    
     $scope.classesFormProcessing = false;
     $scope.classesSubmit = function() {
       $scope.classesFormProcessing = true;
-      alert("Class data: " + JSON.stringify($scope.classesFormData));
 
-      var message = "Hello Heather, <br /><br />You have received an enquiry about the range of Classes.<br /><br /> Class: <strong>" + $scope.classesFormData.class + "<strong><br/><br/> Contact Name: " + $scope.classesFormData.name + "<br />Email: " + $scope.classesFormData.email + "<br />Phone: " + $scope.classesFormData.phone + "<br />Equipment: " + $scope.classesFormData.equipment + "<br /><br /><hr />";
+      var message = "Hello Heather, <br /><br />You have received an enquiry about the range of Classes.<br /><br /><br /><strong>Class:</strong> " + $scope.classesFormData.class + "<br/><strong>Contact Name:</strong> " + $scope.classesFormData.name + "<br /><strong>Email:</strong> " + $scope.classesFormData.email + " <br /><strong>Phone:</strong> " + $scope.classesFormData.phone + "<br /><strong>Equipment:</strong> " + $scope.classesFormData.equipment + "<br /><br /><hr />";
       var fromAddress = $scope.classesFormData.email;
 
       emailSvc.sendEmail(message, fromAddress)
@@ -71,6 +70,20 @@ angular.module("angularApp")
           hideDelay: 4000,
           position: "bottom"
         });
+
+        // Reset values
+        $scope.classesFormData = angular.copy({
+          class: $scope.classes[0].name,
+          name: "",
+          phone: "",
+          email: "",
+          equipment: "No"
+        });
+
+        $scope.classesForm.$setPristine();
+        $scope.classesForm.$setValidity();
+        $scope.classesForm.$setUntouched();
+
         $scope.classesFormProcessing = false;
       }, function(error) {
         $mdToast.show({
