@@ -29,28 +29,37 @@
     </div>
     <span flex="5"></span>
     <div flex="50" flex-sm="100">
-      <form id="haveAGoForm" ng-submit="haveAGoSessionSubmit()" layout="column">
-        <md-input-container flex>
+      <form id="haveAGoForm" name="haveAGoForm" layout="column" ng-submit="haveAGoForm.$valid && haveAGoSessionSubmit()" novalidate>
+        <md-input-container flex md-is-error="haveAGoForm.goName.$invalid && (haveAGoForm.$submitted || haveAGoForm.goName.$dirty)">
           <label>Name</label>
-          <input ng-model="haveAGoSession.name">
+          <input name="goName" id="goName" type="text" ng-model="haveAGoSession.name" ng-required="true">
+          <div ng-messages="haveAGoForm.goName.$error" ng-if="haveAGoForm.$submitted || haveAGoForm.goName.$touched">
+            <div ng-message="required">Please enter your name</div>
+          </div>
         </md-input-container>
-        <md-input-container flex>
+        <md-input-container flex md-is-error="haveAGoForm.goEmail.$invalid && (haveAGoForm.$submitted || haveAGoForm.goEmail.$dirty)">
           <label>Email</label>
-          <input ng-model="haveAGoSession.email">
+          <input name="goEmail" id="goEmail" type="email" ng-model="haveAGoSession.email" ng-required="true">
+          <div ng-messages="haveAGoForm.goEmail.$error" ng-if="haveAGoForm.$submitted || haveAGoForm.goEmail.$touched">
+            <div ng-message="required">Please enter your email</div>
+          </div>
         </md-input-container>
-        <md-input-container flex>
+        <md-input-container flex md-is-error="haveAGoForm.goPhone.$invalid && (haveAGoForm.$submitted || haveAGoForm.goPhone.$dirty)">
           <label>Phone</label>
-          <input ng-model="haveAGoSession.phone">
+          <input name="goPhone" id="goPhone" type="text" ng-model="haveAGoSession.phone" ng-required="true">
+          <div ng-messages="haveAGoForm.goPhone.$error" ng-if="haveAGoForm.$submitted || haveAGoForm.goPhone.$touched">
+            <div ng-message="required">Please enter your phone number</div>
+          </div>
         </md-input-container>
         <br><br>
-        <md-button class="btn-submit" flex type="submit" >SEND ENQUIRY</md-button>
+        <md-button class="btn-submit" flex type="submit" ng-disabled="haveAGoForm.$submitted">SEND ENQUIRY</md-button>
       </form>
     </div>
   </md-content>
 </section>
 
 <!-- CLASSES SECTION -->
-<div class="services-classes-background">
+<div class="services-classes-background" layout="column">
   <section class="slider" layout="column">
     <md-content>
       <h2 class="heading1">Range of Classes</h2>
@@ -75,43 +84,53 @@
   <md-content>
     <h2 class="heading1">Booking</h2>
   </md-content>
-  <section>
-  <md-content layout="row" layout-margin>
-    <form id="classesForm" ng-submit="classesSubmit()" flex layout-align="center center" layout="row">
-      <md-content layout="column" flex="45" flex-sm="100">
-        <md-content layout="column">
-          <md-input-container >
-            <label>Selected Class</label>
-            <input type="text" ng-model="classesFormData.class.name" readonly>
-          </md-input-container>
-          <md-input-container >
-            <label>Name</label>
-            <input type="text" ng-model="classesFormData.name">
-          </md-input-container>
-          <md-input-container >
-            <label>Email</label>
-            <input type="email" ng-model="classesFormData.email">
-          </md-input-container>
-          <md-input-container >
-            <label>Phone</label>
-            <input type="text" ng-model="classesFormData.phone">
-          </md-input-container>
-          <md-input-container >
-            <md-radio-group ng-model="classesFormData.equipment">
-              <label>Hire Equipment?</label>
-              <br><br>
-              <md-radio-button value="Yes">Yes</md-radio-button>
-              <md-radio-button value="No">No</md-radio-button>
-            </md-radio-group>
-          </md-input-container>
-        </md-content>
-        <md-content layout-align="space-between center" layout="row">
-          <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
-        </md-content>
+  <section class="no-padding" layout="column" layout-align="center center">
+    <form id="classesForm" name="classesForm" layout="column" ng-submit="classesForm.$valid && classesSubmit()" novalidate>
+      <md-content layout="column">
+        <md-input-container md-is-error="classesForm.className.$invalid && (classesForm.$submitted || classesForm.className.$dirty)">
+          <label>Selected Class</label>
+          <input name="className" id="className"  type="text" ng-model="classesFormData.class" readonly ng-required="true">
+          <div ng-messages="classesForm.className.$error" ng-if="classesForm.$submitted || classesForm.className.$touched">
+            <div ng-message="required">Please select a class above</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-is-error="classesForm.classBookingName.$invalid && (classesForm.$submitted || classesForm.classBookingName.$dirty)">
+          <label>Name</label>
+          <input type="text" name="classBookingName" id="classBookingName" ng-model="classesFormData.name"  ng-required="true">
+          <div ng-messages="classesForm.classBookingName.$error" ng-if="classesForm.$submitted || classesForm.classBookingName.$touched">
+            <div ng-message="required">Please enter your name</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-is-error="classesForm.classBookingEmail.$invalid && (classesForm.$submitted || classesForm.classBookingEmail.$dirty)">
+          <label>Email</label>
+          <input type="email" name="classBookingEmail" id="classBookingEmail" ng-model="classesFormData.email"  ng-required="true">
+          <div ng-messages="classesForm.classBookingEmail.$error" ng-if="classesForm.$submitted || classesForm.classBookingEmail.$touched">
+            <div ng-message="required">Please enter your email</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-is-error="classesForm.classBookingPhone.$invalid && (classesForm.$submitted || classesForm.classBookingPhone.$dirty)">
+          <label>Phone</label>
+          <input name="classBookingPhone" id="classBookingPhone" type="text" ng-model="classesFormData.phone"  ng-required="true">
+          <div ng-messages="classesForm.classBookingPhone.$error" ng-if="classesForm.$submitted || classesForm.classBookingPhone.$touched">
+            <div ng-message="required">Please enter your phone number</div>
+          </div>
+        </md-input-container>
+        <br>
+        <md-input-container>
+          <md-radio-group name="classBookingEquipment" id="classBookingEquipment" ng-model="classesFormData.equipment" >
+            <label>Hire Equipment?</label>
+            <br><br>
+            <md-radio-button value="Yes">Yes</md-radio-button>
+            <md-radio-button value="No">No</md-radio-button>
+          </md-radio-group>
+        </md-input-container>
+      </md-content>
+      <md-content layout-align="space-between center" layout="row">
+        <md-button flex class="btn-submit" type="submit" ng-disabled="classesFormProcessing">SEND ENQUIRY</md-button>
       </md-content>
     </form>
+    <md-content id="classesToast" layout="column"></md-content>
   </md-content>
-  </section>
 </div>
 
 <!-- PRESENTATION SECTION -->
@@ -136,23 +155,35 @@
     </md-content>
     <span flex="5" hide-sm></span>
     <md-content flex flex-sm="100">
-      <form flex layout="column" ng-submit="presentationSubmit()">
+      <form name="presentationForm" id="presentationForm" flex layout="column" ng-submit="presentationForm.$valid && presentationSubmit()" novalidate>
         <md-content layout="column">
-          <md-input-container>
+          <md-input-container md-is-error="presentationForm.presentationName.$invalid && (presentationForm.$submitted || presentationForm.presentationName.$dirty)">
             <label>Name</label>
-            <input type="text" ng-model="presentation.name">
+            <input name="presentationName" id="presentationName" type="text" ng-model="presentation.name" ng-required="true">
+            <div ng-messages="presentationForm.presentationName.$error" ng-if="presentationForm.$submitted || presentationForm.presentationName.$touched">
+              <div ng-message="required">Please enter your name</div>
+            </div>
           </md-input-container>
-          <md-input-container>
+          <md-input-container md-is-error="presentationForm.presentationOrganisationName.$invalid && (presentationForm.$submitted || presentationForm.presentationOrganisationName.$dirty)">
             <label>Organisation Name</label>
-            <input type="text" ng-model="presentation.organisationName">
+            <input name="presentationOrganisationName" id="presentationOrganisationName" type="text" ng-model="presentation.organisationName" ng-required="true">
+            <div ng-messages="presentationForm.presentationOrganisationName.$error" ng-if="presentationForm.$submitted || presentationForm.presentationOrganisationName.$touched">
+              <div ng-message="required">Please enter your organisation name</div>
+            </div>
           </md-input-container>
-          <md-input-container>
+          <md-input-container md-is-error="presentationForm.presentationEmail.$invalid && (presentationForm.$submitted || presentationForm.presentationEmail.$dirty)">
             <label>Email</label>
-            <input type="email" ng-model="presentation.email">
+            <input name="presentationEmail" id="presentationEmail" type="email" ng-model="presentation.email" ng-required="true">
+            <div ng-messages="presentationForm.presentationEmail.$error" ng-if="presentationForm.$submitted || presentationForm.presentationEmail.$touched">
+              <div ng-message="required">Please enter your email</div>
+            </div>
           </md-input-container>
-          <md-input-container >
+          <md-input-container md-is-error="presentationForm.presentationPhone.$invalid && (presentationForm.$submitted || presentationForm.presentationPhone.$dirty)">
             <label>Phone</label>
-            <input type="text" ng-model="presentation.phone">
+            <input name="presentationPhone" id="presentationPhone" type="text" ng-model="presentation.phone" ng-required="true">
+            <div ng-messages="presentationForm.presentationPhone.$error" ng-if="presentationForm.$submitted || presentationForm.presentationPhone.$touched">
+              <div ng-message="required">Please enter your phone number</div>
+            </div>
           </md-input-container>
           <br>
           <md-content layout-align="space-between center" layout="row">

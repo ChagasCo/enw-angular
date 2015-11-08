@@ -8,14 +8,13 @@
  * Controller of the angularApp
  */
 angular.module("angularApp")
-  .controller("ServicesCtrl", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
+  .controller("ServicesCtrl", ["$scope", "$http", "$sce", "$mdToast", "emailSvc", "$document", function($scope, $http, $sce, $mdToast, emailSvc, $document) {
     $scope.trustAsHtml = $sce.trustAsHtml;
 
     $scope.haveAGoSession = {
       name: "",
       email: "",
-      phone: "",
-      hire: 1
+      phone: ""
     };
 
     $scope.haveAGoSessionSubmit = function() {
@@ -30,9 +29,6 @@ angular.module("angularApp")
       // });
     };
 
-    $scope.classesSubmit = function() {
-      console.log("process data");
-    };
 
     $scope.classes = [
       {
@@ -53,12 +49,39 @@ angular.module("angularApp")
     ];
 
     $scope.classesFormData = {
-      class: $scope.classes[0],
+      class: $scope.classes[0].name,
       name: "",
       phone: "",
-      equipment: 1,
-      attendees: $scope.classes[0].attendees
+      email: "",
+      equipment: "No"
     };
+    $scope.classesFormProcessing = false;
+    $scope.classesSubmit = function() {
+      $scope.classesFormProcessing = true;
+      alert("Class data: " + JSON.stringify($scope.classesFormData));
+
+      var message = "Hello Heather, <br /><br />You have received an enquiry about the range of Classes.<br /><br /> Class: <strong>" + $scope.classesFormData.class + "<strong><br/><br/> Contact Name: " + $scope.classesFormData.name + "<br />Email: " + $scope.classesFormData.email + "<br />Phone: " + $scope.classesFormData.phone + "<br />Equipment: " + $scope.classesFormData.equipment + "<br /><br /><hr />";
+      var fromAddress = $scope.classesFormData.email;
+
+      emailSvc.sendEmail(message, fromAddress)
+      .then(function(result) {
+        $mdToast.show({
+          template: "<md-toast>" + result.message + "</md-toast>",
+          parent: $document[0].querySelector("#classesToast"),
+          hideDelay: 4000,
+          position: "bottom"
+        });
+        $scope.classesFormProcessing = false;
+      }, function(error) {
+        $mdToast.show({
+          template: "<md-toast>" + error + "</md-toast>",
+          parent: $document[0].querySelector("#classesToast"),
+          hideDelay: 4000,
+          position: "bottom"
+        });
+      });
+    };
+
 
     $scope.itemSliderClick = function(item, event) {
       var button = $(event.target);
@@ -69,24 +92,22 @@ angular.module("angularApp")
       button.addClass("active");
       button.html("Selected");
 
-      $scope.classesFormData.class = item;
+      $scope.classesFormData.class = item.name;
     };
     $scope.range = function(num) {
       return new Array(num);
     };
 
-    $scope.presentation = [
-      {
-        name: "",
-        organisationName: "",
-        email: "",
-        phone: ""
-      }
-    ];
+    $scope.presentation = {
+      name: "",
+      organisationName: "",
+      email: "",
+      phone: ""
+    };
 
     $scope.presentationSubmit = function() {
-      // TODO: Handle submit
-      console.log("Presentation data: " + JSON.stringiy(presentation));
+      alert("Presentation data: " + JSON.stringify($scope.presentation));
+      // Call email services
     };
 
   }]);

@@ -9,7 +9,7 @@
  * Main module of the application.
  */
 
-var app = angular.module("angularApp", ["ui.router", "angular-flexslider", "ngMaterial", "ngMdIcons", "ngFileUpload"]);
+var app = angular.module("angularApp", ["ui.router", "angular-flexslider", "ngMaterial", "ngMdIcons", "ngFileUpload", "ngAnimate", "ngAria", "ngMessages"]);
 
 app.run(["$rootScope", "$location", "$state", "authenticationSvc", "$stateParams", "$anchorScroll", function($rootScope, $location, $state, authenticationSvc, $stateParams, $anchorScroll) {
     // $rootScope.$state = $state;

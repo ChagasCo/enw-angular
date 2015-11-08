@@ -352,6 +352,27 @@ section.slider {
   font-weight: 700;
   font-size: 18px;
 }
+#classesForm {
+  min-width: 480px;
+}
+@media only screen and (max-width: 768px) {
+  #classesForm {
+    min-width: 368px;
+  }
+}
+
+md-toast {
+  width: 100%;
+}
+
+#classesToast {
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: -42px;
+  height: 64px;
+  overflow: hidden;
+}
+
 
 /* Product */
 .product-card {
