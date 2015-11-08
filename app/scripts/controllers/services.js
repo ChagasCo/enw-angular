@@ -14,8 +14,7 @@ angular.module("angularApp")
     $scope.haveAGoSession = {
       name: "",
       email: "",
-      phone: "",
-      hire: 1
+      phone: ""
     };
 
     $scope.haveAGoSessionSubmit = function() {
@@ -53,7 +52,7 @@ angular.module("angularApp")
       class: $scope.classes[0].name,
       name: "",
       phone: "",
-      equipment: "Yes"
+      equipment: "No"
     };
 
     $scope.classesSubmit = function() {
