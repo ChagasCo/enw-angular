@@ -10,8 +10,8 @@
     <h2 class="heading1">Experience Better</h2>
     <h3 class="heading2">Professional help to get you started with Nordic Walking</h3>
   </md-content>
-  <md-content layout="row" layout-sm="column" layout-margin layout-wrap>
-    <md-card flex flex-md="45"  layout="column" class="hoverable enw-card" ng-repeat="card in cards" ng-click="card.navigate()">
+  <md-content layout="row" layout-sm="column" layout-margin layout-wrap layout-fill>
+    <md-card flex flex-md="45" layout="column" class="hoverable enw-card" ng-repeat="card in cards" ng-click="card.navigate()">
      <img ng-src="{{card.image}}" class="md-card-image" alt="{{card.title}}">
      <md-card-content layout="column">
        <span class="md-subhead">{{card.subtitle}}</span>

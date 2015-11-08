@@ -10,8 +10,10 @@
       }
 
       function isAuth() {
-        if (JSON.parse($window.sessionStorage["userInfo"]) && (JSON.parse($window.sessionStorage["userInfo"]).accessToken === getUserInfo().accessToken)) {
-          return true;
+        if ($window.sessionStorage["userInfo"] !== undefined) {
+          if (JSON.parse($window.sessionStorage["userInfo"]) && (JSON.parse($window.sessionStorage["userInfo"]).accessToken === getUserInfo().accessToken)) {
+            return true;
+          }
         }
         return false;
       }

@@ -12,41 +12,89 @@
   	.controller("AddProductsCtrl", ["$scope", "$http", "$sce", function($scope, $http, $sce) {
   		$scope.trustAsHtml = $sce.trustAsHtml;
 
-      $scope.products = [];
-
-      $http({
-        method: 'GET',
-        url: 'http://essentialnordicwalking.com.au/php/products.php'
-      }).then(function successCallback(response) {
-        if (response) {
-          $scope.products = response.data;
-          console.log($scope.products);
+      $scope.isUpdate = true;
+      $scope.initAddProduct = function() {
+        // $scope.isUpdate = false;
+      }
+      $scope.newProduct = {
+        name: "",
+        manufacturer: "",
+        content: "",
+        thumb: "",
+        price: ""
+      };
+      // $scope.products = [];
+      $scope.products = [
+        {
+          id: 1,
+          name: "Product 1",
+          manufacturer: "Leki",
+          content: "Some description",
+          thumb: "http://www.wildearth.com.au/assets/full/6322156.png",
+          price: 179.50
+        },
+        {
+          id: 2,
+          name: "Product 2",
+          manufacturer: "Leki",
+          content: "Some description",
+          thumb: "http://www.wildearth.com.au/assets/full/6322156.png",
+          price: 179.50
+        },
+        {
+          id: 3,
+          name: "Product 3",
+          manufacturer: "Leki",
+          content: "Some description",
+          thumb: "http://www.wildearth.com.au/assets/full/6322156.png",
+          price: 179.50
+        },
+        {
+          id: 4,
+          name: "Product 4",
+          manufacturer: "Leki",
+          content: "Some description",
+          thumb: "http://www.wildearth.com.au/assets/full/6322156.png",
+          price: 179.50
         }
-      }, function errorCallback(response) {
-        // called asynchronously if an error occurs
-        // or server returns response with an error status.
-      });
+      ];
 
-    		$scope.selectedProduct = $scope.products[0];
+      // $http({
+      //   method: 'GET',
+      //   url: 'http://essentialnordicwalking.com.au/php/products.php'
+      // }).then(function successCallback(response) {
+      //   if (response) {
+      //     $scope.products = response.data;
+      //     console.log($scope.products);
+      //   }
+      // }, function errorCallback(response) {
+      //   // called asynchronously if an error occurs
+      //   // or server returns response with an error status.
+      // });
+
+  		$scope.selectedProduct = $scope.products[0];
 
       $scope.productSelect = function(product, $event) {
+        // $scope.isUpdate = true;
 
-        var _this = $(event.target);
-
-        if (!_this.hasClass("product-card")) {
-          _this = _this.parent();
-        }
+        var button = $(event.target);
 
         var itemContents = $(".product-card");
         $.each(itemContents, function(key, value){
-          $(value).removeClass("active");
+          $(value).find(".class-btn").removeClass("active").html("Select");
         });
-        _this.addClass("active");
+        button.addClass("active");
+        button.html("Selected");
+
 
         $scope.selectedProduct = product;
       };
 
       $scope.saveProduct = function(product) {
+
+      }
+
+      $scope.addProduct = function() {
 
       }
 
