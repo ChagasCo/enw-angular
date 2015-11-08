@@ -58,6 +58,7 @@ angular.module("angularApp")
 
     $scope.classesSubmit = function() {
       alert("Class data: " + JSON.stringify($scope.classesFormData));
+      // Call email services
     };
 
 

@@ -50,7 +50,7 @@
 </section>
 
 <!-- CLASSES SECTION -->
-<div class="services-classes-background">
+<div class="services-classes-background" layout="column">
   <section class="slider" layout="column">
     <md-content>
       <h2 class="heading1">Range of Classes</h2>
@@ -72,43 +72,52 @@
   <md-content>
     <h2 class="heading1">Booking</h2>
   </md-content>
-  <section>
-  <md-content layout="row" layout-margin>
-    <form id="classesForm" ng-submit="classesSubmit()" flex layout-align="center center" layout="row">
-      <md-content layout="column" flex="45" flex-sm="100">
-        <md-content layout="column">
-          <md-input-container >
-            <label>Selected Class</label>
-            <input type="text" ng-model="classesFormData.class" readonly required>
-          </md-input-container>
-          <md-input-container >
-            <label>Name</label>
-            <input type="text" name="booking-name" id="booking-name" ng-model="classesFormData.name" required>
-          </md-input-container>
-          <md-input-container >
-            <label>Email</label>
-            <input type="email" name="booking-email" id="booking-email" ng-model="classesFormData.email" required>
-          </md-input-container>
-          <md-input-container >
-            <label>Phone</label>
-            <input type="text" name="booking-phone" id="booking-phone" ng-model="classesFormData.phone" required>
-          </md-input-container>
-          <md-input-container >
-            <md-radio-group ng-model="classesFormData.equipment">
-              <label>Hire Equipment?</label>
-              <br><br>
-              <md-radio-button value="Yes">Yes</md-radio-button>
-              <md-radio-button value="No">No</md-radio-button>
-            </md-radio-group>
-          </md-input-container>
-        </md-content>
-        <md-content layout-align="space-between center" layout="row">
-          <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
-        </md-content>
+  <section class="no-padding" layout="column" layout-align="center center">
+    <form id="classesForm" name="classesForm" layout="column" ng-submit="classesForm.$valid && classesSubmit()" novalidate>
+      <md-content layout="column">
+        <md-input-container md-is-error="classesForm.className.$invalid && (classesForm.$submitted || classesForm.className.$dirty)">
+          <label>Selected Class</label>
+          <input name="className" id="className"  type="text" ng-model="classesFormData.class" readonly ng-required="true">
+          <div ng-messages="classesForm.className.$error" ng-if="classesForm.$submitted || classesForm.className.$touched">
+            <div ng-message="required">Please select a class above.</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-is-error="classesForm.classBookingName.$invalid && (classesForm.$submitted || classesForm.classBookingName.$dirty)">
+          <label>Name</label>
+          <input type="text" name="classBookingName" id="classBookingName" ng-model="classesFormData.name"  ng-required="true">
+          <div ng-messages="classesForm.classBookingName.$error" ng-if="classesForm.$submitted || classesForm.classBookingName.$touched">
+            <div ng-message="required">Please enter your name.</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-is-error="classesForm.classBookingEmail.$invalid && (classesForm.$submitted || classesForm.classBookingEmail.$dirty)">
+          <label>Email</label>
+          <input type="email" name="classBookingEmail" id="classBookingEmail" ng-model="classesFormData.email"  ng-required="true">
+          <div ng-messages="classesForm.classBookingEmail.$error" ng-if="classesForm.$submitted || classesForm.classBookingEmail.$touched">
+            <div ng-message="required">Please enter your email.</div>
+          </div>
+        </md-input-container>
+        <md-input-container md-is-error="classesForm.classBookingPhone.$invalid && (classesForm.$submitted || classesForm.classBookingPhone.$dirty)">
+          <label>Phone</label>
+          <input name="classBookingPhone" id="classBookingPhone" type="text" ng-model="classesFormData.phone"  ng-required="true">
+          <div ng-messages="classesForm.classBookingPhone.$error" ng-if="classesForm.$submitted || classesForm.classBookingPhone.$touched">
+            <div ng-message="required">Please enter your phone number.</div>
+          </div>
+        </md-input-container>
+        <br>
+        <md-input-container>
+          <md-radio-group name="classBookingEquipment" id="classBookingEquipment" ng-model="classesFormData.equipment" >
+            <label>Hire Equipment?</label>
+            <br><br>
+            <md-radio-button value="Yes">Yes</md-radio-button>
+            <md-radio-button value="No">No</md-radio-button>
+          </md-radio-group>
+        </md-input-container>
+      </md-content>
+      <md-content layout-align="space-between center" layout="row">
+        <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
       </md-content>
     </form>
   </md-content>
-  </section>
 </div>
 
 <!-- PRESENTATION SECTION -->
