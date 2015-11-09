@@ -60,12 +60,12 @@
 
 <!-- CLASSES SECTION -->
 <div class="services-classes-background" layout="column">
-  <section class="slider" layout="column">
-    <md-content>
+  <section class="slider no-padding-sides" layout="column">
+    <md-content layout="column" layout-fill>
       <h2 class="heading1">Range of Classes</h2>
       <h3 class="heading2">Participate in a group class or special sessions</h3>
     </md-content>
-    <md-content layout="row">
+    <md-content layout="row" layout-fill>
       <md-card class="walk-class" ng-repeat="class in classes" layout="column" flex="40" flex-sm="85">
         <img ng-src="{{class.thumb}}" class="md-card-image" alt="{{class.name}}">
         <md-card-content>
@@ -81,9 +81,11 @@
       </md-card>
     </md-content>
   </section>
+  <br><br>
   <md-content>
     <h2 class="heading1">Booking</h2>
   </md-content>
+  <br><br>
   <section class="no-padding" layout="column" layout-align="center center">
     <form id="classesForm" name="classesForm" layout="column" ng-submit="classesForm.$valid && classesSubmit()" novalidate>
       <md-content layout="column">
@@ -192,7 +194,6 @@
         </md-content>
       </form>
       <md-content id="presentationToast" layout="column"></md-content>
-      <br><br>
     </md-content>
   </md-content>
 </section>
