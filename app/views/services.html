@@ -28,7 +28,7 @@
       </p>
     </div>
     <span flex="5"></span>
-    <div flex="50" flex-sm="100">
+    <div flex="50" flex-sm="100" layout="column" layout-fill>
       <form id="haveAGoForm" name="haveAGoForm" layout="column" ng-submit="haveAGoForm.$valid && haveAGoSessionSubmit()" novalidate>
         <md-input-container flex md-is-error="haveAGoForm.goName.$invalid && (haveAGoForm.$submitted || haveAGoForm.goName.$dirty)">
           <label>Name</label>
@@ -52,20 +52,20 @@
           </div>
         </md-input-container>
         <br><br>
-        <md-button class="btn-submit" flex type="submit" ng-disabled="haveAGoForm.$submitted">SEND ENQUIRY</md-button>
+        <md-button class="btn-submit" flex type="submit" ng-disabled="haveAGoFormProcessing">SEND ENQUIRY</md-button>
       </form>
     </div>
   </md-content>
+  <md-content id="haveAGoToast" layout="column"></md-content>
 </section>
 
 <!-- CLASSES SECTION -->
-<div class="services-classes-background" layout="column">
-  <section class="slider no-padding-sides" layout="column">
+<div class="services-classes-background min-padding-sides" layout="column" >
     <md-content layout="column" layout-fill>
       <h2 class="heading1">Range of Classes</h2>
       <h3 class="heading2">Participate in a group class or special sessions</h3>
     </md-content>
-    <md-content layout="row" layout-fill>
+    <md-content layout="row" layout-margin layout-fill>
       <md-card class="walk-class" ng-repeat="class in classes" layout="column" flex="40" flex-sm="85">
         <img ng-src="{{class.thumb}}" class="md-card-image" alt="{{class.name}}">
         <md-card-content>
@@ -80,8 +80,7 @@
         </div>
       </md-card>
     </md-content>
-  </section>
-  <br><br>
+    <br><br>
   <md-content>
     <h2 class="heading1">Booking</h2>
   </md-content>
@@ -136,7 +135,6 @@
 </div>
 
 <!-- PRESENTATION SECTION -->
-<!-- <div class="services-presentation-background"> -->
 <section layout="column">
   <md-content>
     <h2 class="heading1">Presentations</h2>
@@ -189,7 +187,7 @@
           </md-input-container>
           <br>
           <md-content layout-align="space-between center" layout="row">
-            <md-button flex class="btn-submit" type="submit" >SEND ENQUIRY</md-button>
+            <md-button flex class="btn-submit" type="submit" ng-disabled="presentationFormProcessing">SEND ENQUIRY</md-button>
           </md-content>
         </md-content>
       </form>

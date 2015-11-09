@@ -17,15 +17,42 @@ angular.module("angularApp")
       phone: ""
     };
 
+    $scope.haveAGoFormProcessing = false;
     $scope.haveAGoSessionSubmit = function() {
-      console.log(JSON.stringify($scope.haveAGoSession));
+      $scope.haveAGoFormProcessing = true;
 
-      // TODO: Validate data before posting
-      // TODO: Show error message if invalid. md-input has a hanlder for error messages
+      var message = "Hello Heather, <br /><br />You have received an enquiry about a Have A Go Session.<br /><br /><br />Contact Name: " + $scope.haveAGoSession.name + "<br/>Contact Email: " + $scope.haveAGoSession.email + " <br />Contact Phone: " + $scope.haveAGoSession.phone + "<br /><br /><hr />";
+      var fromAddress = $scope.haveAGoSession.email;
 
-      // $http.post("http://essentialnordicwalking.com.au/data/haveAGo.php", JSON.stringify(haveAGoSession)).success(function() {
-      //   console.log("done");
-      // });
+      emailSvc.sendEmail(message, fromAddress)
+      .then(function(result) {
+        $mdToast.show({
+          template: "<md-toast>" + result.message + "</md-toast>",
+          parent: $document[0].querySelector("#haveAGoToast"),
+          hideDelay: 40000,
+          position: "bottom"
+        });
+
+        // Reset values
+        $scope.haveAGoSession = angular.copy({
+          name: "",
+          email: "",
+          phone: ""
+        });
+
+        $scope.haveAGoForm.$setPristine();
+        $scope.haveAGoForm.$setValidity();
+        $scope.haveAGoForm.$setUntouched();
+
+        $scope.haveAGoFormProcessing = false;
+      }, function(error) {
+        $mdToast.show({
+          template: "<md-toast>" + error + "</md-toast>",
+          parent: $document[0].querySelector("#haveAGoToast"),
+          hideDelay: 40000,
+          position: "bottom"
+        });
+      });
     };
 
 
@@ -130,7 +157,7 @@ angular.module("angularApp")
         $mdToast.show({
           template: "<md-toast>" + result.message + "</md-toast>",
           parent: $document[0].querySelector("#presentationToast"),
-          hideDelay: 20000,
+          hideDelay: 4000,
           position: "bottom"
         });
 
