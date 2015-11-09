@@ -365,7 +365,8 @@ md-toast {
   width: 100%;
 }
 
-#classesToast {
+#classesToast,
+#presentationToast {
   width: 100%;
   margin-top: 16px;
   margin-bottom: -42px;

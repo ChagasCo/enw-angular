@@ -54,12 +54,12 @@ angular.module("angularApp")
       email: "",
       equipment: "No"
     };
-    
+
     $scope.classesFormProcessing = false;
     $scope.classesSubmit = function() {
       $scope.classesFormProcessing = true;
 
-      var message = "Hello Heather, <br /><br />You have received an enquiry about the range of Classes.<br /><br /><br /><strong>Class:</strong> " + $scope.classesFormData.class + "<br/><strong>Contact Name:</strong> " + $scope.classesFormData.name + "<br /><strong>Email:</strong> " + $scope.classesFormData.email + " <br /><strong>Phone:</strong> " + $scope.classesFormData.phone + "<br /><strong>Equipment:</strong> " + $scope.classesFormData.equipment + "<br /><br /><hr />";
+      var message = "Hello Heather, <br /><br />You have received an enquiry about the range of Classes.<br /><br /><br />Class: " + $scope.classesFormData.class + "<br/>Contact Name: " + $scope.classesFormData.name + "<br />Email: " + $scope.classesFormData.email + " <br />Phone: " + $scope.classesFormData.phone + "<br />Equipment: " + $scope.classesFormData.equipment + "<br /><br /><hr />";
       var fromAddress = $scope.classesFormData.email;
 
       emailSvc.sendEmail(message, fromAddress)
@@ -118,9 +118,51 @@ angular.module("angularApp")
       phone: ""
     };
 
+    $scope.presentationFormProcessing = false;
     $scope.presentationSubmit = function() {
-      alert("Presentation data: " + JSON.stringify($scope.presentation));
-      // Call email services
+      $scope.presentationFormProcessing = true;
+
+      var message = "Hello Heather, <br /><br />You have received an enquiry about a presentation.<br /><br /><br />Contact Name: " + $scope.presentation.name + "<br/>Contact Organisation Name: " + $scope.presentation.organisationName + "<br />Contact Email: " + $scope.presentation.email + " <br />Contact Phone: " + $scope.presentation.phone + "<br /><br /><hr />";
+      var fromAddress = $scope.presentation.email;
+
+      emailSvc.sendEmail(message, fromAddress)
+      .then(function(result) {
+        $mdToast.show({
+          template: "<md-toast>" + result.message + "</md-toast>",
+          parent: $document[0].querySelector("#presentationToast"),
+          hideDelay: 20000,
+          position: "bottom"
+        });
+
+        // Reset values
+        $scope.presentation = angular.copy({
+          name: "",
+          organisationName: "",
+          email: "",
+          phone: ""
+        });
+
+        $scope.presentationForm.$setPristine();
+        $scope.presentationForm.$setValidity();
+        $scope.presentationForm.$setUntouched();
+
+        $scope.presentationFormProcessing = false;
+      }, function(error) {
+        $mdToast.show({
+          template: "<md-toast>" + error + "</md-toast>",
+          parent: $document[0].querySelector("#presentationToast"),
+          hideDelay: 4000,
+          position: "bottom"
+        });
+      });
+    };
+
+
+    $scope.classesFormProcessing = false;
+    $scope.classesSubmit = function() {
+      $scope.classesFormProcessing = true;
+
+
     };
 
   }]);
