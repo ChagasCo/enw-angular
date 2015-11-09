@@ -369,11 +369,18 @@ md-toast {
 #presentationToast {
   width: 100%;
   margin-top: 16px;
-  margin-bottom: -42px;
   height: 64px;
   overflow: hidden;
 }
-
+/*@media only screen and (max-width: 768px) {
+  #classesToast,
+  #presentationToast {
+    margin-bottom: -24px;
+  }
+}*/
+.no-padding-sides {
+  padding: 32px 0;
+}
 
 /* Product */
 .product-card {
