@@ -90,7 +90,7 @@
       <md-content layout="column">
         <md-input-container md-is-error="classesForm.className.$invalid && (classesForm.$submitted || classesForm.className.$dirty)">
           <label>Selected Class</label>
-          <input name="className" id="className"  type="text" ng-model="classesFormData.class" readonly ng-required="true">
+          <input name="className" id="className"  type="text" ng-model="classesFormData.class" disabled ng-required="true">
           <div ng-messages="classesForm.className.$error" ng-if="classesForm.$submitted || classesForm.className.$touched">
             <div ng-message="required">Please select a class above</div>
           </div>
