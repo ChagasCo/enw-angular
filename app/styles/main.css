@@ -367,6 +367,7 @@ md-toast {
 
 #classesToast,
 #presentationToast,
+#registerToast,
 #haveAGoToast {
   width: 100%;
   margin-top: 16px;

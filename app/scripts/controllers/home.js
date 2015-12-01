@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   angular.module("angularApp")
-    .controller("HomeCtrl", ["$scope", "$sce", "$state", function($scope, $sce, $state) {
+    .controller("HomeCtrl", ["$scope", "$sce", "$state", "emailSvc", "$mdToast", "$document", function($scope, $sce, $state, emailSvc, $mdToast, $document) {
       $scope.trustAsHtml = $sce.trustAsHtml;
 
       $scope.cards = [
@@ -57,14 +57,52 @@
       $scope.register = {
         firstName: "",
         lastName: "",
+        email: "",
         phoneNumber: "",
-        preferedCallBack: ""
+        preferredCallBack: ""
       };
 
+      $scope.registerSubmitProcessing = false;
       $scope.registerSubmit = function() {
-        // TODO: Validate inputs
-        alert("Handle Form Submit");
-      }
+        $scope.registerSubmitProcessing = true;
+
+        var message = "Hello Heather, <br /><br />You have received an enquiry regarding an expression of interest.<br /><br /><br />Contact Name: " + $scope.register.firstName + " " + $scope.register.lastName + "<br/>Contact Email: " + $scope.register.email  + "<br/>Contact Phone: " + $scope.register.phone + " <br />Preferred Callback Time: " + $scope.register.preferredCallBack + "<br /><br /><hr />";
+        var fromAddress = $scope.register.email;
+
+        emailSvc.sendEmail(message, fromAddress)
+        .then(function(result) {
+          console.log(result);
+          $mdToast.show({
+            template: "<md-toast>" + result.message + "</md-toast>",
+            parent: $document[0].querySelector("#registerToast"),
+            hideDelay: 4000,
+            position: "bottom"
+          });
+
+          // Reset values
+          $scope.register = angular.copy({
+            firstName: "",
+            lastName: "",
+            email: "",
+            phoneNumber: "",
+            preferredCallBack: ""
+          });
+
+          $scope.registerForm.$setPristine();
+          $scope.registerForm.$setValidity();
+          $scope.registerForm.$setUntouched();
+
+          $scope.registerSubmitProcessing = false;
+        }, function(error) {
+          $mdToast.show({
+            template: "<md-toast>" + error + "</md-toast>",
+            parent: $document[0].querySelector("#registerToast"),
+            hideDelay: 4000,
+            position: "bottom"
+          });
+          $scope.registerSubmitProcessing = false;
+        });
+      };
 
   }]);
 })();

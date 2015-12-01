@@ -52,6 +52,7 @@ angular.module("angularApp")
           hideDelay: 4000,
           position: "bottom"
         });
+        $scope.haveAGoFormProcessing = false;
       });
     };
 
@@ -119,6 +120,7 @@ angular.module("angularApp")
           hideDelay: 4000,
           position: "bottom"
         });
+        $scope.classesFormProcessing = false;
       });
     };
 
@@ -181,6 +183,7 @@ angular.module("angularApp")
           hideDelay: 4000,
           position: "bottom"
         });
+        $scope.presentationFormProcessing = false;
       });
     };
 
