@@ -65,53 +65,55 @@
     </md-toolbar>
 
     <div hide-gt-md ng-controller="MenuCtrl" >
-      <md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav">
-        <md-toolbar>
-          <h1 class="md-toolbar-tools">Menu</h1>
-        </md-toolbar>
-         <md-list layout="column" md-padding>
-           <md-item>
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="home" aria-label="Home" ng-click="close()">
-                Home
-              </md-button>
-           </md-item>
-           <md-item>
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="about" aria-label="About" ng-click="close()">About</md-button>
-           </md-item>
-           <md-item>
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="services" aria-label="Services" ng-click="close()">Services</md-button>
-           </md-item>
-           <md-item>
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="products" aria-label="Products" ng-click="close()">
-                Products
-              </md-button>
-           </md-item>
-           <md-item>
-              <md-button class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQs">
-                FAQs
-              </md-button>
-           </md-item>
+      <md-content flex layout="column" layout-fill>
+        <md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav">
+          <md-toolbar>
+            <h1 class="md-toolbar-tools">Menu</h1>
+          </md-toolbar>
+           <md-list layout="column" md-padding flex>
+             <md-item>
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="home" aria-label="Home" ng-click="close()">
+                  Home
+                </md-button>
+             </md-item>
+             <md-item>
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="about" aria-label="About" ng-click="close()">About</md-button>
+             </md-item>
+             <md-item>
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="services" aria-label="Services" ng-click="close()">Services</md-button>
+             </md-item>
+             <md-item>
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="products" aria-label="Products" ng-click="close()">
+                  Products
+                </md-button>
+             </md-item>
+             <md-item>
+                <md-button class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQs">
+                  FAQs
+                </md-button>
+             </md-item>
 
-           <!-- Login Button -->
-           <md-divider></md-divider>
-           <md-item ng-show="auth">
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="add-products" aria-label="Add Products" ng-click="close()">
-                Add Products
-              </md-button>
-           </md-item>
-           <md-item ng-show="!auth">
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="login" aria-label="Login" ng-click="close()">
-                Login
-              </md-button>
-           </md-item>
-           <md-item ng-show="auth">
-              <md-button class="nav-button" ui-sref-active="nav-active-mobile" aria-label="Logout" ng-click="logout()">
-                Logout
-              </md-button>
-           </md-item>
-         </md-list>
+             <!-- Login Button -->
+             <md-divider></md-divider>
+             <md-item ng-show="auth">
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="add-products" aria-label="Add Products" ng-click="close()">
+                  Add Products
+                </md-button>
+             </md-item>
+             <md-item ng-show="!auth">
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="login" aria-label="Login" ng-click="close()">
+                  Login
+                </md-button>
+             </md-item>
+             <md-item ng-show="auth">
+                <md-button class="nav-button" ui-sref-active="nav-active-mobile" aria-label="Logout" ng-click="logout()">
+                  Logout
+                </md-button>
+             </md-item>
+           </md-list>
 
-      </md-sidenav>
+        </md-sidenav>
+      </md-content>
     </div>
 
     <md-content flex ui-view></md-content>
@@ -164,52 +166,6 @@
           <span flex="5"></span>
         </md-content>
       </footer>
-
-    <!-- <footer class="footer">
-        <md-content class="footer-content" layout="row" layout-align="center center">
-        <div flex-gt-md="40" flex-sm="20" flex-md="35"></div>
-            <div flex-gt-md="10" flex-sm="25" layout="column">
-              <md-list class="footer-list-left">
-                <md-list-item>
-                  <md-button ui-sref="home">Home</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ui-sref="about">About</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ui-sref="services">Services</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ui-sref="products">Products</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ng-href="http://www.mynordicsports.com.au/index.php/faq/">FAQs</md-button>
-                </md-list-item>
-              </md-list>
-            </div>
-            <div flex="1" class="footer-divider"></div>
-            <div flex-sm="45" flex-gt-sm layout="column">
-              <md-list class="footer-list-right">
-                <md-list-item>
-                  <md-button ng-href="#">ENW</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ng-href="http://www.nordicacademy.com.au/">Nordic Academy</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ng-href="#">Terms of Service</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ng-href="#">Privacy Policy</md-button>
-                </md-list-item>
-                <md-list-item>
-                  <md-button ng-href="http://chagas.co/">Built by ChagasCo</md-button>
-                </md-list-item>
-              </md-list>
-            </div>
-            <div flex-gt-md="0" flex-sm="5"></div>
-        </md-content>
-    </footer> -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>

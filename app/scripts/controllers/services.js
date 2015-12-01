@@ -29,7 +29,7 @@ angular.module("angularApp")
         $mdToast.show({
           template: "<md-toast>" + result.message + "</md-toast>",
           parent: $document[0].querySelector("#haveAGoToast"),
-          hideDelay: 40000,
+          hideDelay: 4000,
           position: "bottom"
         });
 
@@ -49,7 +49,7 @@ angular.module("angularApp")
         $mdToast.show({
           template: "<md-toast>" + error + "</md-toast>",
           parent: $document[0].querySelector("#haveAGoToast"),
-          hideDelay: 40000,
+          hideDelay: 4000,
           position: "bottom"
         });
       });
