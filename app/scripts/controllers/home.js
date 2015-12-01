@@ -1,7 +1,7 @@
 (function() {
   "use strict";
   angular.module("angularApp")
-    .controller("HomeCtrl", ["$scope", "$sce", function($scope, $sce) {
+    .controller("HomeCtrl", ["$scope", "$sce", "$state", function($scope, $sce, $state) {
       $scope.trustAsHtml = $sce.trustAsHtml;
 
       $scope.cards = [
@@ -12,7 +12,9 @@
           content: "Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.",
           navigate: function() {
             // Navigate with UI Router
-            alert("Go to Have a go session");
+            $state.go("services", {
+              "#": "have-a-go"
+            });
           }
         },
         {
@@ -21,7 +23,9 @@
           title: "Buy or Hire Equipment",
           content: "Learn how to use the core equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.",
           navigate: function() {
-            alert("Go to Equipment");
+            $state.go("products", {
+              "#": "equipment"
+            });
           }
         },
         {
@@ -30,7 +34,9 @@
           subtitle: "Classes",
           content: "Experience a 4 session course with a group of fellow Nordic Walkers. Take your skills to the next level and try out the course today.",
           navigate: function() {
-            alert("Go to Group Classes");
+            $state.go("services", {
+              "#": "group-classes"
+            });
           }
         }
       ];
