@@ -67,6 +67,18 @@ app.config(function($stateProvider, $urlRouterProvider, $locationProvider, $mdTh
       url: "/products",
       controller: "ProductsCtrl",
       templateUrl: "views/products.html",
+      resolve: {
+        products: function($q, productsSvc) {
+          console.log("getting products");
+          var products = productsSvc.getProducts();
+          if (products) {
+            return $q.when(products);
+          } else {
+            return $q.reject(products);
+          }
+        }
+
+      }
     })
     .state("login", {
       url: "/login",

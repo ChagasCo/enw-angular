@@ -8,22 +8,12 @@
  * Controller of the angularApp
  */
 angular.module("angularApp")
-  .controller("ProductsCtrl", ["$scope", "$sce", "$http", function($scope, $sce, $http) {
+  .controller("ProductsCtrl", ["$scope", "$sce", "$http", "products", function($scope, $sce, $http, products) {
     $scope.trustAsHtml = $sce.trustAsHtml;
 
-    $scope.products = [];
+    $scope.products = products;
 
-    $http({
-      method: 'GET',
-      url: 'http://essentialnordicwalking.com.au/php/products.php'
-    }).then(function successCallback(response) {
-      if (response) {
-        $scope.products = response.data;
-      }
-    }, function errorCallback(response) {
-      // called asynchronously if an error occurs
-      // or server returns response with an error status.
-    });
+
 
     $scope.selectedProduct = $scope.products[0];
 
