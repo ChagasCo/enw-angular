@@ -1,0 +1,33 @@
+<div class="login-cmp">
+
+  <!-- Hero Banner -->
+  <md-content class="hero md-padding" layout="column" layout-align="center start">
+    <h1 class="md-title">Login</h1>
+  </md-content>
+
+  <md-content layout="column" layout-align="start center">
+    <form name="loginForm" class="login-form" layout="column" ng-submit="loginForm.$valid && vm.login()" novalidate>
+
+      <!-- Email -->
+      <md-input-container flex md-is-error="loginForm.email.$invalid && (loginForm.$submitted || loginForm.email.$dirty)">
+        <label>Email</label>
+        <input name="email" type="email" ng-model="vm.credentials.email" ng-required="true">
+        <div ng-messages="loginForm.email.$error" ng-if="loginForm.$submitted || loginForm.email.$touched">
+          <div ng-message="required">Please enter your email</div>
+        </div>
+      </md-input-container>
+
+      <!-- Password -->
+      <md-input-container flex md-is-error="loginForm.password.$invalid && (loginForm.$submitted || loginForm.password.$dirty)">
+        <label>Password</label>
+        <input name="password" type="password" ng-model="vm.credentials.password" ng-required="true">
+        <div ng-messages="loginForm.password.$error" ng-if="loginForm.$submitted || loginForm.password.$touched">
+          <div ng-message="required">Please enter your password</div>
+        </div>
+      </md-input-container>
+
+      <md-button class="submit" type="submit" ng-disabled="loginValidating">Login</md-button>
+    </form>
+  </md-content>
+
+</div>

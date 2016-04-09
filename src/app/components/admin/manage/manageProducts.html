@@ -1,0 +1,38 @@
+<div class="manage-products-cmp">
+
+  <!-- Hero Banner -->
+  <md-content class="hero md-padding" layout="column" layout-align="center start">
+    <h1 class="md-title">Manage Products</h1>
+  </md-content>
+
+  <md-content class="md-padding">
+    <md-grid-list
+      md-cols="6"
+      md-row-height="356px"
+      md-gutter="16px"
+      md-gutter-sm="8px"
+      id="makeGrid"
+      >
+
+    <md-grid-tile
+      ng-repeat="product in vm.products"
+      md-rowspan="1"
+      md-colspan="1"
+      class="md-whiteframe-z1 "
+      ui-sref="viewProduct({ id: {{product.id}} })">
+
+
+
+      <!-- <div class="img"> -->
+        <img class="md-padding" ng-src="{{product.imageUrl}}" alt="{{product.name}}" style="height: 280px;">
+      <!-- </div> -->
+
+      <md-grid-tile-footer style="background-color: rgba(0,0,0,.60)">
+        <h3>{{product.brand}} | {{product.price | currency}}</h3>
+      </md-grid-tile-footer>
+
+    </md-grid-tile>
+
+    </md-grid-list>
+  </md-content>
+</div>

@@ -1,0 +1,313 @@
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+$enw-theme-color: #88a13e;
+
+body {
+  // height: 100%;
+  // overflow: auto;
+}
+
+main {
+  min-height: calc(100vh - 256px);
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+
+md-toolbar#toolbar {
+  background-color: #fff;
+  color: #000;
+
+
+  .nav-branding {
+    margin-right: 64px;
+  }
+
+  .nav-button {
+    color: #000;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: none;
+    border-radius: 0;
+    margin: 0;
+    height: 100%;
+    line-height: 64px;
+  }
+
+  .nav-active {
+    font-weight: 500;
+    background-color: transparent;
+    border-bottom: 4px solid $enw-theme-color;
+  }
+}
+
+@media screen and (max-height:200px){
+    // #sidebar {color:blue; font-size:50%;}
+    #toolbar {
+      position: fixed;
+      top: 0;
+    }
+}
+
+
+footer {
+  background-color: #484848;
+  color: #fff;
+  height: 128px;
+  padding: 64px;
+  // margin-top: 96px;
+}
+
+
+// /**
+//  *  Do not remove this comments bellow. It's the markers used by wiredep to inject
+//  *  sass dependencies when defined in the bower.json of your dependencies
+//  */
+// // bower:scss
+// // endbower
+//
+// @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+//
+// $profile-bgcolor: #303F9F;
+//
+// body {
+//   overflow: hidden;
+// }
+//
+// // [layout=row] {
+// //   flex-direction: row;
+// // }
+//
+// .browsehappy {
+//   margin: 0.2em 0;
+//   background: #ccc;
+//   color: #000;
+//   padding: 0.2em 0;
+// }
+//
+// .thumbnail {
+//   height: 200px;
+//
+//   img.pull-right {
+//     width: 50px;
+//   }
+// }
+//
+//
+// section.jumbotron {
+//   margin-bottom: 30px;
+//   padding: 1px 30px;
+//   background-color: #5aadbb;
+//   text-align: center;
+//
+//   color: white;
+//
+//   h1 {
+//     font-size: 3em;
+//   }
+// }
+//
+// .techs {
+//   display: flex;
+//   flex-flow: row wrap;
+//
+//   md-card {
+//     width: 30%;
+//
+//     img.pull-right {
+//       float: right;
+//       width: 50px;
+//     }
+//   }
+// }
+//
+// md-sidenav {
+//
+//
+//   #profile {
+//     background-color: $profile-bgcolor;
+//     height: 168px;
+//     color: #fff;
+//
+//     md-icon {
+//       color: #fff;
+//     }
+//
+//
+//     .avatar {
+//       width: 64px;
+//       height: 64px;
+//       border-radius: 100%;
+//     }
+//
+//     .displayName {
+//       // font-weight: 400;
+//       font-size: 18px;
+//     }
+//
+//     .admin {
+//       color: #F5A623;
+//       text-transform: uppercase;
+//       font-weight: 500;
+//       padding-top: 8px;
+//     }
+//   }
+//
+//   .nav-active {
+//     background-color: #ddd;
+//   }
+// }
+//
+// #toolbar {
+//     // border: 2px dashed green;
+//     // height: 80px;
+// }
+//
+// #content {
+//   // border: 2px dashed blue;
+//   // position: fixed;
+//   padding-top: 64px;
+//
+//   // height: 200px;
+//   // margin-top: 64px;
+//   // margin-bottom: 64px;
+// }
+//
+// md-toolbar {
+//   position: fixed;
+//   top: 0;
+// }
+//
+// .input-raised {
+//   background-color: #fff;
+//   padding: 12px !important;
+//   box-shadow: 0px 1px 2px #757575;
+//   margin: 0;
+// }
+// .input-raised md-icon {
+//   position: relative;
+//   padding-right: 12px;
+//   display: block;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+// }
+// .input-raised input {
+//   border: 0;
+// }
+//
+// md-grid-tile {
+// }
+//
+// #makeGrid{
+// md-grid-tile {
+//   transition: box-shadow ease-in .15s;
+//
+//
+//   // background-color: grey;
+//
+//   &:hover {
+//     cursor: pointer;
+//     // transform: scale(1.005);
+//     box-shadow: 0px 4px 6px rgba(0,0,0,0.35);
+//   }
+//
+//   img {
+//     width: 100%;
+//     max-width: 100%;
+//     // height: 96px;
+//     max-height: 100%;
+//     position: relative;
+//     // top: -28px;
+//   }
+// }
+//
+// md-grid-tile-footer {
+//   // background-color: #EDEDED !important;
+//   // opacity: .5;
+//   background-color: rgba(0,0,0,.6);
+//
+//   h3 {
+//     // color: #424242;
+//     font-weight: 500 !important;
+//     text-transform:uppercase;
+//   }
+// }
+// }
+//
+// #patternGrid {
+// md-grid-tile {
+//   background-color: red;
+//   padding: 16px;
+//
+//
+//   img {
+//     width: 0%;
+//     height: 0%;
+//   }
+// }
+//   // md-grid-tile {
+//   //   transition: box-shadow ease-in .15s;
+//   //
+//   //   &:hover {
+//   //     cursor: pointer;
+//   //     // transform: scale(1.005);
+//   //     box-shadow: 0px 4px 6px rgba(0,0,0,0.35);
+//   //   }
+//   //
+//   //   img {
+//   //     max-width: 100%;
+//   //     height: 96px;
+//   //     position: relative;
+//   //     // top: -28px;
+//   //   }
+//   // }
+//   //
+//   // md-grid-tile-footer {
+//   //   background-color: #EDEDED !important;
+//   //
+//   //   h3 {
+//   //     color: #424242;
+//   //     font-weight: 500 !important;
+//   //     text-transform:uppercase;
+//   //   }
+//   // }
+// }
+//   //
+//   // #fixedMakes {
+//   //   position: relative;;
+//   //   background-color: red;
+//   //   right: 0;
+//   //
+//   //   md-grid-list {
+//   //     position: fixed;
+//   //       right: 0;
+//   //       background-color: red;
+//   //       overflow-y: scroll;
+//   //
+//   //   }
+//   //
+//   // }
+//
+//
+// #makes {
+//   md-backdrop {
+//     // z-index:100;
+//     opacity: .40;
+//     position: fixed;
+//   }
+// }
+//
+// #toolbar {
+//   position: relative;;
+// }
+//
+// /**
+//  *  Do not remove this comments bellow. It's the markers used by gulp-inject to inject
+//  *  all your sass files automatically
+//  */
+// // injector
+// // endinjector

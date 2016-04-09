@@ -1,0 +1,140 @@
+.viewProduct-cmp {
+  .hero {
+      background-color: #009688;
+      height: 96px;
+
+      .breadcrumb {
+        color: #fff;
+        font-weight: 400;
+        font-size: 24px;
+
+        a {
+          color: #fff;
+          font-weight: 500;
+          text-decoration: none;
+
+          &:hover {
+            cursor: pointer;
+            text-decoration: underline;
+          }
+        }
+      }
+
+      h1, h2 {
+        color: #fff;
+        margin: 0;
+        transition: font-size ease 0.2s;
+
+
+      }
+
+      h1 {
+        font-weight: 400;
+        font-size: 32px;
+        text-align: left;
+      }
+
+      h2 {
+        margin-top: 32px;
+        font-weight: 300;
+        font-size: 36px;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 768px) {
+        h1 {
+          font-size: 48px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+    }
+    md-button {
+      // margin-right: 64px !important;
+}
+      md-icon {
+        font-size: 36px;
+        height: 36px;
+        color: #fff;
+    }
+  }
+
+  section {
+    padding: 32px;
+    max-width: 968px;
+    margin: 0 auto;
+
+    .heading, .sub-heading {
+      text-align: center;
+    }
+
+    .heading {
+      font-weight: 300;
+      color: #000;
+      font-size: 44px;
+      margin: 0;
+    }
+
+    .sub-heading {
+      font-weight: 400;
+      color: #9b9b9b;
+      font-size: 16px;
+      margin-top: 24px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      section {
+        padding: 32px 16px;
+      }
+      .heading1 {
+        font-size: 36px;
+      }
+      .heading2 {
+        font-size: 14px;
+      }
+      section md-content + md-content {
+        padding-top: 16px;
+      }
+    }
+  }
+
+  md-card.product {
+    max-width: 600px;
+
+    md-card-actions.no-margin {
+      background-color: #f7f7f7;
+      margin: 0;
+    }
+
+    md-icon {
+      color: #000;
+    }
+
+    .image-hover {
+      position: relative;
+
+      &:hover{
+        .overlay-action {
+          display: block;
+        }
+      }
+
+      .overlay-action {
+        display: none;
+        background-color: rgba(0,0,0,.55);
+        color: #fff;
+        position: absolute;
+        padding: 16px;
+      }
+
+      .md-card-image {
+        width: auto;
+        max-height: 300px;
+      }
+    }
+
+    .options-text {
+      font-weight: 500;
+    }
+  }
+}

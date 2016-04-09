@@ -1,0 +1,56 @@
+<div class="viewProduct-cmp">
+
+  <md-content class="hero md-padding" layout="row" layout-align="start center">
+    <!-- <md-button aria-label="Back to all products">
+      <md-icon layout="column" layout-align="center center">arrow_back</md-icon>
+    </md-button> -->
+    <span class="breadcrumb" flex><a ui-sref="^">All Products</a>  /  {{vm.product.name}}</span>
+  </md-content>
+
+  <md-content class="md-padding" layout="column" layout-align="start center">
+    <md-card class="product" layout="column" layout-fill>
+      <div class="image-hover md-whiteframe-z1 md-" layout="column" layout-align="start center">
+        <img class="md-card-image" ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
+      </div>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.product.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+        <md-card-content>
+          <!-- <md-input-container layout="column" flex> -->
+            <!-- <label>Name</label> -->
+            <p>{{vm.product.brand}}</p>
+          <!-- </md-input-container> -->
+          <!-- <md-input-container layout="column" flex> -->
+            <!-- <label>DOT Regiration Url</label> -->
+            <p ng-bind-html="vm.product.description"></p>
+            <p>{{vm.product.price | currency}}</p>
+          <!-- </md-input-container> -->
+          <!-- <md-input-container layout="column" flex> -->
+            <!-- <label>Image</label> -->
+            <!-- <input type="text" value="www.michelinman.com/logo.jpg"> -->
+          <!-- </md-input-container> -->
+          <!-- <md-input-container layout="column" layout-align="start end" flex>
+            <div style="background-color: #eee; height: 112px; width: 100%; border: 2px dashed #d7d7d7; font-weight: 500; color: #757575; line-height: 112px; text-align:center; border-radius: 2px;">
+              DRAG & DROP
+            </div>
+            <br>
+            <md-button style="background-color: #303F9F; color: #fff;">Upload</md-button>
+          </md-input-container> -->
+        </md-card-content>
+
+        <md-card-actions layout="column" layout-align="center end">
+          <div class="options-text">Order Options</div>
+          <md-content layout="row" layout-align="end center">
+          <md-button>Email</md-button>
+          <md-button>Call</md-button>
+          </md-content>
+        </md-card-actions>
+      </md-card>
+    </md-content>
+
+    <br><br><br>
+    <br><br><br>
+
+</div>

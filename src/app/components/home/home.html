@@ -1,0 +1,93 @@
+<div class="home-cmp">
+  <!-- Hero Banner -->
+  <md-content class="hero" layout="column" layout-align="center center">
+    <h1 class="md-title">Essential Nordic Walking</h1>
+    <h2 class="md-subhead">Take walking to the next level</h2>
+  </md-content>
+
+  <!-- Quick Nav Cards -->
+  <section layout="column" >
+    <md-content>
+      <h2 class="heading">Experience Better</h2>
+      <h3 class="sub-heading">Professional help to get you started with Nordic Walking</h3>
+    </md-content>
+    <md-content class="md-padding" layout="row" layout-xs="column" layout-align-sm="start space around" layout-margin layout-wrap layout-fill>
+      <md-card class="enw-card hoverable" layout="column" flex flex-sm="45"  ng-repeat="card in vm.cards" ng-click="card.navigate()">
+        <img class="md-card-image" ng-src="{{card.imageUrl}}" alt="{{card.title}}">
+        <md-card-content layout="column">
+          <span class="md-subhead">{{card.subTitle}}</span>
+          <h2 class="md-title">{{card.title}}</h2>
+          <p ng-bind-html="vm.trustAsHtml(card.content)"></p>
+        </md-card-content>
+      </md-card>
+    </md-content>
+  </section>
+
+  <!-- Image Carsouel -->
+  <flex-slider id="promo-slider" slide="i in vm.images track by $index">
+    <li>
+      <img ng-src="{{i.imageUrl}}" alt="{{i.title}}" />
+      <div class="promo-content">
+        <h5>{{i.title}}</h5>
+        <p ng-bind-html="vm.trustAsHtml(i.content)"></p>
+      </div>
+    </li>
+  </flex-slider>
+
+  <!-- Register Interest -->
+  <section layout="column">
+    <md-content>
+      <h2 class="heading">Register Your Interest</h2>
+      <h3 class="sub-heading">Up for a new challenge or interested in finding out more?</h3>
+    </md-content>
+
+    <md-content layout="column">
+      <form id="register-form" class="register-form" layout="column" ng-submit="register-form.$valid && register()" novalidate>
+        <!-- First Name -->
+        <md-input-container flex md-is-error="register-form.firstName.$invalid && (register-form.$submitted || register-form.firstName.$dirty)">
+          <label>First Name</label>
+          <input name="firstName" type="text" ng-model="register.firstName" ng-required="true">
+          <div ng-messages="register-form.firstName.$error" ng-if="register-form.$submitted || register-form.firstName.$touched">
+            <div ng-message="required">Please enter your first name</div>
+          </div>
+        </md-input-container>
+
+        <!-- Last Name -->
+        <md-input-container flex md-is-error="register-form.lastName.$invalid && (register-form.$submitted || register-form.lastName.$dirty)">
+          <label>Last Name</label>
+          <input name="lastName" type="text" ng-model="register.lastName" ng-required="true">
+          <div ng-messages="register-form.lastName.$error" ng-if="register-form.$submitted || register-form.lastName.$touched">
+            <div ng-message="required">Please enter your last name</div>
+          </div>
+        </md-input-container>
+
+        <!-- Email -->
+        <md-input-container flex md-is-error="register-form.email.$invalid && (register-form.$submitted || register-form.email.$dirty)">
+          <label>Email</label>
+          <input name="email" type="email" ng-model="register.email" ng-required="true">
+          <div ng-messages="register-form.email.$error" ng-if="register-form.$submitted || register-form.email.$touched">
+            <div ng-message="required">Please enter your email</div>
+          </div>
+        </md-input-container>
+
+        <!-- Phone -->
+        <md-input-container flex md-is-error="register-form.phone.$invalid && (register-form.$submitted || register-form.phone.$dirty)">
+          <label>Phone (Optional)</label>
+          <input name="phone" type="text" ng-model="register.phone">
+        </md-input-container>
+
+        <!-- Preferred Call Time -->
+        <md-input-container flex md-is-error="register-form.preferredPhoneTime.$invalid && (register-form.$submitted || register-form.preferredPhoneTime.$dirty)">
+          <label>Preferred Phone Time (Optional)</label>
+          <input name="preferredPhoneTime" type="text" ng-model="register.preferredPhoneTime" placeholder="Mon - Fri, 5pm - 7pm">
+        </md-input-container>
+
+        <br>
+        <br>
+
+        <md-button class="submit" type="submit" ng-disabled="registerValidating">Send Enquiry</md-button>
+      </form>
+    </md-content>
+  </section>
+
+</div>

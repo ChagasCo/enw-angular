@@ -1,0 +1,215 @@
+.home-cmp {
+
+  .hero {
+      background-color: #88a13e;
+      height: 300px;
+
+      h1, h2 {
+        color: #fff;
+        margin: 0;
+        transition: font-size ease 0.2s;
+      }
+
+      h1 {
+        font-weight: 500;
+        font-size: 72px;
+        text-align: center;
+      }
+
+      h2 {
+        margin-top: 32px;
+        font-weight: 300;
+        font-size: 36px;
+        text-align: center;
+      }
+
+      @media only screen and (max-width: 768px) {
+        h1 {
+          font-size: 48px;
+        }
+        h2 {
+          font-size: 20px;
+        }
+    }
+  }
+
+  section {
+    padding: 32px;
+    max-width: 968px;
+    margin: 0 auto;
+
+    .heading, .sub-heading {
+      text-align: center;
+    }
+
+    .heading {
+      font-weight: 300;
+      color: #000;
+      font-size: 44px;
+      margin: 0;
+    }
+
+    .sub-heading {
+      font-weight: 400;
+      color: #9b9b9b;
+      font-size: 16px;
+      margin-top: 24px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      section {
+        padding: 32px 16px;
+      }
+      .heading1 {
+        font-size: 36px;
+      }
+      .heading2 {
+        font-size: 14px;
+      }
+      section md-content + md-content {
+        padding-top: 16px;
+      }
+    }
+  }
+
+
+
+  #promo-slider {
+    overflow: hidden !important;
+    min-height: 432px;
+  }
+
+  #promo-slider-slider {
+    border: 0;
+    margin: 0;
+    min-height: 432px !important;
+  }
+  #promo-slider-slider .flex-viewport,
+  #promo-slider-slider .slides {
+    min-height: 432px !important;
+  }
+  #promo-slider-slider .slides img {
+    min-height: 432px;
+    max-height: 632px;
+    object-fit: cover;
+  }
+  .promo-content {
+    position: absolute;
+    color: #fff;
+    text-shadow: 0px 0px 4px #000;
+    top: 0;
+    min-height: 432px !important;
+    transition: all ease 0.5s;
+  }
+  @media only screen and (min-width: 768px) {
+    .promo-content {
+      margin: 64px 0 0 196px;
+    }
+    .promo-content p {
+      font-size: 18px !important;
+    }
+    #promo-slider-slider .flex-control-nav {
+      left: 196px !important;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .promo-content {
+      margin: 32px 0 0 56px !important;
+      width: 484px;
+    }
+    .promo-content h5 {
+      margin: 0 !important;
+    }
+    .promo-content p {
+      font-size: 16px !important;
+    }
+    #promo-slider-slider .flex-control-nav {
+      left: 56px !important;
+    }
+  }
+
+  @media only screen and (max-width: 638px) {
+    .promo-content {
+      margin: 0 0 0 42px !important;
+      width: 284px;
+    }
+    .promo-content h5 {
+      margin: 0 !important;
+    }
+    .promo-content p {
+      font-size: 16px !important;
+    }
+    #promo-slider-slider .flex-control-nav {
+      left: 42px !important;
+    }
+  }
+
+  .promo-content h5 {
+    font-weight: 500;
+    font-size: 42px;
+    margin: 32px 0 32px 0 !important;
+  }
+
+  .promo-content p {
+    margin: 0 0 0 0 ;
+    font-weight: 400;
+    font-size: 24px;
+    max-width: 432px;
+  }
+
+  #promo-slider-slider .flex-control-nav {
+    bottom: 32px;
+    left: 220px;
+    text-align: left;
+  }
+
+  #promo-slider-slider ol li a {
+    width: 12px;
+    height: 12px;
+    background-color: #908E8E;
+    border: 1px solid #444;
+    box-shadow: 0px 0px 8px #000;
+    transform: scale(.75);
+    transition: all ease-in 0.2s;
+  }
+  #promo-slider-slider ol li a.flex-active {
+    background-color: #5EB9C4;
+    transform: scale(1);
+  }
+
+  #promo-slider-slider .flex-prev::before,
+  #promo-slider-slider .flex-next::before {
+    color: #fff;
+    font-size: 32px;
+  }
+
+  .enw-card {
+    font-size: 14px;
+
+    h2 {
+      margin: 0;
+    }
+  }
+
+  .hoverable {
+    transition: box-shadow 0.2s ease-in-out;
+    cursor: pointer;
+    outline: 0;
+  }
+  .hoverable:hover {
+    box-shadow:  1px 2px 6px rgba(0, 0, 0, 0.4);
+  }
+
+  .register-form {
+    width: 100%;
+    max-width: 448px;
+    margin: 0 auto;
+
+    .submit {
+      height: 48px;
+      background-color: $enw-theme-color;
+      color: #fff;
+    }
+  }
+
+}
