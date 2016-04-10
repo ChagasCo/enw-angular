@@ -42,42 +42,42 @@
     </md-content>
 
     <md-content layout="column">
-      <form id="register-form" class="register-form" layout="column" ng-submit="register-form.$valid && register()" novalidate>
+      <form name="registerForm" class="register-form" layout="column" ng-submit="registerForm.$valid && register()" novalidate>
         <!-- First Name -->
-        <md-input-container flex md-is-error="register-form.firstName.$invalid && (register-form.$submitted || register-form.firstName.$dirty)">
+        <md-input-container flex md-is-error="registerForm.firstName.$invalid && (registerForm.$submitted || registerForm.firstName.$dirty)">
           <label>First Name</label>
           <input name="firstName" type="text" ng-model="register.firstName" ng-required="true">
-          <div ng-messages="register-form.firstName.$error" ng-if="register-form.$submitted || register-form.firstName.$touched">
+          <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.$submitted || registerForm.firstName.$touched">
             <div ng-message="required">Please enter your first name</div>
           </div>
         </md-input-container>
 
         <!-- Last Name -->
-        <md-input-container flex md-is-error="register-form.lastName.$invalid && (register-form.$submitted || register-form.lastName.$dirty)">
+        <md-input-container flex md-is-error="registerForm.lastName.$invalid && (registerForm.$submitted || registerForm.lastName.$dirty)">
           <label>Last Name</label>
           <input name="lastName" type="text" ng-model="register.lastName" ng-required="true">
-          <div ng-messages="register-form.lastName.$error" ng-if="register-form.$submitted || register-form.lastName.$touched">
+          <div ng-messages="registerForm.lastName.$error" ng-if="registerForm.$submitted || registerForm.lastName.$touched">
             <div ng-message="required">Please enter your last name</div>
           </div>
         </md-input-container>
 
         <!-- Email -->
-        <md-input-container flex md-is-error="register-form.email.$invalid && (register-form.$submitted || register-form.email.$dirty)">
+        <md-input-container flex md-is-error="registerForm.email.$invalid && (registerForm.$submitted || registerForm.email.$dirty)">
           <label>Email</label>
           <input name="email" type="email" ng-model="register.email" ng-required="true">
-          <div ng-messages="register-form.email.$error" ng-if="register-form.$submitted || register-form.email.$touched">
+          <div ng-messages="registerForm.email.$error" ng-if="registerForm.$submitted || registerForm.email.$touched">
             <div ng-message="required">Please enter your email</div>
           </div>
         </md-input-container>
 
         <!-- Phone -->
-        <md-input-container flex md-is-error="register-form.phone.$invalid && (register-form.$submitted || register-form.phone.$dirty)">
+        <md-input-container flex md-is-error="registerForm.phone.$invalid && (registerForm.$submitted || registerForm.phone.$dirty)">
           <label>Phone (Optional)</label>
           <input name="phone" type="text" ng-model="register.phone">
         </md-input-container>
 
         <!-- Preferred Call Time -->
-        <md-input-container flex md-is-error="register-form.preferredPhoneTime.$invalid && (register-form.$submitted || register-form.preferredPhoneTime.$dirty)">
+        <md-input-container flex md-is-error="registerForm.preferredPhoneTime.$invalid && (registerForm.$submitted || registerForm.preferredPhoneTime.$dirty)">
           <label>Preferred Phone Time (Optional)</label>
           <input name="preferredPhoneTime" type="text" ng-model="register.preferredPhoneTime" placeholder="Mon - Fri, 5pm - 7pm">
         </md-input-container>
