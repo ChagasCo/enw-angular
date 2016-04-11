@@ -16,18 +16,10 @@ use Mail;
 class EmailController extends Controller
 {
   public function __construct() {
-    $this->middleware('jwt.auth', ['except' => ['create']]);
-    // $this->middleware('cors');
+    // $this->middleware('jwt.auth');
   }
-  //
-  // $table->increments('id');
-  // $table->string('name');
-  // $table->string('email');
-  // $table->string('phone')->nullable();
-  // $table->string('notes')->nullable();
-  // $table->string('formToken');
 
-  public function create() {
+  public function store() {
     $rules = array(
         'name' => 'required',
         'email' => 'required'
@@ -47,25 +39,25 @@ class EmailController extends Controller
       $email->name = Input::get('name');
       $email->email = Input::get('email');
 
-      if (isset(Input::get('phone'))) {
+      if (Input::get('phone') != null) {
         $email->phone = Input::get('phone');
       }
 
-      if (isset(Input::get('notes'))) {
+      if (Input::get('notes') != null) {
         $email->notes = Input::get('notes');
       }
-      s
       $email->created_at = new DateTime();
       $email->updated_at = new DateTime();
 
       // Send email
       // send email to heather
-      Mail::send('emails.contact', ['name' => $email->name, 'notes' => $email->notes], function($m) use ($email) {
+      Mail::send('email.contact', ['name' => $email->name, 'email' => $email->email, 'notes' => $email->notes], function($m) use ($email) {
         $m->from($email->email, $email->name);
-        $m->to('heather@essentialnordicwalking.com.au', 'Essential Nordic Walking - Heather Thorne')->subject("Website Form Request");
+        // $m->to('heather@essentialnordicwalking.com.au', 'Essential Nordic Walking - Heather Thorne')->subject("Website Form Request");
+        $m->to('chrisvfabio@gmail.com', 'Essential Nordic Walking - Heather Thorne')->subject("Website Form Request");
       });
 
-      Mail::send('emails.client', ['name' => $email->name, 'notes' => $email->notes], function($m) use ($email) {
+      Mail::send('email.client', ['name' => $email->name, 'notes' => $email->notes], function($m) use ($email) {
         $m->from('heather@essentialnordicwalking.com.au', 'Essential Nordic Walking - Heather Thorne');
         $m->to($email->email, $email->name)->subject("Essential Nordic Walking - Thank You");
       });
@@ -76,26 +68,6 @@ class EmailController extends Controller
         return response()->json(['error' => ['status' => ['code' => 500, 'statusText' => 'Internal Server Error'], 'message' => 'Failed to send email. Please try again.']]);
       }
     }
-
-    // $products = Product::all();
-    // return $products;
-    return response()->json(["message" => "test!"]);
   }
 
 }
-
-// validate
-// read more on validation at http://laravel.com/docs/validation
-$rules = array(
-    'name' => 'required',
-    'brand' => 'required',
-    'description' => 'required',
-    'imageUrl' => 'required|url',
-    'price' => 'required|numeric'
-);
-
-$messages = [
-    'required' => 'The :attribute field is required.',
-    'url' => 'The :attribute field must be a url.',
-    'numeric' => 'The :attribute field must be numeric.',
-];
