@@ -1,9 +1,14 @@
 # ENW-Angular
 
 ## Getting Started
-1. Pull the repo down using `git clone https://github.com/ChagasCo/enw-angular.git`
-2. Open a terminal window and cd into the root directory (enw-angular)
-3. run `gulp serve` - which will start the gulp build processes and server
+1. Open terminal and navigate to a directory
+2. Pull the repo down using `git clone https://github.com/ChagasCo/enw-angular.git`
+3. Change directory into enw-angular `cd enw-angular`
+4. Install project dependencies by running `npm install & bower install
+5. Check if everything builds correctly with `gulp`
+  - If the gulp command is not found, run this command `sudo npm install -g gulp`
+5. Build the code and start the lite sevrer with `gulp serve` 
+  - You can now make changes in the code and save, the browser will refresh for you
 
 ## Code Workflow
 ---
