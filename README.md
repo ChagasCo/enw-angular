@@ -28,9 +28,8 @@ _assuming you're in your local git repo_
 
 4. Add code changes to staging `git add -A` or `git add <file path>`
 
-5. Run the commit npm command `npm run commit`
-   **don't use** 'git commit' 
-   `npm run commit` allows you to easily follow the commit naming convention
+5. To commit changes run `git cz` instead of the native `git commit`
+  - `git cz` allows you to easily follow the commit naming convention
    
 6. Using the commitizen tool, it will display a series of options to choose
   **Select the type of commit**
