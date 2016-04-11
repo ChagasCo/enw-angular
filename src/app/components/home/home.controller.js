@@ -1,10 +1,11 @@
 class HomeController {
-  constructor($sce) {
+  constructor($sce, $state) {
     'ngInject';
 
     this.cards = this.getCards();
     this.images = this.getSliderImages();
     this.trustAsHtml = $sce.trustAsHtml;
+    this.state = $state;
   }
 
   getCards() {
@@ -13,17 +14,20 @@ class HomeController {
         .setTitle('Have a Go Sessions')
         .setSubTitle('Introduction')
         .setContent('Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.')
-        .setImageUrl('./assets/images/cards/card1.jpg'),
+        .setImageUrl('./assets/images/cards/card1.jpg')
+        .setSRef("services({'#': 'haveAGo'})"),
       new Card()
         .setTitle('Equipment')
         .setSubTitle('Buy or Hire Equipment')
         .setContent('Learn how to use the core equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.')
-        .setImageUrl('./assets/images/cards/card2.jpg'),
+        .setImageUrl('./assets/images/cards/card2.jpg')
+        .setSRef("products"),
       new Card()
         .setTitle('Range of Group Classes')
         .setSubTitle('Classes')
         .setContent('Experience a 4 session course with a group of fellow Nordic Walkers. Take your skills to the next level and try out the course today.')
-        .setImageUrl('../assets/images/cards/card3.jpg'),
+        .setImageUrl('../assets/images/cards/card3.jpg')
+        .setSRef("services({'#': 'classes'})"),
     ];
   }
 
@@ -61,6 +65,11 @@ class Card {
 
   setImageUrl(imageUrl) {
     this.imageUrl = imageUrl;
+    return this;
+  }
+
+  setSRef(stateAnchor) {
+    this.stateAnchor = stateAnchor;
     return this;
   }
 }
