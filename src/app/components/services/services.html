@@ -30,28 +30,28 @@
         </md-content>
         <span flex="5"></span>
         <md-content flex>
-          <form id="beginner-session-form" class="beginner-session-form" layout="column" ng-submit="beginner-session-form.$valid && beginnerSession()" novalidate>
+          <form id="beginnerSessionForm" class="beginnerSessionForm" layout="column" ng-submit="beginnerSessionForm.$valid && beginnerSession()" novalidate>
 
             <!-- Name -->
-            <md-input-container flex md-is-error="beginner-session-form.name.$invalid && (beginner-session-form.$submitted || beginner-session-form.name.$dirty)">
+            <md-input-container flex md-is-error="beginnerSessionForm.name.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.name.$dirty)">
               <label>Name</label>
               <input name="name" type="text" ng-model="beginner.name" ng-required="true">
-              <div ng-messages="beginner-session-form.name.$error" ng-if="beginner-session-form.$submitted || beginner-session-form.name.$touched">
+              <div ng-messages="beginnerSessionForm.name.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.name.$touched">
                 <div ng-message="required">Please enter your name</div>
               </div>
             </md-input-container>
 
             <!-- Email -->
-            <md-input-container flex md-is-error="beginner-session-form.email.$invalid && (beginner-session-form.$submitted || beginner-session-form.email.$dirty)">
+            <md-input-container flex md-is-error="beginnerSessionForm.email.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.email.$dirty)">
               <label>Email</label>
               <input email="email" type="email" ng-model="beginner.email" ng-required="true">
-              <div ng-messages="beginner-session-form.email.$error" ng-if="beginner-session-form.$submitted || beginner-session-form.email.$touched">
+              <div ng-messages="beginnerSessionForm.email.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.email.$touched">
                 <div ng-message="required">Please enter your email</div>
               </div>
             </md-input-container>
 
             <!-- Phone -->
-            <md-input-container flex md-is-error="beginner-session-form.phone.$invalid && (beginner-session-form.$submitted || beginner-session-form.phone.$dirty)">
+            <md-input-container flex md-is-error="beginnerSessionForm.phone.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.phone.$dirty)">
               <label>Phone Number (Optional)</label>
               <input phone="phone" type="text" ng-model="beginner.phone">
             </md-input-container>
