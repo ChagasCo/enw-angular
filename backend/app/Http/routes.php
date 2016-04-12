@@ -22,4 +22,5 @@ Route::group(['prefix' => 'api', 'middleware' => 'cors'], function() {
   Route::post('authenticate', 'AuthenticateController@authenticate');
 
   Route::resource('products', 'ProductController');
+  Route::resource('emails', 'EmailController', ['only' => 'store']);
 });
