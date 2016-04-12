@@ -30,7 +30,7 @@
         </md-content>
         <span flex="5"></span>
         <md-content flex>
-          <form id="beginnerSessionForm" class="beginnerSessionForm" layout="column" ng-submit="beginnerSessionForm.$valid && beginnerSession()" novalidate>
+          <form id="beginnerSessionForm" name="beginnerSessionForm" class="beginnerSessionForm" layout="column" ng-submit="beginnerSessionForm.$valid && beginnerSession()" novalidate>
 
             <!-- Name -->
             <md-input-container flex md-is-error="beginnerSessionForm.name.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.name.$dirty)">
