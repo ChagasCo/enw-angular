@@ -12,7 +12,7 @@
       <h3 class="sub-heading">Professional help to get you started with Nordic Walking</h3>
     </md-content>
     <md-content class="md-padding" layout="row" layout-xs="column" layout-align-sm="start space around" layout-margin layout-wrap layout-fill>
-      <md-card class="enw-card hoverable" layout="column" flex flex-sm="45"  ng-repeat="card in vm.cards" ng-click="card.navigate()">
+      <md-card class="enw-card hoverable" layout="column" flex flex-sm="45"  ng-repeat="card in vm.cards"  ui-sref="{{card.stateAnchor}}">
         <img class="md-card-image" ng-src="{{card.imageUrl}}" alt="{{card.title}}">
         <md-card-content layout="column">
           <span class="md-subhead">{{card.subTitle}}</span>
