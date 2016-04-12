@@ -51,18 +51,38 @@ class EmailController extends Controller
 
       // Send email
       // send email to heather
-      Mail::send('email.contact', ['name' => $email->name, 'email' => $email->email, 'notes' => $email->notes], function($m) use ($email) {
+      $heatherEmail = Mail::send('email.contact', ['name' => $email->name, 'email' => $email->email, 'notes' => $email->notes], function($m) use ($email) {
         $m->from($email->email, $email->name);
         // $m->to('heather@essentialnordicwalking.com.au', 'Essential Nordic Walking - Heather Thorne')->subject("Website Form Request");
         $m->to('chrisvfabio@gmail.com', 'Essential Nordic Walking - Heather Thorne')->subject("Website Form Request");
       });
 
-      Mail::send('email.client', ['name' => $email->name, 'notes' => $email->notes], function($m) use ($email) {
+      $clientEmail = Mail::send('email.client', ['name' => $email->name, 'notes' => $email->notes], function($m) use ($email) {
         $m->from('heather@essentialnordicwalking.com.au', 'Essential Nordic Walking - Heather Thorne');
         $m->to($email->email, $email->name)->subject("Essential Nordic Walking - Thank You");
       });
 
+      if (!$heatherEmail || !$clientEmail) {
+        $email->success = false;
+        $email->failReason = "Unknown";
+        if (!$heatherEmail && !$clientEmail) {
+          $email->failReason = "Both Heather's and Clients email failed.";
+        } else {
+          if (!$heatherEmail) {
+            $email->failReason = "Heather's email failed.";
+          }
+          if (!$clientEmail) {
+            $email->failReason = "Clients email failed.";
+          }
+        }
+      } else {
+        $email->success = true;
+      }
+
       if ($email->save()) {
+        if (!$email->success) {
+          return response()->json(['success' => false, 'message' => 'Your message failed to send. Please try again.']);
+        }
         return response()->json(['success' => true, 'message' => 'Message was successfully sent. Thank you.']);
       } else {
         return response()->json(['error' => ['status' => ['code' => 500, 'statusText' => 'Internal Server Error'], 'message' => 'Failed to send email. Please try again.']]);

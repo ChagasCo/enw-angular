@@ -12,6 +12,8 @@ class CreateEmailTable extends Migration {
       $table->string('email');
       $table->string('phone')->nullable();
       $table->string('notes')->nullable();
+      $table->boolean('success')->nullable();
+      $table->string('failReason')->nullable();
       $table->timestamps();
     });
 
