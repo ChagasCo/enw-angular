@@ -4,7 +4,7 @@
 1. Open terminal and navigate to a directory
 2. Pull the repo down using `git clone https://github.com/ChagasCo/enw-angular.git`
 3. Change directory into enw-angular `cd enw-angular`
-4. Install project dependencies by running `npm install & bower install
+4. Install project dependencies by running `npm install & bower install`
 5. Check if everything builds correctly with `gulp`
   - If the gulp command is not found, run this command `sudo npm install -g gulp`
 5. Build the code and start the lite sevrer with `gulp serve` 
