@@ -162,19 +162,6 @@
         </md-content>
         <span flex="5"></span>
         <md-content layout="colum" flex>
-<!--
-          <form name="registerForm" class="register-form" layout="column" ng-submit="registerForm.$valid && vm.registerSubmit()" novalidate>
-            First Name
-            <md-input-container flex md-is-error="registerForm.firstName.$invalid && (registerForm.$submitted || registerForm.firstName.$dirty)">
-              <label>First Name</label>
-              <input name="firstName" type="text" ng-model="vm.register.firstName" ng-required="true">
-              <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.$submitted || registerForm.firstName.$touched">
-                <div ng-message="required">Please enter your first name</div>
-              </div>
-            </md-input-container> -->
-
-
-
           <form class="presentation-form" name="presentationForm" layout="column" flex ng-submit="presentationForm.$valid && vm.presentationRequest()" novalidate>
 
             <!-- Name -->
