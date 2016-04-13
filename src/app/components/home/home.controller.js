@@ -1,11 +1,47 @@
+
+
 class HomeController {
-  constructor($sce, $state) {
+  constructor($sce, $state, EmailService, $scope) {
     'ngInject';
 
     this.cards = this.getCards();
     this.images = this.getSliderImages();
     this.trustAsHtml = $sce.trustAsHtml;
     this.state = $state;
+    this.register = {};
+    this.EmailService = EmailService;
+
+    this.main = $scope.$parent.$parent.$parent.main;
+    this.registerValidating = false;
+    this.scope = $scope;
+  }
+
+  registerSubmit() {
+    this.registerValidating = true;
+    var name = this.register.firstName + ' ' + this.register.lastName ;
+    var email = this.register.email;
+    var phone = this.register.phone;
+    var notes = 'Preferred Phone Time: ' + this.register.preferredPhoneTime;
+
+    this.EmailService.sendEmail(name, email, phone, notes)
+      .success((response) => {
+        this.registerValidating = false;
+        this.main.broadcastToast(response.message);
+
+        // reset form
+        this.register = {};
+        this.scope.registerForm.$setPristine();
+        this.scope.registerForm.$setUntouched();
+      })
+      .error((response) => {
+        this.registerValidating = false;
+        this.main.broadcastToast("Error: Failed to send message.");
+
+        // reset form
+        this.register = {};
+        this.scope.registerForm.$setPristine();
+        this.scope.registerForm.$setUntouched();
+      });
   }
 
   getCards() {
@@ -21,7 +57,7 @@ class HomeController {
         .setSubTitle('Buy or Hire Equipment')
         .setContent('Learn how to use the core equipment needed for Nordic Walking and have the opportunity to hire them for each session or purchase your own.')
         .setImageUrl('./assets/images/cards/card2.jpg')
-        .setSRef("products"),
+        .setSRef('products'),
       new Card()
         .setTitle('Range of Group Classes')
         .setSubTitle('Classes')

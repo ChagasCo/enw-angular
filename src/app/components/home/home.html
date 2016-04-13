@@ -42,11 +42,11 @@
     </md-content>
 
     <md-content layout="column">
-      <form name="registerForm" class="register-form" layout="column" ng-submit="registerForm.$valid && register()" novalidate>
+      <form name="registerForm" class="register-form" layout="column" ng-submit="registerForm.$valid && vm.registerSubmit()" novalidate>
         <!-- First Name -->
         <md-input-container flex md-is-error="registerForm.firstName.$invalid && (registerForm.$submitted || registerForm.firstName.$dirty)">
           <label>First Name</label>
-          <input name="firstName" type="text" ng-model="register.firstName" ng-required="true">
+          <input name="firstName" type="text" ng-model="vm.register.firstName" ng-required="true">
           <div ng-messages="registerForm.firstName.$error" ng-if="registerForm.$submitted || registerForm.firstName.$touched">
             <div ng-message="required">Please enter your first name</div>
           </div>
@@ -55,7 +55,7 @@
         <!-- Last Name -->
         <md-input-container flex md-is-error="registerForm.lastName.$invalid && (registerForm.$submitted || registerForm.lastName.$dirty)">
           <label>Last Name</label>
-          <input name="lastName" type="text" ng-model="register.lastName" ng-required="true">
+          <input name="lastName" type="text" ng-model="vm.register.lastName" ng-required="true">
           <div ng-messages="registerForm.lastName.$error" ng-if="registerForm.$submitted || registerForm.lastName.$touched">
             <div ng-message="required">Please enter your last name</div>
           </div>
@@ -64,7 +64,7 @@
         <!-- Email -->
         <md-input-container flex md-is-error="registerForm.email.$invalid && (registerForm.$submitted || registerForm.email.$dirty)">
           <label>Email</label>
-          <input name="email" type="email" ng-model="register.email" ng-required="true">
+          <input name="email" type="email" ng-model="vm.register.email" ng-required="true">
           <div ng-messages="registerForm.email.$error" ng-if="registerForm.$submitted || registerForm.email.$touched">
             <div ng-message="required">Please enter your email</div>
           </div>
@@ -73,19 +73,19 @@
         <!-- Phone -->
         <md-input-container flex md-is-error="registerForm.phone.$invalid && (registerForm.$submitted || registerForm.phone.$dirty)">
           <label>Phone (Optional)</label>
-          <input name="phone" type="text" ng-model="register.phone">
+          <input name="phone" type="text" ng-model="vm.register.phone">
         </md-input-container>
 
         <!-- Preferred Call Time -->
         <md-input-container flex md-is-error="registerForm.preferredPhoneTime.$invalid && (registerForm.$submitted || registerForm.preferredPhoneTime.$dirty)">
           <label>Preferred Phone Time (Optional)</label>
-          <input name="preferredPhoneTime" type="text" ng-model="register.preferredPhoneTime" placeholder="Mon - Fri, 5pm - 7pm">
+          <input name="preferredPhoneTime" type="text" ng-model="vm.register.preferredPhoneTime" placeholder="Mon - Fri, 5pm - 7pm">
         </md-input-container>
 
         <br>
         <br>
 
-        <md-button class="submit" type="submit" ng-disabled="registerValidating">Send Enquiry</md-button>
+        <md-button class="submit" type="submit" ng-disabled="vm.registerValidating">Send Enquiry</md-button>
       </form>
     </md-content>
   </section>
