@@ -25,6 +25,7 @@
     <![endif]-->
     <main ng-controller="MainController as main">
       {{main.auth.isAuthenticated()}}
+      <div id="toast" layout="column" style="width: 100%; position: fixed; top: 0; z-index: 100;"></div>
       <div ui-view></div>
     </main>
 
