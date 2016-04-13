@@ -11,6 +11,12 @@ class ViewProductController {
 
     this.trustAsHtml = $sce.trustAsHtml;
   }
+
+  filePicked(event) {
+    console.log(this.value);
+
+    this.product.imageUrl = this.value;
+  }
 }
 
 export default ViewProductController;

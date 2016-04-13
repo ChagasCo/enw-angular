@@ -1,3 +1,5 @@
+<script type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+
 <div class="viewProduct-cmp">
 
   <md-content class="hero md-padding" layout="row" layout-align="start center">
@@ -7,9 +9,12 @@
     <span class="breadcrumb" flex><a ui-sref="^">All Products</a>  /  {{vm.product.name}}</span>
   </md-content>
 
-  <md-content class="md-padding" layout="column" layout-align="start center">
+
+  <!-- onchange="alert(event.fpfile.url)"  -->
+
+  <md-content class="md-padding" layout="column" layout-align="start center" ng-if="!main.auth.isAuthenticated()">
     <md-card class="product" layout="column" layout-fill>
-      <div class="image-hover md-whiteframe-z1 md-" layout="column" layout-align="start center">
+      <div class="md-whiteframe-z1 md-" layout="column" layout-align="start center">
         <img class="md-card-image" ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
       </div>
       <md-card-title>
@@ -50,7 +55,81 @@
       </md-card>
     </md-content>
 
+
+
+  <md-content class="md-padding" layout="column" layout-align="start center" ng-if="main.auth.isAuthenticated()">
+    <md-card class="product" layout="column" layout-fill>
+      <div class="image-hover md-whiteframe-z1 md-" layout="column" layout-align="start center">
+        <div layout="row" layout-fill layout-align="center center" class="overlay-action">
+          <!-- <md-button class="md-primary md-raised"> -->
+            <div class="upload">
+              <span class="upload-title">UPLOAD</span>
+              <md-icon>photo_camera</md-icon>
+            </div>
+        <!-- </md-button> -->
+        <input class="picker" type="filepicker" data-fp-apikey="AuBOzXm5MRyZQEErCSWL6z" ng-model="vm.value" ng-change="vm.filePicked()" />
+        </div>
+
+        <img class="md-card-image" ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
+      </div>
+      <md-card-title>
+        <md-card-title-text>
+          <span class="md-headline">{{vm.product.name}}</span>
+        </md-card-title-text>
+      </md-card-title>
+        <md-card-content>
+          <md-input-container layout="column" flex>
+            <label>Name</label>
+            <input type="text" ng-model="vm.product.name">
+            <!-- <p>{{vm.product.brand}}</p> -->
+          </md-input-container>
+          <md-input-container layout="column" flex>
+            <label>Description</label>
+             <textarea ng-model="vm.product.description" md-maxlength="1000" rows="10" md-select-on-focus></textarea>
+            <!-- <p ng-bind-html="vm.product.description"></p> -->
+            <!-- <p>{{vm.product.price | currency}}</p> -->
+          </md-input-container>
+          <!-- <md-input-container layout="column" flex> -->
+            <!-- <label>Image</label> -->
+            <!-- <input type="text" value="www.michelinman.com/logo.jpg"> -->
+          <!-- </md-input-container> -->
+          <!-- <md-input-container layout="column" layout-align="start end" flex>
+            <div style="background-color: #eee; height: 112px; width: 100%; border: 2px dashed #d7d7d7; font-weight: 500; color: #757575; line-height: 112px; text-align:center; border-radius: 2px;">
+              DRAG & DROP
+            </div>
+            <br>
+            <md-button style="background-color: #303F9F; color: #fff;">Upload</md-button>
+          </md-input-container> -->
+        </md-card-content>
+
+        <md-card-actions class="md-padding" layout="column" layout-fill layout-align="center start">
+          <div class="options-text">Order Options</div>
+          <br>
+          <md-content layout="row" layout-fill layout-align="end center" >
+            <md-button flex class="md-raised md-primary">Email</md-button>
+            <span flex="5"></span>
+            <span flex="5" class="md-padding">OR</span>
+            <span flex="5"></span>
+            <md-button flex class="md-raised">CALL ME</md-button>
+          </md-content>
+        </md-card-actions>
+      </md-card>
+    </md-content>
+
     <br><br><br>
     <br><br><br>
 
 </div>
+
+<!--
+<b>Specifications:</b>
+<ul>
+<li>Twistlock</li>
+<li>Trident fast release</li>
+<li>2 thin tube segments: 14/16mm sections</li>
+<li>Sections anodized</li>
+<li>Combines Twistlock and Quicklock </li>
+<li>Material: Alu7075</li>
+<li>Size: 90-135cm</li>
+<li>Weight: 220 g</li>
+</ul> -->
