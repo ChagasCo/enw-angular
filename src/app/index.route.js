@@ -125,26 +125,6 @@ function routerConfig ($stateProvider, $urlRouterProvider) {
         'content@admin': { }
       }
     })
-    .state('admin.manage', {
-      url: '/manage',
-      views: {
-        'content@admin': {
-          templateUrl: 'app/components/admin/manage/manageProducts.html',
-          controller: 'ManageProductsController',
-          controllerAs: 'vm'
-        }
-      },
-      resolve: {
-        authorize: function($auth, $q) {
-          var isAuth = $auth.isAuthenticated();
-          if (isAuth) {
-            return;
-          } else {
-            return $q.reject({code: 401});
-          }
-        }
-      }
-    })
     .state('admin.edit', {
       url: '/edit/:id',
       views: {
