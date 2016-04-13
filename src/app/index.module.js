@@ -12,7 +12,6 @@ import LoginController from './components/login/login.controller';
 /// Services
 import ProductsService from './components/core/data/products.service';
 
-import ManageProductsController from './components/admin/manage/manageProducts.controller';
 import EditProductController from './components/admin/edit/editProducts.controller';
 
 
@@ -42,7 +41,6 @@ angular
   .controller('ServicesController', ServicesController)
   .controller('ProductsController', ProductsController)
   .controller('ViewProductController', ViewProductController)
-  .controller('ManageProductsController', ManageProductsController)
   .controller('EditProductController', EditProductController)
   .controller('LoginController', LoginController)
 
