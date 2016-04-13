@@ -11,18 +11,6 @@ class EmailService {
   }
 
   sendEmail(name, email, phone, notes) {
-    // if (!angular.isDefined(name) || !angular.isDefined(email)) {
-    //   return this.q.reject({
-    //     "message" : "Invalid arguments specified. "
-    //   });
-    // }
-    //
-    // if (name === "" || email === "") {
-    //   return this.q.reject({
-    //     "message" : "Invalid arguments specified. "
-    //   });
-    // }X
-
     return this.http
       .post(this.baseUrl + '/emails', {
         name: name,
@@ -31,7 +19,6 @@ class EmailService {
         notes: notes
       })
       .success((result) => {
-        console.log(result);
         return this.q.resolve(result.data);
       });
   }
