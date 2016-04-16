@@ -18,6 +18,7 @@ import EditProductController from './components/admin/edit/editProducts.controll
 import SideNavController from './components/sidenav/sidenav.controller';
 import ToolbarController from './components/core/toolbar/toolbar.controller';
 
+import AnchorSmoothScrollService from './components/core/helpers/AnchorSmoothScroll.service';
 
 // Init angular
 angular
@@ -52,4 +53,6 @@ angular
 
   .service('ProductsService', ProductsService)
   .service('EmailService', EmailService)
+
+  .service('AnchorSmoothScrollService', AnchorSmoothScrollService)
   ;

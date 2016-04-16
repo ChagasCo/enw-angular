@@ -78,9 +78,9 @@
             <p ng-bind-html="vm.trustAsHtml(class.content)"></p>
           </md-card-content>
           <div class="md-actions" layout="row" layout-align="center end">
-            <md-button ng-class="{true:'active', false:''}[$index == 0]" class="class-card button" aria-label="{{class.name}}" ng-click="vm.itemSliderClick(class, $event)">
-              <span ng-if="$index !== 0">Select Class</span>
-              <span ng-if="$index === 0">Selected</span>
+            <md-button ng-class="{true:'active', false:''}[vm.selectedClass === class]" class="class-card button" aria-label="{{class.name}}" ng-click="vm.itemSliderClick(class, $event)">
+              <span ng-if="vm.selectedClass !== class">Select Class</span>
+              <span ng-if="vm.selectedClass === class">Selected</span>
             </md-button>
           </div>
         </md-card>
@@ -89,7 +89,7 @@
   </section>
 
   <!-- Class Session Booking Form -->
-  <section layout="column" layout-align="start center" >
+  <section id="bookingForm" layout="column" layout-align="start center" >
     <div class="wrapper" flex>
       <md-content>
         <h2 class="heading">Booking</h2>
@@ -100,7 +100,7 @@
           <!-- Name -->
           <md-input-container flex md-is-error="classBookingForm.name.$invalid && (classBookingForm.$submitted || classBookingForm.name.$dirty)">
             <label>Name</label>
-            <input name="name" type="text" ng-model="vm.class.name" ng-required="true">
+            <input name="name" type="text" ng-model="vm.classBooking.name" ng-required="true">
             <div ng-messages="classBookingForm.name.$error" ng-if="classBookingForm.$submitted || classBookingForm.name.$touched">
               <div ng-message="required">Please enter your name</div>
             </div>
@@ -109,7 +109,7 @@
           <!-- Email -->
           <md-input-container flex md-is-error="classBookingForm.email.$invalid && (classBookingForm.$submitted || classBookingForm.email.$dirty)">
             <label>Email</label>
-            <input name="email" type="email" ng-model="vm.class.email" ng-required="true">
+            <input name="email" type="email" ng-model="vm.classBooking.email" ng-required="true">
             <div ng-messages="classBookingForm.email.$error" ng-if="classBookingForm.$submitted || classBookingForm.email.$touched">
               <div ng-message="required">Please enter your email</div>
             </div>
@@ -118,12 +118,12 @@
           <!-- Phone -->
           <md-input-container flex>
             <label>Phone Number (Optional)</label>
-            <input name="phone" type="text" ng-model="vm.class.phone">
+            <input name="phone" type="text" ng-model="vm.classBooking.phone">
           </md-input-container>
 
           <!-- Equipment Hire -->
           <md-input-container flex md-is-error="classBookingForm.hireEquipment.$invalid && (classBookingForm.$submitted || classBookingForm.hireEquipment.$dirty)">
-            <md-radio-group name="hireEquipment" id="class-booking-equipment-hire" ng-model="vm.class.hireEquipment">
+            <md-radio-group name="hireEquipment" id="class-booking-equipment-hire" ng-model="vm.classBooking.hireEquipment">
               <label>Hire Equipment?</label>
               <br><br>
               <md-radio-button value="Yes">Yes</md-radio-button>
