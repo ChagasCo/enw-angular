@@ -1,0 +1,27 @@
+<md-sidenav id="sidenav" layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="sidenav">
+  <md-toolbar>
+    <h1 class="md-toolbar-tools">Essential Nordic Walking</h1>
+  </md-toolbar>
+   <md-list layout="column" md-padding flex>
+     <md-item ng-repeat="item in vm.navItems">
+        <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="{{item.ref}}" aria-label="{{item.name}}" ng-click="vm.close()">{{item.name}}</md-button>
+     </md-item>
+     <md-item>
+        <md-button class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQs" ng-click="vm.close();">FAQs</md-button>
+     </md-item>
+
+     <!-- Login Button -->
+     <md-divider></md-divider>
+     <md-item ng-show="!main.auth.isAuthenticated()">
+        <md-button class="nav-button" ui-sref-active="nav-active-mobile" ui-sref="login" aria-label="Login" ng-click="vm.close()">
+          Login
+        </md-button>
+     </md-item>
+
+     <md-item ng-show="main.auth.isAuthenticated()">
+        <md-button class="nav-button" ui-sref-active="nav-active-mobile" aria-label="Logout" ng-click="vm.close(); main.logout()">
+          Logout
+        </md-button>
+     </md-item>
+   </md-list>
+</md-sidenav>

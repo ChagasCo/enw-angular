@@ -1,0 +1,21 @@
+#sidenav {
+
+  md-toolbar {
+    background-color: $enw-theme-color;
+  }
+
+  .nav-button {
+    color: #000;
+    font-weight: 400;
+    cursor: pointer;
+    text-transform: none;
+    text-align: left;
+    border-radius: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    line-height: 64px;
+    font-size: 16px;
+    padding-left: 32px;
+  }
+}

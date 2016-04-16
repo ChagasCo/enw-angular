@@ -1,0 +1,20 @@
+<md-toolbar ng-controller="ToolbarController as vm" id="toolbar" class="md-medium md-whiteframe-z1">
+  <div class="md-toolbar-tools">
+      <md-button hide-gt-md class="md-icon-button" aria-label="Menu" ng-click="vm.toggleLeft()">
+        <md-icon style="color: #000;">menu</md-icon>
+      </md-button>
+      <div class="nav-branding">
+        <img src="assets/images/enw_logo.svg" alt="Essential Nordic Walking">
+      </div>
+        <md-button hide-xs hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="home" aria-label="Home">Home</md-button>
+        <md-button hide-xs hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="about" aria-label="About">About</md-button>
+        <md-button hide-xs hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="services" aria-label="Services">Services</md-button>
+        <md-button hide-xs hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="products" aria-label="Products">Products</md-button>
+        <md-button hide-xs hide-sm hide-md class="nav-button" ng-href="http://www.mynordicsports.com.au/index.php/faq/" aria-label="FAQ">FAQs</md-button>
+
+        <!-- Auth Toolbar Button -->
+        <span flex hide-xs hide-sm hide-md></span>
+        <md-button ng-show="!main.auth.isAuthenticated()" hide-xs hide-sm hide-md class="nav-button" ui-sref-active="nav-active" ui-sref="login" aria-label="Login">Login</md-button>
+        <md-button ng-show="main.auth.isAuthenticated()" hide-xs hide-sm hide-md class="nav-button" aria-label="Login" ng-click="main.logout()">Logout</md-button>
+    </div>
+</md-toolbar>
