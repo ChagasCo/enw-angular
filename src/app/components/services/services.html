@@ -99,8 +99,8 @@
 
           <!-- Name -->
           <md-input-container flex md-is-error="classBookingForm.name.$invalid && (classBookingForm.$submitted || classBookingForm.name.$dirty)">
-            <label>Name</label>
-            <input name="name" type="text" ng-model="vm.classBooking.name" ng-required="true">
+            <label>Selected Class</label>
+            <input name="name" type="text" ng-model="vm.classBooking.name" ng-required="true" ng-disabled="true" placeholder="Please select a class above">
             <div ng-messages="classBookingForm.name.$error" ng-if="classBookingForm.$submitted || classBookingForm.name.$touched">
               <div ng-message="required">Please enter your name</div>
             </div>
