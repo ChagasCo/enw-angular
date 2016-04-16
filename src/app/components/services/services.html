@@ -44,7 +44,7 @@
             <!-- Email -->
             <md-input-container flex md-is-error="beginnerSessionForm.email.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.email.$dirty)">
               <label>Email</label>
-              <input email="email" type="email" ng-model="beginner.email" ng-required="true">
+              <input name="email" type="email" ng-model="beginner.email" ng-required="true">
               <div ng-messages="beginnerSessionForm.email.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.email.$touched">
                 <div ng-message="required">Please enter your email</div>
               </div>
