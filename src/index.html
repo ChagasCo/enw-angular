@@ -32,11 +32,10 @@
     <main ng-controller="MainController as main">
       <div id="toast" layout="column" style="width: 100%; position: fixed; top: 0; z-index: 100;"></div>
       <md-progress-linear ng-if="main.auth.isAuthenticated()" md-mode="determinate" md-value="100"></md-progress-linear>
-      <div ui-view></div>
+      <div ui-view autoscroll="true"></div>
     </main>
 
-      <footer >
-        &copy; 2016 Essential Nordic Walking. All Rights Reserved.
+      <footer ng-include src="'/app/layouts/footer/footer.html'">
       </footer>
     </div>
 

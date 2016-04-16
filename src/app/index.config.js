@@ -1,5 +1,5 @@
 
-function config ($logProvider, $stateProvider, $urlRouterProvider, $authProvider) {
+function config ($logProvider, $stateProvider, $urlRouterProvider, $authProvider, $uiViewScrollProvider) {
   'ngInject';
 
   // Enable log
@@ -11,6 +11,7 @@ function config ($logProvider, $stateProvider, $urlRouterProvider, $authProvider
   $authProvider.loginUrl = '/api/authenticate';
 
   $urlRouterProvider.otherwise('/');
+  $uiViewScrollProvider.useAnchorScroll();
 }
 
 export default config;
