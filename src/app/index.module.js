@@ -15,6 +15,9 @@ import EmailService from './components/core/email/email.service';
 
 import EditProductController from './components/admin/edit/editProducts.controller';
 
+import SideNavController from './components/sidenav/sidenav.controller';
+import ToolbarController from './components/core/toolbar/toolbar.controller';
+
 
 // Init angular
 angular
@@ -44,6 +47,8 @@ angular
   .controller('ViewProductController', ViewProductController)
   .controller('EditProductController', EditProductController)
   .controller('LoginController', LoginController)
+  .controller('SideNavController',SideNavController)
+  .controller('ToolbarController', ToolbarController)
 
   .service('ProductsService', ProductsService)
   .service('EmailService', EmailService)

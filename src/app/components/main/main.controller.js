@@ -10,6 +10,7 @@ class MainController {
   logout() {
     this.auth.logout();
     this.$state.go("home", {});
+    window.location.reload(true);
   }
 
   broadcastToast(message) {
