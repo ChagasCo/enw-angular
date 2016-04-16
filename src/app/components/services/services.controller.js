@@ -5,8 +5,8 @@ class ServicesController {
     this.trustAsHtml = $sce.trustAsHtml;
 
     this.classes = this.getClasses();
-    this.classBookingForm = {
-      hireEquipment: false
+    this.class = {
+      hireEquipment: "No"
     };
   }
 
