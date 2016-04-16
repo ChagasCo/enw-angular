@@ -1,30 +1,34 @@
 class ServicesController {
-  constructor($sce, AnchorSmoothScrollService, $location, $timeout) {
+  constructor($sce, AnchorSmoothScrollService, $location, $timeout, EmailService, $scope) {
     'ngInject';
 
     this.trustAsHtml = $sce.trustAsHtml;
     this.AnchorSmoothScrollService = AnchorSmoothScrollService;
-    this.location = $location ;
+    this.location = $location;
     this.timeout = $timeout;
+    this.scope = $scope;
+
+    this.EmailService = EmailService;
+    this.main = $scope.$parent.$parent.$parent.main;
 
     this.classes = this.getClasses();
 
-
-    this.classBooking = {
+    // Default value
+    this.classSession = {
       hireEquipment: "No"
     };
 
 
   }
 
-  itemSliderClick(classSession, $event) {
-    this.selectedClass = classSession;
+  itemSliderClick(selectedClass, $event) {
+    this.selectedClass = selectedClass;
 
     this.location.hash("bookingForm");
     var scrollSpeed = 25;
     this.AnchorSmoothScrollService.scrollTo("bookingForm", scrollSpeed);
 
-    this.timeout(() => this.classBooking.name = classSession.name , scrollSpeed * 25);
+    this.timeout(() => this.classSession.class = selectedClass.name , scrollSpeed * 25);
   }
 
   getClasses() {
@@ -47,6 +51,107 @@ class ServicesController {
       `)
     ];
   }
+
+
+  beginnerSessionSubmit() {
+    this.beginnerSessionValidating = true;
+    var name = this.beginnerSession.name;
+    var email = this.beginnerSession.email;
+    var phone = this.beginnerSession.phone;
+
+    var notes = 'Have A Go Session';
+
+    this.EmailService.sendEmail(name, email, phone, notes)
+      .success((response) => {
+        this.beginnerSessionValidating = false;
+        this.main.broadcastToast(response.message);
+
+        // reset form
+        this.beginnerSession = {};
+        this.scope.beginnerSessionForm.$setPristine();
+        this.scope.beginnerSessionForm.$setUntouched();
+      })
+      .error((response) => {
+        this.beginnerSessionValidating = false;
+        this.main.broadcastToast("Error: Failed to send message.");
+
+        // reset form
+        this.beginnerSession = {};
+        this.scope.beginnerSessionForm.$setPristine();
+        this.scope.beginnerSessionForm.$setUntouched();
+      });
+  }
+
+  classSessionSubmit() {
+    this.classSessionValidating = true;
+    var name = this.classSession.name;
+    var email = this.classSession.email;
+    var phone = this.classSession.phone;
+
+    var notes = `
+      Class Booking: ${this.classSession.class}, Hire Equipment: ${this.classSession.hireEquipment}
+    `;
+
+    this.EmailService.sendEmail(name, email, phone, notes)
+      .success((response) => {
+        this.classSessionValidating = false;
+        this.main.broadcastToast(response.message);
+
+        // reset form
+        this.classSession = {};
+        this.scope.classBookingForm.$setPristine();
+        this.scope.classBookingForm.$setUntouched();
+      })
+      .error((response) => {
+        this.classSessionValidating = false;
+        this.main.broadcastToast("Error: Failed to send message.");
+
+        // reset form
+        this.classSession = {};
+        this.scope.classBookingForm.$setPristine();
+        this.scope.classBookingForm.$setUntouched();
+      });
+  }
+
+  presentationSubmit() {
+    this.presentationFormValidating = true;
+    var name = this.presentation.fullname;
+    var email = this.presentation.email;
+    var organisationName = this.presentation.organisationName;
+    var phone = this.presentation.phone;
+
+    if (organisationName === undefined) {
+      var notes = `Presentation`;
+    } else {
+      var notes = `Presentation - Organisation Name: ${organisationName}`;
+
+    }
+
+    this.EmailService.sendEmail(name, email, phone, notes)
+      .success((response) => {
+        if (response.error) {
+          this.main.broadcastToast(response.error.message);
+        } else {
+          this.main.broadcastToast(response.message);
+        }
+
+        this.presentationFormValidating = false;
+        // reset form
+        this.presentation = {};
+        this.scope.presentationForm.$setPristine();
+        this.scope.presentationForm.$setUntouched();
+      })
+      .error((response) => {
+        this.presentationFormValidating = false;
+        this.main.broadcastToast("Error: Failed to send message.");
+
+        // reset form
+        this.presentation = {};
+        this.scope.presentationForm.$setPristine();
+        this.scope.presentationForm.$setUntouched();
+      });
+  }
+
 }
 
 class ClassSession {
