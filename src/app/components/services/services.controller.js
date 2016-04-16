@@ -1,17 +1,30 @@
 class ServicesController {
-  constructor($sce) {
+  constructor($sce, AnchorSmoothScrollService, $location, $timeout) {
     'ngInject';
 
     this.trustAsHtml = $sce.trustAsHtml;
+    this.AnchorSmoothScrollService = AnchorSmoothScrollService;
+    this.location = $location ;
+    this.timeout = $timeout;
 
     this.classes = this.getClasses();
-    this.class = {
+
+
+    this.classBooking = {
       hireEquipment: "No"
     };
+
+
   }
 
   itemSliderClick(classSession, $event) {
-      alert(classSession);
+    this.selectedClass = classSession;
+
+    this.location.hash("bookingForm");
+    var scrollSpeed = 25;
+    this.AnchorSmoothScrollService.scrollTo("bookingForm", scrollSpeed);
+
+    this.timeout(() => this.classBooking.name = classSession.name , scrollSpeed * 25);
   }
 
   getClasses() {
