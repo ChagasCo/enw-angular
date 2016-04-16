@@ -1,56 +1,225 @@
+<script async type="text/javascript" src="//api.filestackapi.com/filestack.js"></script>
+
 <div class="viewProduct-cmp">
 
   <md-content class="hero md-padding" layout="row" layout-align="start center">
-    <!-- <md-button aria-label="Back to all products">
-      <md-icon layout="column" layout-align="center center">arrow_back</md-icon>
-    </md-button> -->
     <span class="breadcrumb" flex><a ui-sref="^">All Products</a>  /  {{vm.product.name}}</span>
   </md-content>
 
-  <md-content class="md-padding" layout="column" layout-align="start center">
-    <md-card class="product" layout="column" layout-fill>
-      <div class="image-hover md-whiteframe-z1 md-" layout="column" layout-align="start center">
-        <img class="md-card-image" ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
-      </div>
-      <md-card-title>
-        <md-card-title-text>
-          <span class="md-headline">{{vm.product.name}}</span>
-        </md-card-title-text>
-      </md-card-title>
-        <md-card-content>
-          <!-- <md-input-container layout="column" flex> -->
-            <!-- <label>Name</label> -->
-            <p>{{vm.product.brand}}</p>
-          <!-- </md-input-container> -->
-          <!-- <md-input-container layout="column" flex> -->
-            <!-- <label>DOT Regiration Url</label> -->
-            <p ng-bind-html="vm.product.description"></p>
-            <p>{{vm.product.price | currency}}</p>
-          <!-- </md-input-container> -->
-          <!-- <md-input-container layout="column" flex> -->
-            <!-- <label>Image</label> -->
-            <!-- <input type="text" value="www.michelinman.com/logo.jpg"> -->
-          <!-- </md-input-container> -->
-          <!-- <md-input-container layout="column" layout-align="start end" flex>
-            <div style="background-color: #eee; height: 112px; width: 100%; border: 2px dashed #d7d7d7; font-weight: 500; color: #757575; line-height: 112px; text-align:center; border-radius: 2px;">
-              DRAG & DROP
-            </div>
-            <br>
-            <md-button style="background-color: #303F9F; color: #fff;">Upload</md-button>
-          </md-input-container> -->
-        </md-card-content>
+  <md-progress-linear ng-show="vm.saving" md-mode="indeterminate"></md-progress-linear>
+  <md-content ng-show="vm.loading" layout="column" layout-align="start center">
+    <md-progress-circularmd-mode="indeterminate" md-diameter="100"></md-progress-circular>
+    Loading Product...
+  </md-content>
 
-        <md-card-actions layout="column" layout-align="center end">
-          <div class="options-text">Order Options</div>
-          <md-content layout="row" layout-align="end center">
-          <md-button>Email</md-button>
-          <md-button>Call</md-button>
-          </md-content>
-        </md-card-actions>
-      </md-card>
+  <md-content class="product-container md-padding" layout="row" layout-xs="column">
+    <!-- Product Image -->
+    <md-content flex="40" flex-xs="100" layout="column">
+
+      <div class="product-image" layout="column" layout-align="start center">
+        <div class="image-hover" ng-if="main.auth.isAuthenticated()" layout="column" layout-align="start center">
+          <div layout="row" layout-fill layout-align="center center" class="overlay-action">
+            <div class="upload">
+              <span class="upload-title">UPLOAD</span>
+              <md-icon>photo_camera</md-icon>
+            </div>
+            <input class="picker" type="filepicker" data-fp-apikey="AuBOzXm5MRyZQEErCSWL6z" ng-model="vm.value" ng-change="vm.filePicked()" />
+          </div>
+        </div>
+        <img ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
+        <div class="product-price-overlay">{{vm.product.price | currency}}</div>
+      </div>
+      <md-content layout="column" flex>
+        <br>
+        <div class="product-order-label">Order Options </div>
+        <div class="product-order-buttons" layout="column">
+          <md-button class="order-email">Email Heather</md-button>
+          <md-button class="order-call md-primary">Call Heather</md-button>
+          <span flex></span>
+          <md-button class="preview" ng-if="main.auth.isAuthenticated()" ng-click="vm.authOverride = !vm.authOverride">{{vm.authOverride ? 'Hide Preview' : 'Show Preview'}}</md-button>
+          <md-button class="save" ng-if="main.auth.isAuthenticated()">Save Change</md-button>
+        </div>
+      </md-content>
+
     </md-content>
 
-    <br><br><br>
-    <br><br><br>
+    <!-- Product Content -->
+    <md-content flex class="product-content md-padding">
 
+        <md-content layout="column" ng-if="!main.auth.isAuthenticated() || vm.authOverride">
+          <!-- Read -->
+          <div class="product-name">{{vm.product.name}}</div>
+          <div class="product-brand">{{vm.product.brand}}</div>
+          <br>
+          <br>
+          <div ng-bind-html="vm.product.description">
+          </div>
+
+        </md-content>
+
+        <!-- Write -->
+        <form name="editProductForm" ng-if="!vm.authOverride && main.auth.isAuthenticated()" layout="column">
+          <!-- Name -->
+          <md-input-container flex md-is-error="editProductForm.name.$invalid && (editProductForm.$submitted || editProductForm.name.$dirty)">
+            <label>Name</label>
+            <input name="name" type="text" ng-model="vm.product.name" ng-required="true">
+            <div ng-messages="editProductForm.name.$error" ng-if="editProductForm.$submitted || editProductForm.name.$touched">
+              <div ng-message="required">You must enter a name</div>
+            </div>
+          </md-input-container>
+
+          <!-- Brand -->
+          <md-input-container flex md-is-error="editProductForm.brand.$invalid && (editProductForm.$submitted || editProductForm.brand.$dirty)">
+            <label>Brand</label>
+            <input name="brand" type="text" ng-model="vm.product.brand" ng-required="true">
+            <div ng-messages="editProductForm.brand.$error" ng-if="editProductForm.$submitted || editProductForm.brand.$touched">
+              <div ng-message="required">You must enter a brand name</div>
+            </div>
+          </md-input-container>
+
+          <!-- Price -->
+          <md-input-container flex md-is-error="editProductForm.price.$invalid && (editProductForm.$submitted || editProductForm.price.$dirty)">
+            <label>Price</label>
+            <input name="price" type="text" ng-model="vm.product.price" ng-required="true">
+            <div ng-messages="editProductForm.price.$error" ng-if="editProductForm.$submitted || editProductForm.price.$touched">
+              <div ng-message="required">You must enter a price</div>
+            </div>
+          </md-input-container>
+
+          <!-- Description -->
+          <label>Description</label>
+          <md-input-container flex md-is-error="editProductForm.description.$invalid && (editProductForm.$submitted || editProductForm.description.$dirty)">
+            <text-angular ng-model="vm.product.description"></text-angular>
+            <!-- <textarea name="description" ng-model="vm.product.description" ng-required="true"></textarea> -->
+            <div ng-messages="editProductForm.description.$error" ng-if="editProductForm.$submitted || editProductForm.description.$touched">
+              <div ng-message="required">You must enter a description</div>
+            </div>
+          </md-input-container>
+        </form>
+
+    </md-content>
+  </md-content>
+
+  <!-- onchange="alert(event.fpfile.url)"  -->
+<div style="display: none">
+          <md-content class="md-padding" layout="column" layout-align="start center" ng-if="!main.auth.isAuthenticated()">
+            <md-card class="product-row" layout="row" layout-fill>
+              <div class=" md-padding" layout="column" layout-align="start center">
+                <img class="md-card-image" ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
+              </div>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">{{vm.product.name}}</span>
+                </md-card-title-text>
+              </md-card-title>
+                <md-card-content>
+                  <!-- <md-input-container layout="column" flex> -->
+                    <!-- <label>Name</label> -->
+                    <p>{{vm.product.brand}}</p>
+                  <!-- </md-input-container> -->
+                  <!-- <md-input-container layout="column" flex> -->
+                    <!-- <label>DOT Regiration Url</label> -->
+                    <p ng-bind-html="vm.product.description"></p>
+                    <p>{{vm.product.price | currency}}</p>
+                  <!-- </md-input-container> -->
+                  <!-- <md-input-container layout="column" flex> -->
+                    <!-- <label>Image</label> -->
+                    <!-- <input type="text" value="www.michelinman.com/logo.jpg"> -->
+                  <!-- </md-input-container> -->
+                  <!-- <md-input-container layout="column" layout-align="start end" flex>
+                    <div style="background-color: #eee; height: 112px; width: 100%; border: 2px dashed #d7d7d7; font-weight: 500; color: #757575; line-height: 112px; text-align:center; border-radius: 2px;">
+                      DRAG & DROP
+                    </div>
+                    <br>
+                    <md-button style="background-color: #303F9F; color: #fff;">Upload</md-button>
+                  </md-input-container> -->
+                </md-card-content>
+
+                <md-card-actions layout="column" layout-align="center end">
+                  <div class="options-text">Order Options</div>
+                  <md-content layout="row" layout-align="end center">
+                  <md-button>Email</md-button>
+                  <md-button>Call</md-button>
+                  </md-content>
+                </md-card-actions>
+              </md-card>
+            </md-content>
+
+
+
+          <md-content class="md-padding" layout="column" layout-align="start center" ng-if="main.auth.isAuthenticated()">
+            <md-card class="product" layout="column" layout-fill>
+              <div class="image-hover md-whiteframe-z1 md-" layout="column" layout-align="start center">
+                <div layout="row" layout-fill layout-align="center center" class="overlay-action">
+                  <!-- <md-button class="md-primary md-raised"> -->
+                    <div class="upload">
+                      <span class="upload-title">UPLOAD</span>
+                      <md-icon>photo_camera</md-icon>
+                    </div>
+                <!-- </md-button> -->
+                <input class="picker" type="filepicker" data-fp-apikey="AuBOzXm5MRyZQEErCSWL6z" ng-model="vm.value" ng-change="vm.filePicked()" />
+                </div>
+
+                <img class="md-card-image" ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
+              </div>
+              <md-card-title>
+                <md-card-title-text>
+                  <span class="md-headline">{{vm.product.name}}</span>
+                </md-card-title-text>
+              </md-card-title>
+                <md-card-content>
+                  <md-input-container layout="column" flex>
+                    <label>Name</label>
+                    <input type="text" ng-model="vm.product.name">
+                    <!-- <p>{{vm.product.brand}}</p> -->
+                  </md-input-container>
+                  <md-input-container layout="column" flex>
+                    <label>Description</label>
+                     <textarea ng-model="vm.product.description" md-maxlength="1000" rows="10" md-select-on-focus></textarea>
+                    <!-- <p ng-bind-html="vm.product.description"></p> -->
+                    <!-- <p>{{vm.product.price | currency}}</p> -->
+                  </md-input-container>
+                  <!-- <md-input-container layout="column" flex> -->
+                    <!-- <label>Image</label> -->
+                    <!-- <input type="text" value="www.michelinman.com/logo.jpg"> -->
+                  <!-- </md-input-container> -->
+                  <!-- <md-input-container layout="column" layout-align="start end" flex>
+                    <div style="background-color: #eee; height: 112px; width: 100%; border: 2px dashed #d7d7d7; font-weight: 500; color: #757575; line-height: 112px; text-align:center; border-radius: 2px;">
+                      DRAG & DROP
+                    </div>
+                    <br>
+                    <md-button style="background-color: #303F9F; color: #fff;">Upload</md-button>
+                  </md-input-container> -->
+                </md-card-content>
+
+                <md-card-actions class="md-padding" layout="column" layout-fill layout-align="center start">
+                  <div class="options-text">Order Options</div>
+                  <br>
+                  <md-content layout="row" layout-fill layout-align="end center" >
+                    <md-button flex class="md-raised md-primary">Email</md-button>
+                    <span flex="5"></span>
+                    <span flex="5" class="md-padding">OR</span>
+                    <span flex="5"></span>
+                    <md-button flex class="md-raised">CALL ME</md-button>
+                  </md-content>
+                </md-card-actions>
+              </md-card>
+            </md-content>
+
+    <br><br><br>
+    <br><br><br>
 </div>
+</div>
+
+<!--
+<b>Specifications:</b>
+<ul>
+<li>Twistlock</li>
+<li>Trident fast release</li>
+<li>2 thin tube segments: 14/16mm sections</li>
+<li>Sections anodized</li>
+<li>Combines Twistlock and Quicklock </li>
+<li>Material: Alu7075</li>
+<li>Size: 90-135cm</li>
+<li>Weight: 220 g</li>
+</ul> -->
