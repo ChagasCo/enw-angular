@@ -1,11 +1,11 @@
 <div class="login-cmp">
 
   <!-- Hero Banner -->
-  <md-content class="hero md-padding" layout="column" layout-align="center start">
+  <md-content class="hero md-padding" layout="column" layout-align="center center">
     <h1 class="md-title">Login</h1>
   </md-content>
 
-  <md-content layout="column" layout-align="start center">
+  <md-content class="md-padding" layout="column" layout-align="start center">
     <form name="loginForm" class="login-form" layout="column" ng-submit="loginForm.$valid && vm.login()" novalidate>
 
       <!-- Email -->
@@ -28,6 +28,14 @@
 
       <md-button class="submit" type="submit" ng-disabled="loginValidating">Login</md-button>
     </form>
+  </md-content>
+
+  <md-content ng-show="vm.error && !loginForm.$dirty" layout="column" layout-align="start center">
+    <span class="error">
+      Invalid username and password.
+      <br>
+      Please try again.
+    </span>
   </md-content>
 
 </div>
