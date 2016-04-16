@@ -1,12 +1,17 @@
 <div class="products-cmp">
 
   <!-- Hero Banner -->
-  <md-content class="hero md-padding" layout="column" layout-align="center start">
+  <md-content class="hero md-padding" layout="column" layout-align="center center">
     <h1 class="md-title">Products</h1>
   </md-content>
 
+  <md-content ng-show="vm.loading" layout="column" layout-align="start center">
+    <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
+    Loading Products...
+  </md-content>
 
-  <md-content class="md-padding">
+
+  <md-content ng-hide="vm.loading" class="md-padding">
     <md-grid-list
       md-cols="6"
       md-cols-md="4"
