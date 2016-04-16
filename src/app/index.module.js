@@ -27,7 +27,8 @@ angular
     'ngMaterial',
     'ngMessages',
     'angular-flexslider',
-    'satellizer'
+    'satellizer',
+    'textAngular'
   ])
   .config(config)
   .config(routerConfig)
