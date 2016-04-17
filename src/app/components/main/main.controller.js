@@ -5,6 +5,7 @@ class MainController {
     this.auth = $auth;
     this.$state = $state;
     this.mdToast = $mdToast;
+    this.heatherContact = "0417 943 141";
   }
 
   logout() {

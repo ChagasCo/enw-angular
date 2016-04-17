@@ -1,0 +1,34 @@
+.order-email-cmp {
+  width: 100%;
+  max-width: 600px;
+
+  .form-validating {
+    padding: 64px 0; 
+  }
+
+  textarea {
+    min-height: 120px !important;
+  }
+
+  .success-content,
+  .error-content {
+    padding: 16px;
+    height: 500px;
+    text-align: center;
+
+
+
+    h1 {
+      font-weight: 300;
+      font-size: 32px;
+      margin: 0;
+    }
+
+    h2 {
+      font-weight: 400;
+      margin-top: 16px;
+      font-size: 24px;
+    }
+  }
+
+}
