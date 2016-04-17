@@ -1,5 +1,17 @@
 .products-cmp {
 
+  .fab-position {
+    position: absolute;
+    z-index: 50;
+    top: 64px;
+    right: 128px;
+  }
+  @media only screen and (max-width: 768px) {
+    .fab-position {
+      right: 32px;
+    }
+  }
+
   .hero {
       background-color: #009688;
       height: 96px;
