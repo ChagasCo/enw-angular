@@ -17,9 +17,13 @@ class ProductsController {
     this.ProductsService = ProductsService;
 
     ProductsService.getProducts()
-      .success((products) => {
+      .then((products) => {
         this.products = products;
         this.loading = false;
+      })
+      .catch(() => {
+        this.loading = false;
+        this.error = true;
       });
   }
 
@@ -57,17 +61,21 @@ class ProductsController {
 
   uploadImage() {
     var _this = this;
-    // this.product.imageUrl = "/assets/images/loading.gif";
-    filepicker.pick({
-      mimetype: 'image/jpeg', // Images only
-      maxSize: 1024 * 1024 * 10, // 5mb
-      imageMax: [2500, 2500], // 1500x1500
-      services: ['*'] // All available services
-    }, (blob) => {
-      _this.product.imageUrl = blob.url;
+    if (filepicker) {
+      // this.product.imageUrl = "/assets/images/loading.gif";
+      filepicker.pick({
+        mimetype: 'image/jpeg', // Images only
+        maxSize: 1024 * 1024 * 10, // 5mb
+        imageMax: [2500, 2500], // 1500x1500
+        services: ['*'] // All available services
+      }, (blob) => {
+        _this.product.imageUrl = blob.url;
 
-      _this.$scope.$apply();
-    });
+        _this.$scope.$apply();
+      });
+    } else {
+      console.error("FilePicker service unavailable.")
+    }
   }
 
   newProductSubmit(product) {

@@ -18,16 +18,16 @@ class ProductsService {
     // console.log(this.baseUrl);
     return this.http
       .get(this.baseUrl + '/products')
-      .success((products) => {
-        return this.q.resolve(products);
+      .then((response) => {
+        return response.data;
       });
   }
 
   getProduct(productId) {
     return this.http
       .get(this.baseUrl + '/products/' + productId)
-      .success((product) => {
-        return this.q.resolve(product);
+      .then((response) => {
+        return response.data;
       });
   }
 

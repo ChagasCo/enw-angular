@@ -15,6 +15,11 @@
     Loading Products...
   </md-content>
 
+  <md-content ng-show="!vm.loading && vm.error" layout="column" layout-align="start center">
+    <!-- <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular> -->
+    Products unavailable.
+  </md-content>
+
 
   <md-content ng-hide="vm.loading" class="md-padding">
     <md-grid-list
