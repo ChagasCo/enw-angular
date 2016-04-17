@@ -38,7 +38,7 @@ angular
   .config(routerConfig)
   .run(runBlock)
   .constant('API', {
-    url: 'http://localhost:8000/api'
+    url: 'http://essentialnordicwalking.com.au/enw/public/api'
   })
 
   .controller('MainController', MainController)

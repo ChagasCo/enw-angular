@@ -1,9 +1,14 @@
+
 <div class="products-cmp">
 
   <!-- Hero Banner -->
   <md-content class="hero md-padding" layout="column" layout-align="center center">
     <h1 class="md-title">Products</h1>
   </md-content>
+
+  <md-button class="md-fab fab-position" ng-if="main.auth.isAuthenticated()" aria-label="Create Product" ng-click="vm.newProduct()">
+    <md-icon>add</md-icon>
+  </md-button>
 
   <md-content ng-show="vm.loading" layout="column" layout-align="start center">
     <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
