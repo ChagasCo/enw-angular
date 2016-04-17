@@ -18,7 +18,7 @@ class ViewProductController {
 
     this.loading = true;
     ProductsService.getProduct(id)
-      .success((product) => {
+      .then((product) => {
         this.product = product;
         this.loading = false;
       });
