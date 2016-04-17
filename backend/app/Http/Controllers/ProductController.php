@@ -47,15 +47,12 @@ class ProductController extends Controller
     $rules = array(
         'name' => 'required',
         'brand' => 'required',
-        'description' => 'required',
-        'imageUrl' => 'required|url',
         'price' => 'required|numeric'
     );
 
     $messages = [
         'required' => 'The :attribute field is required.',
-        'url' => 'The :attribute field must be a url.',
-        'numeric' => 'The :attribute field must be numeric.',
+        'numeric' => 'The :attribute field must be numeric.'
     ];
 
     $validator = Validator::make(Input::all(), $rules, $messages);
@@ -65,12 +62,24 @@ class ProductController extends Controller
     } else {
       $product = new Product();
       $product->name = Input::get('name');
-      $product->description = Input::get('description');
+
       $product->brand = Input::get('brand');
-      $product->imageUrl = Input::get('imageUrl');
+
       $product->price = Input::get('price');
       $product->created_at = new DateTime();
       $product->updated_at = new DateTime();
+
+      if(Input::get('description') != null) {
+        $product->description = Input::get('description');
+      } else {
+        $product->description = '<small>No Descriptions</small>';
+      }
+
+      if(Input::get('imageUrl') == null) {
+ 	      $product->imageUrl = 'https://cdn.filestackcontent.com/CwyooxXdTcWtwufoKgOf';
+   	} else {
+   	      $product->imageUrl = Input::get('imageUrl');
+   	}
 
       if ($product->save()) {
         return response()->json(['success' => true, 'product' => $product]);

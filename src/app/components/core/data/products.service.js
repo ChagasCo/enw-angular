@@ -39,7 +39,7 @@ class ProductsService {
       })
       .catch((response) => {
         return response.data;
-      })
+      });
   }
 
 }

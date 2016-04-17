@@ -119,11 +119,11 @@ class ServicesController {
     var email = this.presentation.email;
     var organisationName = this.presentation.organisationName;
     var phone = this.presentation.phone;
-
+    var notes = "";
     if (organisationName === undefined) {
-      var notes = `Presentation`;
+      notes = `Presentation`;
     } else {
-      var notes = `Presentation - Organisation Name: ${organisationName}`;
+      notes = `Presentation - Organisation Name: ${organisationName}`;
 
     }
 

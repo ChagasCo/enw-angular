@@ -43,6 +43,21 @@ class EmailController extends Controller
         $email->phone = Input::get('phone');
       }
 
+
+     if(Input::get('description') != null) {
+       $product->description = Input::get('description');
+     } else {
+       $product->description = '<small>No Descriptions</small>';
+     }
+
+     if(Input::get('imageUrl') == null) {
+	      
+	} else {
+	      $product->imageUrl = Input::get('imageUrl');
+	}
+
+
+
       if (Input::get('notes') != null) {
         $email->notes = Input::get('notes');
       }

@@ -85,7 +85,7 @@ class ProductsController {
 
         this.parent.mdDialog.hide();
         window.location.reload();
-      })
+      });
   }
 
 }
