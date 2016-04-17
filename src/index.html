@@ -24,12 +24,12 @@
     <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
 
   </head>
-  <body ng-cloak>
+  <body  ng-controller="MainController as main" ng-cloak>
 
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <main ng-controller="MainController as main">
+    <main>
       <div id="toast" layout="column" style="width: 100%; position: fixed; top: 0; z-index: 100;"></div>
       <md-progress-linear ng-if="main.auth.isAuthenticated()" md-mode="determinate" md-value="100"></md-progress-linear>
       <div ui-view autoscroll="true"></div>
