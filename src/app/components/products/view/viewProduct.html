@@ -34,7 +34,7 @@
         <div class="product-order-label">Order Options </div>
         <div class="product-order-buttons" layout="column">
           <md-button class="order-email" ng-click="vm.orderEmail($event)">Email Heather</md-button>
-          <md-button class="order-call md-primary">Call Heather</md-button>
+          <md-button class="order-call md-primary" ng-click="vm.orderCall($event)">Call Heather</md-button>
           <span flex></span>
           <md-button class="preview" ng-if="main.auth.isAuthenticated()" ng-click="vm.authOverride = !vm.authOverride">{{vm.authOverride ? 'Hide Preview' : 'Show Preview'}}</md-button>
           <md-button class="save" ng-if="main.auth.isAuthenticated()">Save Change</md-button>
