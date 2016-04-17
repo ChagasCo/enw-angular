@@ -74,7 +74,7 @@ class ProductsController {
         _this.$scope.$apply();
       });
     } else {
-      console.error("FilePicker service unavailable.")
+      console.error("FilePicker service unavailable.");
     }
   }
 

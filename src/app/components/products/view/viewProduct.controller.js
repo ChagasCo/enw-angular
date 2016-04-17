@@ -43,13 +43,13 @@ class ViewProductController {
         cancel: this.cancel,
         orderEmailSubmit: this.orderEmailSubmit,
         displaySuccess: false,
-        displaySuccess: false
+        displayError: false
       },
       templateUrl: '/app/components/products/view/dialogs/orderEmail.tmpl.html',
       targetEvent: ev,
       clickOutsideToClose: true,
       fullscreen: useFullScreen
-    })
+    });
   }
 
   orderCall(ev) {
@@ -67,7 +67,7 @@ class ViewProductController {
       targetEvent: ev,
       clickOutsideToClose: true,
       fullscreen: useFullScreen
-    })
+    });
   }
 
   cancel() {
