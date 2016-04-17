@@ -1,5 +1,5 @@
 class ViewProductController {
-  constructor(ProductsService, $sce, $stateParams, taOptions) {
+  constructor(ProductsService, $sce, $stateParams, taOptions, $mdDialog, $mdMedia, EmailService) {
     'ngInject';
 
     taOptions.toolbar = [
@@ -9,6 +9,10 @@ class ViewProductController {
     ];
 
     var id = $stateParams.id;
+
+    this.mdDialog = $mdDialog;
+    this.mdMedia = $mdMedia;
+    this.EmailService = EmailService;
 
     this.loading = true;
     ProductsService.getProduct(id)
@@ -24,6 +28,46 @@ class ViewProductController {
     console.log(this.value);
 
     this.product.imageUrl = this.value;
+  }
+
+  orderEmail(ev) {
+    var useFullScreen =  this.mdMedia('sm') || this.mdMedia('xs');
+    this.mdDialog.show({
+      controller: angular.noop,
+      controllerAs: 'vm',
+      bindToController: true,
+      locals: {
+        parent: this,
+        cancel: this.cancel,
+        orderEmailSubmit: this.orderEmailSubmit,
+        displaySuccess: false,
+        displaySuccess: false
+      },
+      templateUrl: '/app/components/products/view/dialogs/orderEmail.tmpl.html',
+      targetEvent: ev,
+      clickOutsideToClose: true,
+      fullscreen: useFullScreen
+    })
+  }
+
+  cancel() {
+    this.parent.mdDialog.hide();
+  }
+
+  orderEmailSubmit(emailBody) {
+    var notes = "Quantity: " + emailBody.quantity + ", Message: " + emailBody.message;
+    this.orderEmailFormValidating = true;
+    this.parent.EmailService.sendEmail(emailBody.name, emailBody.email, '', notes)
+      .then((response) => {
+        this.orderEmailFormValidating = false;
+        if (response.error) {
+          this.displayError = true;
+          this.displaySuccess = false;
+        } else {
+          this.displaySuccess = true;
+          this.displayError = false;
+        }
+      });
   }
 }
 
