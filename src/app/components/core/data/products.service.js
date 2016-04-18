@@ -50,6 +50,14 @@ class ProductsService {
       });
   }
 
+  delete(id) {
+    return this.http
+      .post(this.baseUrl + "/products/delete/" + id)
+      .then((response) => {
+        return response.data;
+      });
+  }
+
 }
 
 

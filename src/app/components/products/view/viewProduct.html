@@ -41,7 +41,7 @@
           <span flex></span>
           <md-button class="preview" ng-class="{true:'hidden', false:''}[vm.authOverride]" ng-if="main.auth.isAuthenticated()" ng-click="vm.authOverride = !vm.authOverride">{{vm.authOverride ? 'Hide Preview' : 'Show Preview'}}</md-button>
           <md-button class="save" ng-click="vm.editProductSubmit()" ng-if="main.auth.isAuthenticated()">Save Change</md-button>
-          <md-button class="delete" ng-click="vm.deleteProduct(vm.product)" ng-if="main.auth.isAuthenticated()">DELETE</md-button>
+          <md-button class="delete" ng-click="vm.deleteProduct(vm.product, $event)" ng-if="main.auth.isAuthenticated()">DELETE</md-button>
 
         </div>
       </md-content>

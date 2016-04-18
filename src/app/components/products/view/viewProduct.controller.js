@@ -1,5 +1,5 @@
 class ViewProductController {
-  constructor(ProductsService, $sce, $stateParams, taOptions, $mdDialog, $mdMedia, EmailService, $scope) {
+  constructor(ProductsService, $sce, $stateParams, $state, taOptions, $mdDialog, $mdMedia, EmailService, $scope) {
     'ngInject';
 
     taOptions.toolbar = [
@@ -17,6 +17,7 @@ class ViewProductController {
     this.scope = $scope;
     this.main = $scope.$parent.$parent.$parent.main;
     this.ProductsService = ProductsService;
+    this.state = $state;
 
     this.editProductValidating = false;
 
@@ -31,9 +32,27 @@ class ViewProductController {
   }
 
   filePicked(event) {
-    console.log(this.value);
-
     this.product.imageUrl = this.value;
+  }
+  deleteProduct(product, event) {
+    var confirm = this.mdDialog.confirm()
+       .title('Are you sure?')
+       .textContent('This action will permanently delete the product')
+       .ariaLabel('Delete Product')
+       .targetEvent(event)
+       .ok('Delete')
+       .cancel('Cancel');
+
+    this.mdDialog
+     .show(confirm)
+     .then(() => {
+       this.ProductsService
+        .delete(product.id)
+        .then((response) => {
+          this.main.broadcastToast("Product was deleted!");
+          this.state.go("^");
+        });
+     });
   }
 
   editProductSubmit() {
@@ -50,9 +69,7 @@ class ViewProductController {
             // window.location.reload();
             this.main.broadcastToast("Product Updated!");
 
-              console.log(response);
-
-              this.product = response.product;
+            this.product = response.product;
           }
           this.editProductValidating = false;
           this.scope.editProductForm.$setPristine();
