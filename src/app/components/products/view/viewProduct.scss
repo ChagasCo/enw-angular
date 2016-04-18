@@ -196,14 +196,18 @@
       }
 
       .preview,
-      .save {
+      .save,
+      .delete {
         height: 42px;
-        background-color: #FF5722;
+        background-color: #00838F;
         color: #fff;
       }
+      .delete {
+        background-color: #B71C1C;
+      }
 
-      .preview.hide {
-        background-color: #FFB74D;
+      .preview.hidden {
+        background-color: #FF5722;
       }
 
     }
