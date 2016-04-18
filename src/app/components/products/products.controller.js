@@ -44,7 +44,99 @@ class ProductsController {
           imageUrl: '',
         }
       },
-      templateUrl: '/app/components/products/newProduct/newProduct.html',
+      template: `
+      <md-dialog class="new-product-cmp" aria-label="New Product" ng-cloak>
+        <md-toolbar>
+          <div class="md-toolbar-tools">
+            <h2>New Product</h2>
+            <span flex></span>
+            <md-button class="md-icon-button" ng-click="vm.cancel()">
+              <md-icon aria-label="Close dialog">close</md-icon>
+            </md-button>
+          </div>
+        </md-toolbar>
+        <form name="newProductForm" layout="column"  ng-submit="newProductForm.$valid && vm.newProductSubmit(vm.product)" novalidate>
+          <md-dialog-content class="md-padding" ng-hide="vm.showImageUpload" layout="column">
+            <!-- Name -->
+            <md-input-container flex md-is-error="newProductForm.name.$invalid && (newProductForm.$submitted || newProductForm.name.$dirty)">
+              <label>Name</label>
+              <input name="name" type="text" ng-model="vm.product.name" ng-required="true">
+              <div ng-messages="newProductForm.name.$error" ng-if="newProductForm.$submitted || newProductForm.name.$touched">
+                <div ng-message="required">You must enter a name</div>
+              </div>
+            </md-input-container>
+
+            <!-- Brand -->
+            <md-input-container flex md-is-error="newProductForm.brand.$invalid && (newProductForm.$submitted || newProductForm.brand.$dirty)">
+              <label>Brand</label>
+              <input name="brand" type="text" ng-model="vm.product.brand" ng-required="true">
+              <div ng-messages="newProductForm.brand.$error" ng-if="newProductForm.$submitted || newProductForm.brand.$touched">
+                <div ng-message="required">You mus1t enter a brand name</div>
+              </div>
+            </md-input-container>
+
+            <!-- Price -->
+            <md-input-container flex md-is-error="newProductForm.price.$invalid && (newProductForm.$submitted || newProductForm.price.$dirty)">
+              <label>Price</label>
+              <input name="price" type="number" step="0.05" ng-model="vm.product.price" ng-required="true">
+              <div ng-messages="newProductForm.price.$error" ng-if="newProductForm.$submitted || newProductForm.price.$touched">
+                <div ng-message="required">You must enter a price</div>
+              </div>
+            </md-input-container>
+
+            <!-- Image Url -->
+            <!-- <md-input-container flex md-is-error="newProductForm.imageUrl.$invalid && (newProductForm.$submitted || newProductForm.imageUrl.$dirty)">
+              <label>Image</label>
+                <input name="imageUrl" type="text" ng-model="vm.product.imageUrl" ng-required="true" style="display:none;">
+
+              <div ng-messages="newProductForm.imageUrl.$error" ng-if="newProductForm.$submitted || newProductForm.imageUrl.$touched">
+                <div ng-message="required">You must upload an image</div>
+              </div>
+               -->
+            </md-input-container>
+            <!-- Description -->
+            <md-input-container flex md-is-error="newProductForm.description.$invalid && (newProductForm.$submitted || newProductForm.description.$dirty)">
+              <label style="color: #757575">Description</label>
+              <br><br>
+              <text-angular ng-model="vm.product.description"></text-angular>
+              <!-- <textarea name="description" ng-model="vm.product.description" ng-required="true"></textarea> -->
+              <div ng-messages="newProductForm.description.$error" ng-if="newProductForm.$submitted || newProductForm.description.$touched">
+                <div ng-message="required">You must enter a description</div>
+              </div>
+            </md-input-container>
+          </md-dialog-content>
+
+          <md-dialog-content class="image-upload md-padding" ng-show="vm.showImageUpload" layout="column">
+            Image Upload
+            <md-content layout="column">
+              <md-content layout="row" layout-align="start center">
+                <md-button class="upload-btn" ng-click="vm.uploadImage()">Upload</md-button>
+                <span flex><a href="{{vm.product.imageUrl}}" target="_blank">{{vm.product.imageUrl}}</a></span>
+              </md-content>
+              <img ng-src="{{vm.product.imageUrl}}" alt="">
+            </md-content>
+          </md-dialog-content>
+
+          <md-dialog-actions layout="row" style="border-top: 2px solid #dcdcdc; background-color: #efefef;">
+            <md-button ng-click="vm.cancel()">
+             Discard
+            </md-button>
+            <span flex></span>
+            <md-button ng-if="vm.showImageUpload" ng-click="vm.showImageUpload = false;">
+              Back
+            </md-button>
+            <md-button ng-if="!vm.showImageUpload" ng-click="vm.showImageUpload = true;">
+              Next
+            </md-button>
+            <md-button class="md-raised md-primary" ng-if="vm.showImageUpload" type="submit" ng-disabled="vm.newProductFormValidating" style="margin-right:20px;">
+              Save
+            </md-button>
+          </md-dialog-actions>
+        </form>
+
+      </md-dialog>
+
+      `,
       targetEvent: ev,
       clickOutsideToClose: true,
       fullscreen: useFullScreen

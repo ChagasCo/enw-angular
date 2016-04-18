@@ -10,8 +10,8 @@ var $ = require('gulp-load-plugins')({
 
 gulp.task('partials', ['markups'], function () {
   return gulp.src([
-    path.join(conf.paths.src, '/app/**/**/**/*.html'),
-    path.join(conf.paths.tmp, '/serve/app/**/**/**/*.html')
+    path.join(conf.paths.src, '/app/**/**/**/**/*.html'),
+    path.join(conf.paths.tmp, '/serve/app/**/**/**/**/*.html')
   ])
     .pipe($.minifyHtml({
       empty: true,
@@ -34,8 +34,8 @@ gulp.task('html', ['inject', 'partials'], function () {
   };
 
   var htmlFilter = $.filter('*.html');
-  var jsFilter = $.filter('**/**/**/*.js');
-  var cssFilter = $.filter('**/**/*.css');
+  var jsFilter = $.filter('**/**/**/**/**/*.js');
+  var cssFilter = $.filter('**/**/**/**/*.css');
   var assets;
 
   return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
@@ -80,7 +80,7 @@ gulp.task('other', function () {
 
   return gulp.src([
     path.join(conf.paths.src, '/**/**/**/*'),
-    path.join('!' + conf.paths.src, '/**/**/**/**/*.{html,css,js,scss,jade}')
+    path.join('!' + conf.paths.src, '/**/**/**/**/**/**/*.{html,css,js,scss,jade}')
   ])
     .pipe(fileFilter)
     .pipe(gulp.dest(path.join(conf.paths.dist, '/')));

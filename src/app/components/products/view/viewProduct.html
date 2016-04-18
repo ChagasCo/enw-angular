@@ -6,13 +6,16 @@
     <span class="breadcrumb" flex><a ui-sref="^">All Products</a>  /  {{vm.product.name}}</span>
   </md-content>
 
+  <md-progress-linear class="md-accent" ng-show="vm.editProductValidating" md-mode="indeterminate"></md-progress-linear>
+
   <md-progress-linear ng-show="vm.saving" md-mode="indeterminate"></md-progress-linear>
   <md-content ng-show="vm.loading" layout="column" layout-align="start center">
-    <md-progress-circularmd-mode="indeterminate" md-diameter="100"></md-progress-circular>
+    <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
     Loading Product...
   </md-content>
 
-  <md-content class="product-container md-padding" layout="row" layout-xs="column">
+
+  <md-content ng-hide="vm.loading" class="product-container md-padding" layout="row" layout-xs="column">
     <!-- Product Image -->
     <md-content flex="40" flex-xs="100" layout="column">
 
@@ -36,8 +39,10 @@
           <md-button class="order-email" ng-click="vm.orderEmail($event)">Email Heather</md-button>
           <md-button class="order-call md-primary" ng-click="vm.orderCall($event)">Call Heather</md-button>
           <span flex></span>
-          <md-button class="preview" ng-if="main.auth.isAuthenticated()" ng-click="vm.authOverride = !vm.authOverride">{{vm.authOverride ? 'Hide Preview' : 'Show Preview'}}</md-button>
-          <md-button class="save" ng-if="main.auth.isAuthenticated()">Save Change</md-button>
+          <md-button class="preview" ng-class="{true:'hidden', false:''}[vm.authOverride]" ng-if="main.auth.isAuthenticated()" ng-click="vm.authOverride = !vm.authOverride">{{vm.authOverride ? 'Hide Preview' : 'Show Preview'}}</md-button>
+          <md-button class="save" ng-click="vm.editProductSubmit()" ng-if="main.auth.isAuthenticated()">Save Change</md-button>
+          <md-button class="delete" ng-click="vm.deleteProduct(vm.product, $event)" ng-if="main.auth.isAuthenticated()">DELETE</md-button>
+
         </div>
       </md-content>
 
@@ -58,7 +63,8 @@
         </md-content>
 
         <!-- Write -->
-        <form name="editProductForm" ng-if="!vm.authOverride && main.auth.isAuthenticated()" layout="column">
+        <form name="editProductForm" ng-show="!vm.authOverride && main.auth.isAuthenticated()" layout="column" ng-submit="editProductForm.$valid && vm.editProductSubmit()" novalidate>
+
           <!-- Name -->
           <md-input-container flex md-is-error="editProductForm.name.$invalid && (editProductForm.$submitted || editProductForm.name.$dirty)">
             <label>Name</label>
