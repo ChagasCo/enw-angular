@@ -1,7 +1,9 @@
 import Product from './components/core/models/product';
 
-function routerConfig ($stateProvider, $urlRouterProvider) {
+function routerConfig ($stateProvider, $urlRouterProvider, $locationProvider) {
   'ngInject';
+
+  $locationProvider.html5Mode(true);
 
   $stateProvider
 
