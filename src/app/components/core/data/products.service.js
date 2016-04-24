@@ -42,6 +42,22 @@ class ProductsService {
       });
   }
 
+  update(product) {
+    return this.http
+      .post(this.baseUrl + "/products/edit/" + product.id, product)
+      .then((response) => {
+        return response.data;
+      });
+  }
+
+  delete(id) {
+    return this.http
+      .post(this.baseUrl + "/products/delete/" + id)
+      .then((response) => {
+        return response.data;
+      });
+  }
+
 }
 
 
