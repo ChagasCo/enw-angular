@@ -20,13 +20,12 @@
     <md-content flex="40" flex-xs="100" layout="column">
 
       <div class="product-image" layout="column" layout-align="start center">
-        <div class="image-hover" ng-if="main.auth.isAuthenticated()" layout="column" layout-align="start center">
+        <div class="image-hover" ng-if="main.auth.isAuthenticated()" layout="column" layout-align="start center"  ng-click="vm.uploadImage()">
           <div layout="row" layout-fill layout-align="center center" class="overlay-action">
             <div class="upload">
               <span class="upload-title">UPLOAD</span>
               <md-icon>photo_camera</md-icon>
             </div>
-            <input class="picker" type="filepicker" data-fp-apikey="AuBOzXm5MRyZQEErCSWL6z" ng-model="vm.value" ng-change="vm.filePicked()" />
           </div>
         </div>
         <img ng-src="{{vm.product.imageUrl}}" alt="{{vm.product.name}}">
