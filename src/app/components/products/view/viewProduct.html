@@ -9,7 +9,7 @@
   <md-progress-linear class="md-accent" ng-show="vm.editProductValidating" md-mode="indeterminate"></md-progress-linear>
 
   <md-progress-linear ng-show="vm.saving" md-mode="indeterminate"></md-progress-linear>
-  <md-content ng-show="vm.loading" layout="column" layout-align="start center">
+  <md-content ng-show="vm.loading" layout="column" layout-align="start center" style="position: fixed;">
     <md-progress-circular md-mode="indeterminate" md-diameter="100"></md-progress-circular>
     Loading Product...
   </md-content>

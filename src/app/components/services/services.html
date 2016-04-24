@@ -1,212 +1,200 @@
 <div class="services-cmp">
 
-  <!-- Hero Banner -->
   <md-content class="hero md-padding" layout="column" layout-align="center center">
     <h1 class="md-title">Services</h1>
   </md-content>
 
-  <!-- Have A Go Session Form -->
-  <section id="haveAGo" layout="column" layout-align="start center">
-    <div class="wrapper">
-      <md-content>
-        <h2 class="heading">Have a Go Session</h2>
-        <h3 class="sub-heading">New to Nordic Walking? Join the Have a Go Session to get started</h3>
+  <md-content id="haveAGo" class="section" layout="column" layout-align="start center">
+    <md-content>
+      <h2 class="heading">Have a Go Session</h2>
+      <h3 class="sub-heading">New to Nordic Walking? Join the Have a Go Session to get started</h3>
+    </md-content>
+    <md-content class="md-padding" layout="row" layout-xs="column" layout-fill>
+      <md-content flex-md="10" flex layout="column">
+        <img src="./assets/images/nordic-senior2.jpg" alt="Nordic Walking - Senior Walker Participant" style="width: 300px;">
+        <p>
+          This is a <strong>FREE</strong> 45 minute introduction to Nordic Walking.
+          Come and learn about this new fitness activity in a relaxed outdoor setting.
+          Heather will explain the benefits of Nordic Walking and give you a chance to
+          give it a try. Maximum group size: 10.
+          <br><br>
+          Things you will need:
+          <br>
+          <ul>
+            <li>Good walking shoes</li>
+          </ul>
+        </p>
       </md-content>
-      <md-content class="md-padding" layout="row" layout-xs="column" layout-fill>
-        <md-content flex-md="45" flex layout="column">
-          <img src="./assets/images/nordic-senior2.jpg" alt="Nordic Walking - Senior Walker Participant" style="width: 300px;">
-          <p>
-            This is a <strong>FREE</strong> 45 minute introduction to Nordic Walking.
-            Come and learn about this new fitness activity in a relaxed outdoor setting.
-            Heather will explain the benefits of Nordic Walking and give you a chance to
-            give it a try. Maximum group size: 10.
-            <br><br>
-            Things you will need:
-            <br>
-            <ul>
-              <li>Good walking shoes</li>
-            </ul>
-          </p>
-        </md-content>
-        <span flex="5"></span>
-        <md-content flex>
-          <form id="beginnerSessionForm" name="beginnerSessionForm" class="beginnerSessionForm" layout="column" ng-submit="beginnerSessionForm.$valid && vm.beginnerSessionSubmit()" novalidate>
-
-            <!-- Name -->
-            <md-input-container flex md-is-error="beginnerSessionForm.name.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.name.$dirty)">
-              <label>Name</label>
-              <input name="name" type="text" ng-model="vm.beginnerSession.name" ng-required="true">
-              <div ng-messages="beginnerSessionForm.name.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.name.$touched">
-                <div ng-message="required">Please enter your name</div>
-              </div>
-            </md-input-container>
-
-            <!-- Email -->
-            <md-input-container flex md-is-error="beginnerSessionForm.email.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.email.$dirty)">
-              <label>Email</label>
-              <input name="email" type="email" ng-model="vm.beginnerSession.email" ng-required="true">
-              <div ng-messages="beginnerSessionForm.email.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.email.$touched">
-                <div ng-message="required">Please enter your email</div>
-              </div>
-            </md-input-container>
-
-            <!-- Phone -->
-            <md-input-container flex md-is-error="beginnerSessionForm.phone.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.phone.$dirty)">
-              <label>Phone Number (Optional)</label>
-              <input name="phone" type="text" ng-model="vm.beginnerSession.phone">
-            </md-input-container>
-
-            <md-button class="submit" type="submit" ng-disabled="vm.beginnerSessionValidating">Send Enquiry</md-button>
-          </form>
-        </md-content>
-      </md-content>
-    </div>
-  </section>
-
-  <!-- Classes Session Form -->
-  <section id="classes" class="class-section" layout="column" layout-align="start center">
-    <div class="wrapper">
-      <md-content>
-        <h2 class="heading">Range Of Classses</h2>
-        <h3 class="sub-heading">Participate in a group class or special sessions</h3>
-      </md-content>
-      <md-content layout="row" layout-fill>
-        <md-card class="class-card" ng-repeat="class in vm.classes" layout="column">
-          <img class="md-card-image" ng-src="{{class.thumbnail}}" alt="{{class.name}}">
-          <md-card-content layout="column" flex>
-            <h2 class="md-title">{{class.name}}</h2>
-            <p ng-bind-html="vm.trustAsHtml(class.content)"></p>
-          </md-card-content>
-          <div class="md-actions" layout="row" layout-align="center end">
-            <md-button ng-class="{true:'active', false:''}[vm.selectedClass === class]" class="class-card button" aria-label="{{class.name}}" ng-click="vm.itemSliderClick(class, $event)">
-              <span ng-if="vm.selectedClass !== class">Select Class</span>
-              <span ng-if="vm.selectedClass === class">Selected</span>
-            </md-button>
-          </div>
-        </md-card>
-      </md-content>
-    </div>
-  </section>
-
-  <!-- Class Session Booking Form -->
-  <section id="bookingForm" layout="column" layout-align="start center" >
-    <div class="wrapper" flex>
-      <md-content>
-        <h2 class="heading">Booking</h2>
-      </md-content>
-      <md-content layout="column" layout-fill layout-align="start center">
-        <form name="classBookingForm" class="class-booking-form" layout="column" ng-submit="classBookingForm.$valid && vm.classSessionSubmit()" novalidate>
+      <span flex="5"></span>
+      <md-content flex>
+        <form id="beginnerSessionForm" name="beginnerSessionForm" class="beginnerSessionForm" layout="column" ng-submit="beginnerSessionForm.$valid && vm.beginnerSessionSubmit()" novalidate>
 
           <!-- Name -->
-          <md-input-container flex md-is-error="classBookingForm.class.$invalid && (classBookingForm.$submitted || classBookingForm.name.$dirty)">
-            <label>Selected Class</label>
-            <input name="class" type="text" ng-model="vm.classSession.class" ng-required="true" ng-disabled="true" placeholder="Please select a class above">
-            <div ng-messages="classBookingForm.class.$error" ng-if="classBookingForm.$submitted || classBookingForm.class.$touched">
-              <div ng-message="required">You must select a class</div>
-            </div>
-          </md-input-container>
-
-          <!-- Name -->
-          <md-input-container flex md-is-error="classBookingForm.name.$invalid && (classBookingForm.$submitted || classBookingForm.name.$dirty)">
+          <md-input-container flex md-is-error="beginnerSessionForm.name.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.name.$dirty)">
             <label>Name</label>
-            <input name="name" type="text" ng-model="vm.classSession.name" ng-required="true">
-            <div ng-messages="classBookingForm.name.$error" ng-if="classBookingForm.$submitted || classBookingForm.name.$touched">
+            <input name="name" type="text" ng-model="vm.beginnerSession.name" ng-required="true">
+            <div ng-messages="beginnerSessionForm.name.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.name.$touched">
               <div ng-message="required">Please enter your name</div>
             </div>
           </md-input-container>
 
           <!-- Email -->
-          <md-input-container flex md-is-error="classBookingForm.email.$invalid && (classBookingForm.$submitted || classBookingForm.email.$dirty)">
+          <md-input-container flex md-is-error="beginnerSessionForm.email.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.email.$dirty)">
             <label>Email</label>
-            <input name="email" type="email" ng-model="vm.classSession.email" ng-required="true">
-            <div ng-messages="classBookingForm.email.$error" ng-if="classBookingForm.$submitted || classBookingForm.email.$touched">
+            <input name="email" type="email" ng-model="vm.beginnerSession.email" ng-required="true">
+            <div ng-messages="beginnerSessionForm.email.$error" ng-if="beginnerSessionForm.$submitted || beginnerSessionForm.email.$touched">
               <div ng-message="required">Please enter your email</div>
             </div>
           </md-input-container>
 
           <!-- Phone -->
-          <md-input-container flex>
+          <md-input-container flex md-is-error="beginnerSessionForm.phone.$invalid && (beginnerSessionForm.$submitted || beginnerSessionForm.phone.$dirty)">
             <label>Phone Number (Optional)</label>
-            <input name="phone" type="text" ng-model="vm.classSession.phone">
+            <input name="phone" type="text" ng-model="vm.beginnerSession.phone">
           </md-input-container>
 
-          <!-- Equipment Hire -->
-          <md-input-container flex md-is-error="classBookingForm.hireEquipment.$invalid && (classBookingForm.$submitted || classBookingForm.hireEquipment.$dirty)">
-            <md-radio-group name="hireEquipment" id="class-booking-equipment-hire" ng-model="vm.classSession.hireEquipment" ng-required="true">
-              <label>Hire Equipment?</label>
-              <br><br>
-              <md-radio-button value="Yes">Yes</md-radio-button>
-              <md-radio-button value="No">No</md-radio-button>
-            </md-radio-group>
-            <div ng-messages="classBookingForm.hireEquipment.$error" ng-if="classBookingForm.$submitted || classBookingForm.hireEquipment.$touched">
-              <div ng-message="required">Please select yes or no</div>
+          <md-button class="submit" type="submit" ng-disabled="vm.beginnerSessionValidating">Send Enquiry</md-button>
+        </form>
+      </md-content>
+    </md-content>
+  </md-content>
+
+  <md-content id="classes" class="section" layout="column" layout-align="start center">
+    <md-content>
+      <h2 class="heading">Range Of Classses</h2>
+      <h3 class="sub-heading">Participate in a group class or special sessions</h3>
+    </md-content>
+    <md-content class="wide" layout="row" layout-fill>
+      <md-card class="class-card" ng-repeat="class in vm.classes" layout="column">
+        <img class="md-card-image" ng-src="{{class.thumbnail}}" alt="{{class.name}}">
+        <md-card-content layout="column" flex>
+          <h2 class="md-title">{{class.name}}</h2>
+          <p ng-bind-html="vm.trustAsHtml(class.content)"></p>
+        </md-card-content>
+        <div class="md-actions" layout="row" layout-align="center end">
+          <md-button ng-class="{true:'active', false:''}[vm.selectedClass === class]" class="class-card button" aria-label="{{class.name}}" ng-click="vm.itemSliderClick(class, $event)">
+            <span ng-if="vm.selectedClass !== class">Select Class</span>
+            <span ng-if="vm.selectedClass === class">Selected</span>
+          </md-button>
+        </div>
+      </md-card>
+    </md-content>
+  </md-content>
+
+  <md-content id="bookingForm" class="section" layout="column" layout-align="start center">
+    <md-content>
+      <h2 class="heading">Booking</h2>
+    </md-content>
+    <md-content class="wrapper" layout="column" layout-fill layout-align="start center">
+      <form name="classBookingForm" class="class-booking-form" layout="column" ng-submit="classBookingForm.$valid && vm.classSessionSubmit()" novalidate>
+
+        <!-- Name -->
+        <md-input-container flex md-is-error="classBookingForm.class.$invalid && (classBookingForm.$submitted || classBookingForm.name.$dirty)">
+          <label>Selected Class</label>
+          <input name="class" type="text" ng-model="vm.classSession.class" ng-required="true" ng-disabled="true" placeholder="Please select a class above">
+          <div ng-messages="classBookingForm.class.$error" ng-if="classBookingForm.$submitted || classBookingForm.class.$touched">
+            <div ng-message="required">You must select a class</div>
+          </div>
+        </md-input-container>
+
+        <!-- Name -->
+        <md-input-container flex md-is-error="classBookingForm.name.$invalid && (classBookingForm.$submitted || classBookingForm.name.$dirty)">
+          <label>Name</label>
+          <input name="name" type="text" ng-model="vm.classSession.name" ng-required="true">
+          <div ng-messages="classBookingForm.name.$error" ng-if="classBookingForm.$submitted || classBookingForm.name.$touched">
+            <div ng-message="required">Please enter your name</div>
+          </div>
+        </md-input-container>
+
+        <!-- Email -->
+        <md-input-container flex md-is-error="classBookingForm.email.$invalid && (classBookingForm.$submitted || classBookingForm.email.$dirty)">
+          <label>Email</label>
+          <input name="email" type="email" ng-model="vm.classSession.email" ng-required="true">
+          <div ng-messages="classBookingForm.email.$error" ng-if="classBookingForm.$submitted || classBookingForm.email.$touched">
+            <div ng-message="required">Please enter your email</div>
+          </div>
+        </md-input-container>
+
+        <!-- Phone -->
+        <md-input-container flex>
+          <label>Phone Number (Optional)</label>
+          <input name="phone" type="text" ng-model="vm.classSession.phone">
+        </md-input-container>
+
+        <!-- Equipment Hire -->
+        <md-input-container flex md-is-error="classBookingForm.hireEquipment.$invalid && (classBookingForm.$submitted || classBookingForm.hireEquipment.$dirty)">
+          <md-radio-group name="hireEquipment" id="class-booking-equipment-hire" ng-model="vm.classSession.hireEquipment" ng-required="true">
+            <label>Hire Equipment?</label>
+            <br><br>
+            <md-radio-button value="Yes">Yes</md-radio-button>
+            <md-radio-button value="No">No</md-radio-button>
+          </md-radio-group>
+          <div ng-messages="classBookingForm.hireEquipment.$error" ng-if="classBookingForm.$submitted || classBookingForm.hireEquipment.$touched">
+            <div ng-message="required">Please select yes or no</div>
+          </div>
+        </md-input-container>
+
+        <md-button class="submit" type="submit" ng-disabled="vm.classSessionValidating">Send Enquiry</md-button>
+      </form>
+    </md-content>
+  </md-content>
+
+  <md-content class="section" layout="column" layout-align="start center">
+    <md-content>
+      <h2 class="heading">Presentations</h2>
+      <h3 class="sub-heading">Seeking speakers for a presentation or conference? Let's get in touch</h3>
+    </md-content>
+    <md-content class="md-padding " layout="row" layout-xs="column" layout-fill>
+      <md-content flex>
+        <p>
+          Presentations are suitable for Service Clubs and Social Groups and it is free of charge.
+          I offer 30 minute presentations on the general background of Nordic Walking and
+          the benefits Nordic Walking can have on your physical and mental health.
+        </p>
+        <p>
+          Contact me today to find out more about presentations and what I offer.
+          <br><br>
+          Enter your details in the form provided and I will contact you back via phone or email as soon as possible.
+        </p>
+      </md-content>
+      <span flex="5"></span>
+      <md-content layout="colum" flex="5">
+        <form name="presentationForm" class="presentation-form" layout="column" flex ng-submit="presentationForm.$valid && vm.presentationSubmit()" novalidate>
+          <!-- Name -->
+          <md-input-container flex md-is-error="presentationForm.fullname.$invalid && (presentationForm.$submitted || presentationForm.fullname.$dirty)">
+            <label>Name</label>
+            <input name="fullname" type="text" ng-model="vm.presentation.fullname" ng-required="true">
+            <div ng-messages="presentationForm.fullname.$error" ng-if="presentationForm.$submitted || presentationForm.fullname.$touched">
+              <div ng-message="required">Please enter your name</div>
             </div>
           </md-input-container>
 
-          <md-button class="submit" type="submit" ng-disabled="vm.classSessionValidating">Send Enquiry</md-button>
+          <!-- Email -->
+          <md-input-container flex md-is-error="presentationForm.email.$invalid && (presentationForm.$submitted || presentationForm.email.$dirty)">
+            <label>Email</label>
+            <input name="email" type="text" ng-model="vm.presentation.email" ng-required="true">
+            <div ng-messages="presentationForm.email.$error" ng-if="presentationForm.$submitted || presentationForm.email.$touched">
+              <div ng-message="required">Please enter your email</div>
+            </div>
+          </md-input-container>
+
+          <!-- Organisation Name -->
+          <md-input-container flex>
+            <label>Organisation Name (Optional)</label>
+            <input name="name" type="text" ng-model="vm.presentation.organisationName" >
+          </md-input-container>
+
+          <!-- Phone -->
+          <md-input-container flex md-is-error="presentationForm.phone.$invalid && (presentationForm.$submitted || presentationForm.phone.$dirty)">
+            <label>Phone Number (Optional)</label>
+            <input name="phone" type="text" ng-model="vm.presentation.phone">
+          </md-input-container>
+
+          <md-button class="submit" type="submit" ng-disabled="vm.presentationFormValidating">Send Enquiry</md-button>
         </form>
       </md-content>
-    </div>
-  </section>
+    </md-content>
+  </md-content>
 
-  <!-- Public Speaking Request Form -->
-  <section layout="column" layout-align="start center">
-    <div class="wrapper">
-      <md-content>
-        <h2 class="heading">Presentations</h2>
-        <h3 class="sub-heading">Seeking speakers for a presentation or conference? Let's get in touch</h3>
-      </md-content>
-      <md-content class="md-padding" layout="row" layout-xs="column" layout-fill>
-        <md-content  flex-gt-sm="50" flex>
-          <p>
-            Presentations are suitable for Service Clubs and Social Groups and it is free of charge.
-            I offer 30 minute presentations on the general background of Nordic Walking and
-            the benefits Nordic Walking can have on your physical and mental health.
-          </p>
-          <p>
-            Contact me today to find out more about presentations and what I offer.
-            <br><br>
-            Enter your details in the form provided and I will contact you back via phone or email as soon as possible.
-          </p>
-        </md-content>
-        <span flex="5"></span>
-        <md-content layout="colum" flex>
-          <form  name="presentationForm" class="presentation-form" layout="column" flex ng-submit="presentationForm.$valid && vm.presentationSubmit()" novalidate>
 
-            <!-- Name -->
-            <md-input-container flex md-is-error="presentationForm.fullname.$invalid && (presentationForm.$submitted || presentationForm.fullname.$dirty)">
-              <label>Name</label>
-              <input name="fullname" type="text" ng-model="vm.presentation.fullname" ng-required="true">
-              <div ng-messages="presentationForm.fullname.$error" ng-if="presentationForm.$submitted || presentationForm.fullname.$touched">
-                <div ng-message="required">Please enter your name</div>
-              </div>
-            </md-input-container>
-
-            <!-- Email -->
-            <md-input-container flex md-is-error="presentationForm.email.$invalid && (presentationForm.$submitted || presentationForm.email.$dirty)">
-              <label>Email</label>
-              <input name="email" type="text" ng-model="vm.presentation.email" ng-required="true">
-              <div ng-messages="presentationForm.email.$error" ng-if="presentationForm.$submitted || presentationForm.email.$touched">
-                <div ng-message="required">Please enter your email</div>
-              </div>
-            </md-input-container>
-
-            <!-- Organisation Name -->
-            <md-input-container flex>
-              <label>Organisation Name (Optional)</label>
-              <input name="name" type="text" ng-model="vm.presentation.organisationName" >
-            </md-input-container>
-
-            <!-- Phone -->
-            <md-input-container flex md-is-error="presentationForm.phone.$invalid && (presentationForm.$submitted || presentationForm.phone.$dirty)">
-              <label>Phone Number (Optional)</label>
-              <input name="phone" type="text" ng-model="vm.presentation.phone">
-            </md-input-container>
-
-            <md-button class="submit" type="submit" ng-disabled="vm.presentationFormValidating">Send Enquiry</md-button>
-          </form>
-        </md-content>
-      </md-content>
-    </div>
-  </section>
 </div>
