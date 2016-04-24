@@ -8,7 +8,7 @@ class ViewProductController {
       // ['html', 'insertImage','insertLink', 'insertVideo', 'wordcount', 'charcount']
     ];
 
-    var id = $stateParams.id;
+    this.id = $stateParams.id;
 
     this.mdDialog = $mdDialog;
     this.mdMedia = $mdMedia;
@@ -22,7 +22,7 @@ class ViewProductController {
     this.editProductValidating = false;
 
     this.loading = true;
-    ProductsService.getProduct(id)
+    ProductsService.getProduct(this.id)
       .then((product) => {
         if (product.error) {
           this.state.go("^");
@@ -69,6 +69,9 @@ class ViewProductController {
     if (this.scope.editProductForm.$valid) {
       this.editProductValidating = true;
 
+      // Get id from stateParams
+      this.product.id = this.id;
+
       this.ProductsService
         .update(this.product)
         .then((response) => {
@@ -100,7 +103,7 @@ class ViewProductController {
         displaySuccess: false,
         displayError: false
       },
-      templateUrl: 'app/components/products/view/dialogs/orderCall.tmpl.html',
+      templateUrl: 'app/components/products/view/dialogs/orderEmail.tmpl.html',
       targetEvent: ev,
       clickOutsideToClose: true,
       fullscreen: useFullScreen
@@ -118,7 +121,7 @@ class ViewProductController {
         cancel: this.cancel,
         heatherContact: this.main.heatherContact
       },
-      templateUrl: 'app/components/products/view/dialogs/orderEmail.tmpl.html',
+      templateUrl: 'app/components/products/view/dialogs/orderCall.tmpl.html',
       targetEvent: ev,
       clickOutsideToClose: true,
       fullscreen: useFullScreen
