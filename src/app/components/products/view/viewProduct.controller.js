@@ -24,6 +24,10 @@ class ViewProductController {
     this.loading = true;
     ProductsService.getProduct(id)
       .then((product) => {
+        if (product.error) {
+          this.state.go("^");
+          return;
+        }
         this.product = product;
         this.loading = false;
       });
