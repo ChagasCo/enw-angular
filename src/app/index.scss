@@ -7,6 +7,10 @@ body {
   // overflow: auto;
 }
 
+.hero {
+  background-color: $enw-theme-color;
+}
+
 main {
   min-height: calc(100vh - 256px);
 }

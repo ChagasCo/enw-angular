@@ -31,7 +31,15 @@
 
   </head>
   <body  ng-controller="MainController as main" ng-cloak>
-
+    <div id="fb-root"></div>
+    <script>(function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.6";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
+    
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -41,65 +49,9 @@
       <div ui-view autoscroll="true"></div>
     </main>
 
-      <footer>
-        <!-- &copy; 2016 Essential Nordic Walking. All Rights Reserved. -->
-
-
-        <md-content layout="column">
-            <md-content layout="row" layout-xs="column">
-
-              <md-content layout="row" layout-fill layout-align="center space-around" flex>
-                <span flex="10" flex-xs="0"></span>
-                <md-content class="footer-panel left">
-                  <ul>
-                    <li><a ui-sref="home">Home</a></li>
-                    <li><a ui-sref="about">About</a></li>
-                    <li><a ui-sref="services">Services</a></li>
-                    <li><a ui-sref="products">Products</a></li>
-                    <li><a href="http://www.mynordicsports.com.au/index.php/faq/">FAQs</a></li>
-                  </ul>
-                </md-content>
-                <md-content class="footer-panel right">
-                  <ul>
-                    <li class="logo">
-                      <a href="http://essentialnordicwalking.com.au">
-                        <img src="assets/images/enw_logo_dark.png" alt="">
-                      </a>
-                    </li>
-                    <li><a href="http://www.nordicacademy.com.au">Nordic Academy</a></li>
-                    <!-- <li>Terms of Service</li> -->
-                    <!-- <li>Privacy Policy</li> -->
-                    <li class="logo">
-                      Built by
-                      <br><br>
-                      <a href="">
-                        <img src="assets/images/chagasco_logo_dark.png" alt="">
-                      </a>
-
-                    </li>
-                  </ul>
-                </md-content>
-
-              </md-content>
-
-              <md-content class="info" layout="column" layout-align="start center">
-                <img class="nordic-academy" src="http://www.nordicwalkingbrisbane.com.au/images/Logos/NWProviderlogoH.jpg" alt="">
-                <div class="contact" layout="column"  layout-fill>
-                  <h3>Contact Me</h3>
-                  <h4>{{main.heatherContact}}</h4>
-                </div>
-              </md-content>
-            </md-content>
-            <md-content layout="column" layout-align="start center">
-              <br>
-              <div class="copyright">
-                Copyright &copy; 2016 Essential Nordic Walking
-              </div>
-            </md-content>
-        </md-content>
+      <footer ng-include="'app/layouts/footer/footer.html'">
 
       </footer>
-    </div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
