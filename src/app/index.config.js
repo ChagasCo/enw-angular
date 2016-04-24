@@ -13,7 +13,6 @@ function config ($logProvider, $stateProvider, $urlRouterProvider, $authProvider
   $urlRouterProvider.otherwise('/');
   $uiViewScrollProvider.useAnchorScroll();
 
-  filepicker.setKey('AuBOzXm5MRyZQEErCSWL6z');
 }
 
 export default config;
