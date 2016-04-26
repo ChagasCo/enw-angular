@@ -36,7 +36,7 @@ class ServicesController {
       new ClassSession('Heart Foundation Walking Group', '../assets/images/baltas-patrick.jpg', `
         <strong>REPS ROAMERS</strong> (Anyone welcome to join)<br><br>Moderate pace walks.
         It is opportunity to keep Nordic Walking and meet new people. Register your interest
-        to find out more. <br><br> Join us after you\'ve experienced the Have a Go Session.
+        to find out more. <br><br> Join us after you\'ve experienced the Have-a-Go Session.
         <br><br>* Pole Hire Price $5.00
       `),
       new ClassSession('Once a Week for 4 Weeks', '../assets/images/vermont-south-seniors.jpg', `
@@ -59,7 +59,7 @@ class ServicesController {
     var email = this.beginnerSession.email;
     var phone = this.beginnerSession.phone;
 
-    var notes = 'Have A Go Session';
+    var notes = 'Have-a-Go Go Session';
 
     this.EmailService.sendEmail(name, email, phone, notes)
       .success((response) => {

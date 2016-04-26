@@ -47,9 +47,9 @@ class HomeController {
   getCards() {
     return [
       new Card()
-        .setTitle('Have a Go Sessions')
+        .setTitle('Have-a-Go Sessions')
         .setSubTitle('Introduction')
-        .setContent('Learn the core fundametals of Nordic Walking, and experience a <strong>free</strong> training session.')
+        .setContent('Learn the core fundamentals of Nordic Walking, and experience a <strong>free</strong> session.')
         .setImageUrl('./assets/images/cards/card1.jpg')
         .setSRef("services({'#': 'haveAGo'})"),
       new Card()
@@ -76,7 +76,7 @@ class HomeController {
         new SliderImage('Challenge Your Brain', './assets/images/promo-slider/promo2.jpg', `
             Whenever you learn something new, you stimulate your brain. Research shows that
             activities which combine cognitive, physical and social aspects are especially beneficial
-            for brain health. <br>(SEO - Cognitive, Brain Health)
+            for brain health.
           `),
     ];
   }

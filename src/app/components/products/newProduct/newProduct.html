@@ -61,12 +61,15 @@
     </md-dialog-content>
 
     <md-dialog-content class="image-upload md-padding" ng-show="vm.showImageUpload" layout="column">
-      Image Upload
+      <p>
+        Image Upload
+      </p>
+      <md-content layout="row" layout-align="start center">
+        <md-button class="upload-btn" ng-click="vm.uploadImage()">Upload</md-button>
+        <span flex><a href="{{vm.product.imageUrl}}" target="_blank">{{vm.product.imageUrl}}</a></span>
+      </md-content>
       <md-content layout="column">
-        <md-content layout="row" layout-align="start center">
-          <md-button class="upload-btn" ng-click="vm.uploadImage()">Upload</md-button>
-          <span flex><a href="{{vm.product.imageUrl}}" target="_blank">{{vm.product.imageUrl}}</a></span>
-        </md-content>
+
         <img ng-src="{{vm.product.imageUrl}}" alt="">
       </md-content>
     </md-dialog-content>
